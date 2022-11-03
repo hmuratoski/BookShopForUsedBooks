@@ -4,5 +4,6 @@ export const language = {
 	navHome: "Koti",
 	navAbout: "Tietoja",
 	navShop: "Kauppa",
-	navCart: "Ostoskori"
+	navCart: "Ostoskori",
+	productDetails: "Tietoja"
 }
