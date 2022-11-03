@@ -1,20 +1,22 @@
 import React from 'react';
-import { Header } from './components/header'
-import { Content } from './components/content'
-import { Footer } from './components/footer'
+import { Header } from './components/header';
+import { Content } from './components/content';
+import { Footer } from './components/footer';
+import { Navbar } from './components/navbar';
 
-import { Button } from 'reactstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  return (
-    <div>
-      <Header/>
-      <Content page={page}/>
-      <Footer/>
-    </div>
-  );
+	return (
+		<div>
+			<Navbar/>
+			<Header />
+			<Content />
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

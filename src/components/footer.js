@@ -1,10 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { language } from './variables'
 
 export function Footer() {
 	return (
 		<div>
-			
+			<footer class="py-5 bg-dark">
+				<div class="container"><p class="m-0 text-center text-white">Copyright &copy; {language.shopName} 2022</p></div>
+			</footer>
 		</div>
 	);
 }
