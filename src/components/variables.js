@@ -3,5 +3,6 @@ export const language = {
 	shopSlogan: "Joku hyvä slogan",
 	navHome: "Koti",
 	navAbout: "Tietoja",
-	navShop: "Kauppa"
+	navShop: "Kauppa",
+	navCart: "Ostoskori"
 }
