@@ -1,6 +1,7 @@
 .filterOuter {
 	position: fixed;
 	padding-top: 90px;
+	font-family: "regular";
 }
 
 .filterWrapper {
