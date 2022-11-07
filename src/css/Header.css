@@ -1,8 +1,12 @@
 .headerWrapper {
 	display: "inline-block";
+	font-family: "Regular";
 }
 
 .headerLogo {
 	max-width: 60%;
     filter: invert(100%);
+	font-family: "Regular";
+
+
 }

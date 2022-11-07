@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from './variables'
+import '../css/Product.css'
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
@@ -14,7 +15,7 @@ export function Product(props) {
 			<img className="card-img-top" src={require('../images/product.png')} alt="..." />
 				<div className="card-body p-4">
 					<div className="text-center">
-						<h5 className="fw-bolder">{props.productName}</h5>
+						<h5 className="fw-bolder bookTitle">{props.productName}</h5>
 						{props.productPrice}€
 					</div>
 				</div>

@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+@font-face {
+  font-family: "Regular";   /*Can be any text*/
+  src: local("SignikaNegative"),
+    url("/src/fonts/SignikaNegative-Regular.ttf") format("truetype");
+}

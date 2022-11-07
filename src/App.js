@@ -5,6 +5,7 @@ import { Footer } from './components/footer';
 import { Navbar } from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
+import './fonts/SignikaNegative-Regular.ttf';
 
 function App() {
 	
