@@ -12,7 +12,7 @@ export const Category = () => {
 		<div className="filterOuter">
 			<div className="filterWrapper ">
 				<div className="searchFieldWrapper">
-					<input id="searchField" value="Haku" />
+					<input id="searchField" defaultValue="Haku"/>
 				</div>
 				<div id="tagFilter">
 					{categories.map((item, index) => (

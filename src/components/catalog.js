@@ -25,7 +25,7 @@ export const Catalog = () => {
 			<div className="container px-4 px-lg-5 mt-5">
 				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center catalogContainer">
 					{books.map((item) => (
-						<Product productPrice={item.price} productName={item.name} productImage={item.image} />
+						<Product key={item.id} productPrice={item.price} productName={item.name} productImage={item.image} />
 					))}
 				</div>
 			</div>
