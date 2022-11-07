@@ -20,7 +20,7 @@
 
 .headerShopname,
 .headerSlogan {
-	text-shadow: -1px -1px 3px #212529, 1px -1px 3px #212529, -1px 1px 3px #212529, 1px 1px 3px #212529;
+	text-shadow: 0px 0px 20px #212529, 0px -0px 20px #212529, -0px 0px 20px #212529, 0px 0px 20px #212529;
 }
 
 .headerSlogan {
