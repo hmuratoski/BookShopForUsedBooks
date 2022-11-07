@@ -14,8 +14,11 @@ export const Product = (props) => {
 			<div className="card">
 			<img className="card-img-top" src={props.productImage} alt="..." />
 				<div className="card-body p-4">
-					<div className="text-center">
+					<div className="text-center productDetails">
 						<h5 className="fw-bolder bookTitle">{props.productName}</h5>
+						<h6 className="bookAuthor">{props.productAuthor}</h6>
+					</div>
+					<div className="text-center productPrice">
 						<h5 className="fw-bolder bookPrice">{props.productPrice}€</h5>
 					</div>
 				</div>

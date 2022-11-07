@@ -1,10 +1,5 @@
-.bookTitle, 
-.bookDetails, 
-.bookPrice {
-	font-family: "Regular";
-}
-
 .product {
 	margin: 0px;
 	padding: 5px;
+	font-family: "Regular";
 }
