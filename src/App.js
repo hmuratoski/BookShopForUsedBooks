@@ -15,7 +15,7 @@ function App() {
 			<Navbar/>
 			<Header/>
 			<Content/>
-			<Team/>
+			<Team/>     {/*purkka-ratkaisu esitystä varten, voidaan myöhemmin siirtää about sivulle*/}
 			<Footer/>
 		</div>
 	);
