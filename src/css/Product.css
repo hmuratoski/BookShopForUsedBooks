@@ -1,3 +1,15 @@
+.bookPrice {
+	margin-top: 15px;
+}
+
+.bookAuthor {
+	margin-top: 0px;
+}
+
+.bookTitle {
+	margin-bottom: 0px;
+}
+
 .product {
 	margin: 0px;
 	padding: 5px;
