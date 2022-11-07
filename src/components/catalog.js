@@ -5,7 +5,7 @@ import { Product } from './product';
 //listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
 
 const books = [             //from database
-	{ 'id': '1', 'image': require('../images/product.png'), 'price': '50', 'price': '50', 'name': 'Kirja1' },
+	{ 'id': '1', 'image': require('../images/product.png'), 'price': '50', 'name': 'Kirja1' },
 	{ 'id': '2', 'image': require('../images/product2.png'), 'price': '40', 'name': 'Kirja2' },
 	{ 'id': '3', 'image': require('../images/product3.png'), 'price': '30', 'name': 'Kirja3' },
 	{ 'id': '4', 'image': require('../images/product4.png'), 'price': '20', 'name': 'Kirja4' },
