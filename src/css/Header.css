@@ -3,6 +3,7 @@
 	background-size: 50%;
 	background-position: 50%;
 	display: flex;
+	border-bottom: solid 1px;
 }
 
 .headerContainer {
