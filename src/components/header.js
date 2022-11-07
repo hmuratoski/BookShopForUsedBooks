@@ -13,7 +13,7 @@ export function Header() {
 					<div className="col-sm">
 						<img src={require('../images/book.png')} className="headerLogo"/>
 					</div>
-					<div className="headerTextWrapper text-center text-white col-sm">
+					<div className="headerTextWrapper text-center text-white">
 						<h1 className="display-4 fw-bolder">{language.shopName}</h1>
 						<p className="lead fw-normal text-white-50 mb-0">{language.shopSlogan}</p>
 					</div>

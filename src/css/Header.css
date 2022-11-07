@@ -1,14 +1,18 @@
 .headerWrapper {
-	display: "inline-block";
+	display: flexbox;
 	font-family: "Regular";
 }
 
 .headerLogo {
-display: inline-block;
+	display: inline-block;
 	position: absolute;
+	left: 0;
 	max-height: 20%;
     filter: invert(100%);
 	font-family: "Regular";
+}
 
-
+.headerTextWrapper {
+	flex: 1;
+	text-align: center;
 }
