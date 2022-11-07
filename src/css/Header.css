@@ -4,4 +4,5 @@
 
 .headerLogo {
 	max-width: 60%;
+    filter: invert(100%);
 }
