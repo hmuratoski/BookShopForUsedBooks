@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { language } from '../locale/variables';
+import { language } from '../locale/FI';
 import '../css/Navbar.css';
 
 export const Navbar = () => {
