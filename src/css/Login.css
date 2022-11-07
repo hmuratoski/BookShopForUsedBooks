@@ -3,32 +3,43 @@
 	top: 60px;
 	right: 20%;
 	position: fixed;
-	max-width: 200px;
+	max-width: 300px;
 }
 
 .toast,
 .toastBody {
-	--bs-toast-bg: rgba(255, 255, 255, 0.95);
-	opacity: 1 !important;
+	--bs-toast-bg: rgba(255, 255, 255, 0.85);
+	--bs-toast-header-color: #6c757d;
 }
 
 .toastIcon {
 	max-width: 40px;
 }
 
+.toastInput {
+	background-color:rgba(255, 255, 255, 0.85);
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100%;
+}
+
+.toastInput::after {
+	opacity: 1;
+}
+
 .closeButton {
+	background-color: #DFDFDF;
 	border-radius: 50%;
 	padding: 0.5em;
 	width: 30px;
 	height: 30px;
-	border: 2px solid #FFFFFF;
-	color: #FFFFFF;
+	border: 2px solid #dfdfdf;
 	position: absolute;
 	right: 15px;
   }
   .closeButton:hover {
 	border: 2px solid #FFFFFF;
-	background-color: #777777;
+	background-color: #666666;
 	color: #ffffff;
   }
   

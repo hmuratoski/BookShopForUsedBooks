@@ -1,9 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI';
+import { Login } from '../components/login'
 import '../css/Navbar.css';
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+	const [showLogin, setShowLogin] = useState(false);
+	
 	return (
 		<div className="navbarWrapper">
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,15 +20,19 @@ export const Navbar = () => {
 							<li className="nav-item"><a className="nav-link" href="#!">{language.navShop}</a></li>
 						</ul>
 						<form className="d-flex">
-							<button className="btn btn-outline-dark" type="submit">
+							<button className="btn btn-outline-dark" type="button" onClick={event => setShowLogin(true)}>{language.loginTitle}</button>
+							<button className="btn btn-outline-dark cartButton" type="submit">
 								<i className="bi-cart-fill me-1"></i>
 								{language.navCart}
-								<span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+								<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 							</button>
 						</form>
 					</div>
 				</div>
 			</nav>
+			{showLogin ? <Login setShowLogin={setShowLogin}/> : null}
+			
 		</div>
+		
 	);
 }

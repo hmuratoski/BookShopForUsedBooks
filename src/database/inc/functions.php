@@ -41,7 +41,7 @@ function selectRowAsJson( object $db, string $sql ): array
 
 function executeInsert( object $db, string $sql ): int
 {
-	$query = $db->query( $sql );
+	$query = $db->query($sql);
 	return $db->lastInsertId();
 }
 
