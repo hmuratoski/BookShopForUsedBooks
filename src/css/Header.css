@@ -1,8 +1,14 @@
-.headerWrapper {
-	display: "inline-block";
+.headerTextWrapper {
+	display: inline-block;
+}
+
+.headerWrapper{
+	height: 360px;
 }
 
 .headerLogo {
-	max-width: 60%;
+display: inline-block;
+	position: absolute;
+	max-height: 20%;
     filter: invert(100%);
 }
