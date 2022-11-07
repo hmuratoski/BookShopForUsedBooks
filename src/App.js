@@ -4,7 +4,7 @@ import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { Navbar } from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './css/App.css';
 
 function App() {
 	
