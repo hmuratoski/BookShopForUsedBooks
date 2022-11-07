@@ -5,6 +5,9 @@ import '../css/Category.css'
 //tuotelistauksen haku ja filtterit
 
 export const Category = () => {
+
+	const categories = ["Matematiikka", "Fysiikka", "Kemia"];   //from database
+
 	return (
 		<div className="filterOuter">
 			<div className="filterWrapper ">
@@ -12,32 +15,16 @@ export const Category = () => {
 					<input id="searchField" value="Haku" />
 				</div>
 				<div id="tagFilter">
-					{/*esimerkki*/}
-					<div className="checkboxFilter">
-						<div className="checkboxWrapper">
-							<input type="checkbox"></input>
+					{categories.map((item, index) => (
+						<div key={index} className="checkboxFilter">
+							<div className="checkboxWrapper">
+								<input type="checkbox"></input>
+							</div>
+							<div className="checkboxTextWrapper">
+								<h5>{item}</h5>
+							</div>
 						</div>
-						<div className="checkboxTextWrapper">
-							<h5>Matematiikka</h5>
-						</div>
-					</div>
-					<div>
-						<div className="checkboxWrapper">
-							<input type="checkbox"></input>
-						</div>
-						<div className="checkboxTextWrapper">
-							<h5>Fysiikka</h5>
-						</div>
-					</div>
-					<div>
-						<div className="checkboxWrapper">
-							<input type="checkbox"></input>
-						</div>
-						<div className="checkboxTextWrapper">
-							<h5>Kemia</h5>
-						</div>
-					</div>
-					{/*esimerkki*/}
+					))}
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ export const Product = (props) => {
 	<div>
 		<div className="col mb-5">
 			<div className="card h-100">
-			<img className="card-img-top" src={require('../images/product.png')} alt="..." />
+			<img className="card-img-top" src={props.productImage} alt="..." />
 				<div className="card-body p-4">
 					<div className="text-center">
 						<h5 className="fw-bolder bookTitle">{props.productName}</h5>
