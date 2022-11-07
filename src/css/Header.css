@@ -17,7 +17,7 @@
 	flex: 1;
 	font-family: "Regular";
 	text-align: center;
-	z-index: 100;
+	z-index: 50;
 }
 
 .headerShopname,

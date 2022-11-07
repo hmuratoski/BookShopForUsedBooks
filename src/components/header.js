@@ -11,7 +11,7 @@ export function Header() {
 			<header className="bg-dark py-5 headerWrapper">
 				<div className="container px-4 px-lg-5 my-5 row">
 					<div className="col-sm">
-						<img src={require('../images/book.png')} className="headerLogo"/>
+						<img src={require('../images/book.png')} className="headerLogo img-fluid"/>
 					</div>
 					<div className="headerTextWrapper text-center text-white">
 						<h1 className="display-4 fw-bolder headerShopname">{language.shopName}</h1>
