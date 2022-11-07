@@ -16,7 +16,7 @@ export function Product(props) {
 				<div className="card-body p-4">
 					<div className="text-center">
 						<h5 className="fw-bolder bookTitle">{props.productName}</h5>
-						<h6 classname="bookPrice">{props.productPrice}</h6>€
+						<h6 classname="bookPrice">{props.productPrice}€</h6>
 					</div>
 				</div>
 				<div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
