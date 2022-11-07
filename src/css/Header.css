@@ -1,6 +1,7 @@
 .headerWrapper {
 	display: flexbox;
-	font-family: "Regular";
+	min-width: 500px;
+	
 }
 
 .headerLogo {
@@ -14,5 +15,12 @@
 
 .headerTextWrapper {
 	flex: 1;
+	font-family: "Regular";
 	text-align: center;
+	z-index: 100;
+}
+
+.headerShopname,
+.headerSlogan {
+	text-shadow: -1px -1px 0 #212529, 1px -1px 0 #212529, -1px 1px 0 #212529, 1px 1px 0 #212529;
 }

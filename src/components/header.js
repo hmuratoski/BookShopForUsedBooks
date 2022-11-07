@@ -14,8 +14,8 @@ export function Header() {
 						<img src={require('../images/book.png')} className="headerLogo"/>
 					</div>
 					<div className="headerTextWrapper text-center text-white">
-						<h1 className="display-4 fw-bolder">{language.shopName}</h1>
-						<p className="lead fw-normal text-white-50 mb-0">{language.shopSlogan}</p>
+						<h1 className="display-4 fw-bolder headerShopname">{language.shopName}</h1>
+						<p className="lead fw-normal text-white-50 mb-0 headerSlogan">{language.shopSlogan}</p>
 					</div>
 				</div>
 			</header>
