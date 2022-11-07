@@ -8,7 +8,7 @@
 
 .toast,
 .toastBody {
-	--bs-toast-bg: rgba(255, 255, 255, 0.85);
+	--bs-toast-bg: rgba(255, 255, 255, 0.95);
 	--bs-toast-header-color: #6c757d;
 }
 
@@ -17,10 +17,12 @@
 }
 
 .toastInput {
+	border-radius: 6px;
 	background-color:rgba(255, 255, 255, 0.85);
 	margin-left: 0px;
 	margin-right: 0px;
 	width: 100%;
+	margin-bottom: 7px;
 }
 
 .toastInput::after {
@@ -65,8 +67,3 @@
 	right: 5px;
 	transform: rotate(45deg);
   }
-  
-
-input {
-margin: 3px;
-}

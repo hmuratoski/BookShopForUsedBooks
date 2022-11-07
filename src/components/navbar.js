@@ -20,7 +20,12 @@ export const Navbar = (props) => {
 							<li className="nav-item"><a className="nav-link" href="#!">{language.navShop}</a></li>
 						</ul>
 						<form className="d-flex">
-							<button className="btn btn-outline-dark" type="button" onClick={event => setShowLogin(true)}>{language.loginTitle}</button>
+							{!props.loggedIn ? 
+								<button className="btn btn-outline-dark" type="button" onClick={event => setShowLogin(true)}>{language.loginTitle}</button>
+								:
+								<button className="btn btn-outline-dark" type="button">{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
+								}
+							
 							<button className="btn btn-outline-dark cartButton" type="submit">
 								<i className="bi-cart-fill me-1"></i>
 								{language.navCart}
