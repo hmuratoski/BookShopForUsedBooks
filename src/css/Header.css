@@ -1,26 +1,28 @@
 .headerWrapper {
-	display: flexbox;
-	min-width: 500px;
-	
+	background-image: url("../images/book.png");
+	background-size: 50%;
+	background-position: 50%;
+	display: flex;
 }
 
-.headerLogo {
-	display: inline-block;
-	position: absolute;
-	left: 0;
-	max-height: 20%;
-    filter: invert(100%);
-	font-family: "Regular";
+.headerContainer {
+	flex: 1;
+}
+
+.headerTopPadding {
+	height: 50px;
 }
 
 .headerTextWrapper {
-	flex: 1;
 	font-family: "Regular";
-	text-align: center;
 	z-index: 50;
 }
 
 .headerShopname,
 .headerSlogan {
-	text-shadow: -1px -1px 0 #212529, 1px -1px 0 #212529, -1px 1px 0 #212529, 1px 1px 0 #212529;
+	text-shadow: -1px -1px 3px #212529, 1px -1px 3px #212529, -1px 1px 3px #212529, 1px 1px 3px #212529;
+}
+
+.headerSlogan {
+	color: #888888;
 }

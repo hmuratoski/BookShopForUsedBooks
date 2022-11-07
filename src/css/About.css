@@ -4,13 +4,15 @@
 	text-align: center;
 	border-radius: 10px;
 	border: solid 1px;
-	border-color: #767676;
+	border-color: #d2d2d2;
 	margin: 5px;
 	padding: 5px;
 }
 
 .profileImage {
 	max-width: 75px;
+	border-radius: 10px;
+	border-color: #999999;
 }
 
 .teamWrapper {
