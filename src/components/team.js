@@ -8,24 +8,29 @@ export function Team() {
 		<div className="teamWrapper">
 			<div className="teamPadding"/>
 			<div className="profile">
-				<h6>Juho Sandelin</h6>
+				<h6>Juho</h6>
+				<h6>Sandelin</h6>
 				<img className="profileImage" src={require('../images/team/192454.png')}/>
 			</div>
 			<div className="profile">
-				<h6>Halid Muratoski</h6>
+				<h6>Halid</h6>
+				<h6>Muratoski</h6>
 				<img className="profileImage" src={require('../images/team/179545.png')}/>
 			</div>
 			<div className="profile">
-				<h6>Janne Råman</h6>
+				<h6>Janne</h6>
+				<h6>Råman</h6>
 				<img className="profileImage" src={require('../images/team/192245.png')}/>
 			</div>
 			<div className="profile">
-				<h6>Mira Säkkinen</h6>
-				<img className="profileImage" src={require('../images/team/unknown.jpg')}/>
+				<h6>Mira</h6>
+				<h6>Säkkinen</h6>
+				<img className="profileImage" src={require('../images/team/unknown.png')}/>
 			</div>
 			<div className="profile">
-				<h6>Joku Jäbä</h6>
-				<img className="profileImage" src={require('../images/team/unknown.jpg')}/>
+				<h6>Joku</h6>
+				<h6>Jäbä</h6>
+				<img className="profileImage" src={require('../images/team/unknown.png')}/>
 			</div>
 			<div className="teamPadding"/>
 		</div>
