@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Product } from './product';
+import '../css/Catalog.css'
 
 //listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
 
@@ -22,7 +23,7 @@ export const Catalog = () => {
 	return (
 		<section className="py-5">
 			<div className="container px-4 px-lg-5 mt-5">
-				<div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center catalogContainer">
 					{books.map((item) => (
 						<Product productPrice={item.price} productName={item.name} productImage={item.image} />
 					))}
