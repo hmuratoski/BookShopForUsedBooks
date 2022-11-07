@@ -9,8 +9,8 @@ import '../css/Content.css'
 export const Content = () => {
 	return (
 		<div className="pageContent">
-			<Category/>
-			<Catalog/>
+			<Category/>     {/*filtterit*/}
+			<Catalog/>      {/*tuotteet*/}
 		</div>
 	);
 }
