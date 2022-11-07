@@ -9,7 +9,7 @@ export const Category = () => {
 	const categories = ["Matematiikka", "Fysiikka", "Kemia"];   //from database
 
 	return (
-		<div className="filterOuter">
+		<div className="filterOuter mt-5">
 			<div className="filterPadding" />
 				<div className="filterWrapper ">
 					<div className="searchFieldWrapper">

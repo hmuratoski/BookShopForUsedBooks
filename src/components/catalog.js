@@ -23,7 +23,7 @@ const books = [             //from database
 export const Catalog = () => {
 	return (
 		<section>
-			<div className="container px-4 px-lg-5 mt-5">
+			<div className="container px-4 px-lg-5">
 				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center catalogContainer">
 					{books.map((item) => (
 						<Product key={item.id} productPrice={item.price} productName={item.name} productImage={item.image} />

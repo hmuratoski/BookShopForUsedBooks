@@ -10,9 +10,6 @@ export const Header = () => {
 		<div>
 			<header className="bg-dark py-5 headerWrapper">
 				<div className="headerContainer">
-					<div className="col-sm">
-						
-					</div>
 					<div className="headerTextWrapper text-center text-white">
 						<div className="headerTopPadding"/>
 						<h1 className="display-4 fw-bolder headerShopname">{language.shopName}</h1>
