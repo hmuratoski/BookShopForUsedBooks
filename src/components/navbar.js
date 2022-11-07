@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/variables';
 import '../css/Navbar.css';
 
-export function Navbar() {
+export const Navbar = () => {
 	return (
 		<div className="navbarWrapper">
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">

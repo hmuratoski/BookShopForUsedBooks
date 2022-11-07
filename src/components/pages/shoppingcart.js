@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //ostoskori
 
-export function Shoppingcart() {
+export const Shoppingcart = () => {
 	return (
 		<div>
 			

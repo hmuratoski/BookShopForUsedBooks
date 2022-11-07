@@ -1,0 +1,51 @@
+.filterOuter {
+	position: fixed;
+	padding-top: 90px;
+}
+
+.filterWrapper {
+
+	border-radius: 10px;
+	border: solid 1px;
+	border-color: #929292;
+	margin: 5px;
+	padding: 5px;
+	max-height: 350px;
+
+}
+
+.checkboxFilter {
+	padding: 0;
+	margin: 0;
+}
+
+#searchField {
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	border: 1px solid #5e8294;
+	color: #222222;
+	width: 150px;
+	height: 30px;
+	padding-left: 10px;
+}
+
+#tagFilter {
+	flex: 1;
+}
+
+.checkboxWrapper {
+	left: 0;
+	display: inline-block;
+	max-width: 20px;
+	margin: 5px;
+	padding: 0;
+}
+
+.checkboxTextWrapper {
+	display: inline-block;
+	max-width: 80%;
+	height: 10px;
+	padding: 0px;
+	margin: 0px;
+}

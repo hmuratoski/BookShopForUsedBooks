@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //yksittäisen tuotteen tarkempi sivu tuotetta klikattaessa
 
-export function Productpage() {
+export const Productpage = () => {
 	return (
 		<div>
 			

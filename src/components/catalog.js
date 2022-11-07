@@ -4,7 +4,7 @@ import { Product } from './product';
 
 //listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
 
-export function Catalog() {
+export const Catalog = () => {
 	return (
 		<section className="py-5">
 			<div className="container px-4 px-lg-5 mt-5">

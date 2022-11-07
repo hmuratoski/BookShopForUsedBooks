@@ -5,7 +5,7 @@ import '../css/Header.css';
 
 //logot sun muut.
 
-export function Header() {
+export const Header = () => {
 	return (
 		<div>
 			<header className="bg-dark py-5 headerWrapper">

@@ -4,7 +4,7 @@ import { language } from '../locale/variables.js'
 import '../css/Footer.css';
 
 
-export function Footer() {
+export const Footer = () => {
 	return (
 		<div>
 			<footer className="py-5 bg-dark footer">

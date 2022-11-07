@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/variables';
 import '../css/About.css';
 
-export function Team() {
+export const Team = () => {
 	return (
 		<div className="teamWrapper">
 			<div className="teamPadding"/>

@@ -7,7 +7,7 @@ import '../css/Product.css';
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
 //voidaan koodata toimimaan myös ostoskorin tuotteiden näyttämiseen
 
-export function Product(props) {
+export const Product = (props) => {
 	return (
 	<div>
 		<div className="col mb-5">

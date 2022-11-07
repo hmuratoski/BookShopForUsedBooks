@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
 
-export function AdminPanel() {
+export const AdminPanel = () => {
 	return (
 		<div>
 			

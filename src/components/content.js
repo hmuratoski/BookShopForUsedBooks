@@ -1,13 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Frontpage } from './pages/frontpage'
-import { Catalog } from './catalog'
+import { Catalog } from './catalog';
+import { Category } from './category';
+import '../css/Content.css'
 
 //kokoaa headerin ja footerin väliin tulevat komponentit
 
-export function Content() {
+export const Content = () => {
 	return (
-		<div>
+		<div className="pageContent">
+			<Category/>
 			<Catalog/>
 		</div>
 	);
