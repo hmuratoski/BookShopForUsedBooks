@@ -9,17 +9,17 @@ import { language } from './variables'
 export function Product(props) {
 	return (
 	<div>
-		<div class="col mb-5">
-			<div class="card h-100">
-			<img class="card-img-top" src={require('../images/product.png')} alt="..." />
-				<div class="card-body p-4">
-					<div class="text-center">
-						<h5 class="fw-bolder">{props.productName}</h5>
+		<div className="col mb-5">
+			<div className="card h-100">
+			<img className="card-img-top" src={require('../images/product.png')} alt="..." />
+				<div className="card-body p-4">
+					<div className="text-center">
+						<h5 className="fw-bolder">{props.productName}</h5>
 						{props.productPrice}€
 					</div>
 				</div>
-				<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-					<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">{language.productDetails}</a></div>
+				<div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+					<div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">{language.productDetails}</a></div>
 				</div>
 			</div>
 		</div>

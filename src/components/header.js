@@ -8,14 +8,14 @@ import '../css/Header.css';
 export function Header() {
 	return (
 		<div>
-			<header class="bg-dark py-5">
-				<div class="container px-4 px-lg-5 my-5 row">
-					<div class="col-sm">
+			<header className="bg-dark py-5">
+				<div className="container px-4 px-lg-5 my-5 row">
+					<div className="col-sm">
 						<img src={require('../images/book.png')} className="headerLogo"/>
 					</div>
 					<div className="headerWrapper text-center text-white col-sm">
-						<h1 class="display-4 fw-bolder">{language.shopName}</h1>
-						<p class="lead fw-normal text-white-50 mb-0">{language.shopSlogan}</p>
+						<h1 className="display-4 fw-bolder">{language.shopName}</h1>
+						<p className="lead fw-normal text-white-50 mb-0">{language.shopSlogan}</p>
 					</div>
 				</div>
 			</header>
