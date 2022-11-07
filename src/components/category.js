@@ -6,40 +6,40 @@ import '../css/Category.css'
 
 export const Category = () => {
 	return (
-	<div className="filterOuter">
-		<div className="filterWrapper ">
-			<div className="searchFieldWrapper">
-				<input id="searchField" value="Haku"/>
+		<div className="filterOuter">
+			<div className="filterWrapper ">
+				<div className="searchFieldWrapper">
+					<input id="searchField" value="Haku" />
+				</div>
+				<div id="tagFilter">
+					{/*esimerkki*/}
+					<div className="checkboxFilter">
+						<div className="checkboxWrapper">
+							<input type="checkbox"></input>
+						</div>
+						<div className="checkboxTextWrapper">
+							<p>Matematiikka</p>
+						</div>
+					</div>
+					<div>
+						<div className="checkboxWrapper">
+							<input type="checkbox"></input>
+						</div>
+						<div className="checkboxTextWrapper">
+							<p>Fysiikka</p>
+						</div>
+					</div>
+					<div>
+						<div className="checkboxWrapper">
+							<input type="checkbox"></input>
+						</div>
+						<div className="checkboxTextWrapper">
+							<p>Kemia</p>
+						</div>
+					</div>
+					{/*esimerkki*/}
+				</div>
 			</div>
-			<div id="tagFilter">
-				{/*esimerkki*/}
-				<div className="checkboxFilter">
-					<div className="checkboxWrapper">
-						<input type="checkbox"></input>
-					</div>
-					<div className="checkboxTextWrapper">
-						<p>Matematiikka</p>
-					</div>
-				</div>
-				<div>
-					<div className="checkboxWrapper">
-						<input type="checkbox"></input>
-					</div>
-					<div className="checkboxTextWrapper">
-						<p>Fysiikka</p>
-					</div>
-				</div>
-				<div>
-					<div className="checkboxWrapper">
-						<input type="checkbox"></input>
-					</div>
-					<div className="checkboxTextWrapper">
-						<p>Kemia</p>
-					</div>
-				</div>
-				{/*esimerkki*/}
-			</div>
-		</div>
 		</div>
 	);
 }
