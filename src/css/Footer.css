@@ -1,4 +1,4 @@
 .footer{
 font-family: "Regular";
-background-color: red;
+z-index: 9999;
 }

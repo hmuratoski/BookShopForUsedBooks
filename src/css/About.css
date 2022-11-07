@@ -18,10 +18,11 @@
 .teamWrapper {
 	display: flex;
 	margin-bottom: 50px;
+
 }
 
 .teamPadding {
-	width: 10%;
+	width: 30%;
 }
 
 h6 {
