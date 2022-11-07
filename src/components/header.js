@@ -11,9 +11,9 @@ export function Header() {
 			<header class="bg-dark py-5">
 				<div class="container px-4 px-lg-5 my-5 row">
 					<div class="col-sm">
-						<img src={require('../images/book.png')} className="headerLogo" class="img-fluid" />
+						<img src={require('../images/book.png')} className="headerLogo"/>
 					</div>
-					<div class="text-center text-white col-sm" style={{display: "inline-block"}}>
+					<div className="headerWrapper text-center text-white col-sm">
 						<h1 class="display-4 fw-bolder">{language.shopName}</h1>
 						<p class="lead fw-normal text-white-50 mb-0">{language.shopSlogan}</p>
 					</div>
