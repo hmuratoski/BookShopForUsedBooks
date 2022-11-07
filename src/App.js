@@ -12,9 +12,7 @@ function App() {
 	useEffect(() => {
 		document.title = language.shopName;
 	})
-	
-	
-	
+
 	return (
 		<div>
 			<Navbar/>
