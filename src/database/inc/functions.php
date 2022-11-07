@@ -19,7 +19,7 @@ function openDb(): object
 
 function openSQLite(): object
 {
-	$sqlitedb = new PDO( 'sqlite:./database/database.db' );
+	$sqlitedb = new PDO('sqlite:./database.db');
 	return $sqlitedb;
 }
 

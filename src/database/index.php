@@ -1,7 +1,7 @@
 <?php
 
 global $json;
-require_once './inc/functions.php';
+require_once 'inc/functions.php';
 $db = openSQLite();
 try {
 	$query = 'select * from school where city = "Oulu"';
