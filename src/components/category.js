@@ -10,23 +10,25 @@ export const Category = () => {
 
 	return (
 		<div className="filterOuter">
-			<div className="filterWrapper ">
-				<div className="searchFieldWrapper">
-					<input id="searchField" defaultValue="Haku"/>
-				</div>
-				<div id="tagFilter">
-					{categories.map((item, index) => (
-						<div key={index} className="checkboxFilter">
-							<div className="checkboxWrapper">
-								<input type="checkbox"></input>
+			<div className="filterPadding" />
+				<div className="filterWrapper ">
+					<div className="searchFieldWrapper">
+						<input id="searchField" defaultValue="Haku" />
+					</div>
+					<div id="tagFilter">
+						{categories.map((item, index) => (
+							<div key={index} className="checkboxFilter">
+								<div className="checkboxWrapper">
+									<input type="checkbox"></input>
+								</div>
+								<div className="checkboxTextWrapper">
+									<h5>{item}</h5>
+								</div>
 							</div>
-							<div className="checkboxTextWrapper">
-								<h5>{item}</h5>
-							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
-			</div>
+			<div className="filterPadding" />
 		</div>
 	);
 }

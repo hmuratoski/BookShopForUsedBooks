@@ -5,8 +5,7 @@ import '../css/About.css';
 
 export const Team = () => {
 	return (
-		<div className="teamWrapper">
-			<div className="teamPadding"/>
+		<div className="teamWrapper row justify-content-center">
 			<div className="profile">
 				<h6>Juho</h6>
 				<h6>Sandelin</h6>
@@ -32,7 +31,6 @@ export const Team = () => {
 				<h6>Jäbä</h6>
 				<img className="profileImage" src={require('../images/team/unknown.png')}/>
 			</div>
-			<div className="teamPadding"/>
 		</div>
 	);
 }

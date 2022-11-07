@@ -16,14 +16,15 @@ const books = [             //from database
 	{ 'id': '8', 'image': require('../images/product2.png'), 'price': '15', 'name': 'Kirja8' },
 	{ 'id': '9', 'image': require('../images/product.png'), 'price': '23', 'name': 'Kirja9' },
 	{ 'id': '10', 'image': require('../images/product3.png'), 'price': '16', 'name': 'Kirja10' },
-	{ 'id': '11', 'image': require('../images/product5.png'), 'price': '17', 'name': 'Kirja11' }
+	{ 'id': '11', 'image': require('../images/product5.png'), 'price': '17', 'name': 'Kirja11' },
+	{ 'id': '12', 'image': require('../images/product2.png'), 'price': '14', 'name': 'Kirja12' }
 ]
 
 export const Catalog = () => {
 	return (
-		<section className="py-5">
+		<section>
 			<div className="container px-4 px-lg-5 mt-5">
-				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center catalogContainer">
+				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center catalogContainer">
 					{books.map((item) => (
 						<Product key={item.id} productPrice={item.price} productName={item.name} productImage={item.image} />
 					))}
