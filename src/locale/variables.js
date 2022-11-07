@@ -1,6 +1,6 @@
 export const language = {
-	shopName: "Kirjakauppa",
-	shopSlogan: "Joku hyvä slogan",
+	shopName: "Kirjakauppa",            //kirjapirtti, 
+	shopSlogan: "Joku hyvä slogan",     //books for less suomeksi
 	navHome: "Koti",
 	navAbout: "Tietoja",
 	navShop: "Kauppa",
