@@ -1,0 +1,61 @@
+.toastLogin {
+	z-index: 9999;
+	top: 60px;
+	right: 20%;
+	position: fixed;
+	max-width: 200px;
+}
+
+.toast,
+.toastBody {
+	--bs-toast-bg: rgba(255, 255, 255, 0.95);
+	opacity: 1 !important;
+}
+
+.toastIcon {
+	max-width: 40px;
+}
+
+.closeButton {
+	border-radius: 50%;
+	padding: 0.5em;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #FFFFFF;
+	color: #FFFFFF;
+	position: absolute;
+	right: 15px;
+  }
+  .closeButton:hover {
+	border: 2px solid #FFFFFF;
+	background-color: #777777;
+	color: #ffffff;
+  }
+  
+  .closeButton::before {
+	content: " ";
+	position: absolute;
+	display: block;
+	background-color: #FFFFFF;
+	width: 2px;
+	left: 12px;
+	top: 5px;
+	bottom: 5px;
+	transform: rotate(45deg);
+  }
+  .closeButton::after {
+	content: " ";
+	position: absolute;
+	display: block;
+	background-color: #FFFFFF;
+	height: 2px;
+	top:12px;
+	left: 5px;
+	right: 5px;
+	transform: rotate(45deg);
+  }
+  
+
+input {
+margin: 3px;
+}

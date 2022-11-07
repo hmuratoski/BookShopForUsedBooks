@@ -1,23 +1,24 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Login.css'
+import { language } from '../locale/FI.js'
 
 //kokoaa headerin ja footerin väliin tulevat komponentit
 
 export const Login = () => {
 	return (
 		<div className="toastLogin">
-			<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-				<div class="toast-header">
-					<img src="..." class="rounded mr-2" alt="..." />
-					<strong class="mr-auto">Bootstrap</strong>
-					<small>11 mins ago</small>
-					<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+			<div className="toast show" aria-live="assertive" aria-atomic="true">
+				<div className="toast-header">
+					<img src={require('../images/team/unknown.png')} className="rounded mr-2 toastIcon" alt="..." />
+					<strong className="mr-auto">{language.loginTitle}</strong>
+					<button type="button" className="closeButton" data-dismiss="toast" aria-label="Close">
 					</button>
 				</div>
-				<div class="toast-body">
-					Hello, world! This is a toast message.
+				<div className="toast-body">
+					<input /><br/>
+					<input /><br/>
+					<button className="btn btn-secondary loginButton">{language.loginTitle}</button>
 				</div>
 			</div>
 		</div>

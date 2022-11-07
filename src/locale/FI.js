@@ -5,5 +5,7 @@ export const language = {
 	navAbout: "Tietoja",
 	navShop: "Kauppa",
 	navCart: "Ostoskori",
-	productDetails: "Tietoja"
+	productDetails: "Tietoja",
+	
+	loginTitle: "Kirjaudu"
 }
