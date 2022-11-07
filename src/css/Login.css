@@ -8,7 +8,7 @@
 
 .toast,
 .toastBody {
-	--bs-toast-bg: rgba(255, 255, 255, 0.95);
+	--bs-toast-bg: rgba(255, 255, 255, 0.85);
 	--bs-toast-header-color: #6c757d;
 }
 
