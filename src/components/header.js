@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from './variables.js'
 import '../css/Header.css';
 
-//logot sun muut
+//logot sun muut.
 
 export function Header() {
 	return (
