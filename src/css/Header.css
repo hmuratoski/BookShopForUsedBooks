@@ -4,7 +4,9 @@
 }
 
 .headerLogo {
-	max-width: 60%;
+display: inline-block;
+	position: absolute;
+	max-height: 20%;
     filter: invert(100%);
 	font-family: "Regular";
 

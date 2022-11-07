@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { language } from './variables'
+import { language } from '../locale/variables.js'
 
 export function Footer() {
 	return (

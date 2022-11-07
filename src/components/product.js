@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { language } from './variables'
-import '../css/Product.css'
+import { language } from '../locale/variables.js'
+
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
