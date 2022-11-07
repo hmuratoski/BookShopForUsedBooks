@@ -7,5 +7,6 @@ export const language = {
 	navCart: "Ostoskori",
 	productDetails: "Tietoja",
 	
-	loginTitle: "Kirjaudu"
+	loginTitle: "Kirjaudu",
+	loginMessage: "Kirjaudu sisään"
 }

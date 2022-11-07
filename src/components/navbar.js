@@ -5,8 +5,30 @@ import { language } from '../locale/FI';
 import { Login } from '../components/login'
 import '../css/Navbar.css';
 
+
+
 export const Navbar = (props) => {
 	const [showLogin, setShowLogin] = useState(false);
+	
+	const toggleLogin = () => {
+		if (showLogin) {
+			setShowLogin(false);
+		} else {
+			setShowLogin(true);
+		}
+	}
+	
+	const LoginButton = () => {
+		if (showLogin && !props.loggedIn) {
+			return (
+				<button className="btn btn-outline-dark active" type="button" onClick={event => toggleLogin()}>{language.loginTitle}</button>
+			)
+		} else {
+			return (
+				<button className="btn btn-outline-dark" type="button" onClick={event => toggleLogin()}>{language.loginTitle}</button>
+			)
+		}
+	}
 	
 	return (
 		<div className="navbarWrapper">
@@ -19,9 +41,10 @@ export const Navbar = (props) => {
 							<li className="nav-item"><a className="nav-link" href="#!">{language.navAbout}</a></li>
 							<li className="nav-item"><a className="nav-link" href="#!">{language.navShop}</a></li>
 						</ul>
-						<form className="d-flex">
+					</div>
+					<form className="d-flex">
 							{!props.loggedIn ? 
-								<button className="btn btn-outline-dark" type="button" onClick={event => setShowLogin(true)}>{language.loginTitle}</button>
+								<LoginButton/>
 								:
 								<button className="btn btn-outline-dark" type="button">{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
 								}
@@ -32,11 +55,9 @@ export const Navbar = (props) => {
 								<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 							</button>
 						</form>
-					</div>
 				</div>
 			</nav>
 			{showLogin ? <Login setShowLogin={setShowLogin}/> : null}
-			
 		</div>
 		
 	);

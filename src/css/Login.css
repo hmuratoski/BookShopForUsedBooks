@@ -6,6 +6,10 @@
 	max-width: 300px;
 }
 
+.loginTitle {
+	margin-left: 10px;
+}
+
 .toast,
 .toastBody {
 	--bs-toast-bg: rgba(255, 255, 255, 0.85);
@@ -18,7 +22,7 @@
 
 .toastInput {
 	border-radius: 6px;
-	background-color:rgba(255, 255, 255, 0.85);
+	background-color: rgba(255, 255, 255, 0.85);
 	margin-left: 0px;
 	margin-right: 0px;
 	width: 100%;
@@ -30,7 +34,7 @@
 }
 
 .closeButton {
-	background-color: #DFDFDF;
+	background-color: #adadad;
 	border-radius: 50%;
 	padding: 0.5em;
 	width: 30px;
@@ -38,14 +42,15 @@
 	border: 2px solid #dfdfdf;
 	position: absolute;
 	right: 15px;
-  }
-  .closeButton:hover {
+}
+
+.closeButton:hover {
 	border: 2px solid #FFFFFF;
 	background-color: #666666;
 	color: #ffffff;
-  }
-  
-  .closeButton::before {
+}
+
+.closeButton::before {
 	content: " ";
 	position: absolute;
 	display: block;
@@ -55,15 +60,16 @@
 	top: 5px;
 	bottom: 5px;
 	transform: rotate(45deg);
-  }
-  .closeButton::after {
+}
+
+.closeButton::after {
 	content: " ";
 	position: absolute;
 	display: block;
 	background-color: #FFFFFF;
 	height: 2px;
-	top:12px;
+	top: 12px;
 	left: 5px;
 	right: 5px;
 	transform: rotate(45deg);
-  }
+}

@@ -12,7 +12,7 @@ export const Login = (props) => {
 			<div className="toast show" aria-live="assertive" aria-atomic="true">
 				<div className="toast-header">
 					<img src={require('../images/team/unknown.png')} className="rounded mr-2 toastIcon" alt="..." />
-					<strong className="mr-auto">{language.loginTitle}</strong>
+					<strong className="mr-auto loginTitle">{language.loginMessage}</strong>
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
 				<div className="toast-body">
