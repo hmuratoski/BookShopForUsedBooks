@@ -9,7 +9,7 @@ export const Category = () => {
 	<div className="filterOuter">
 		<div className="filterWrapper ">
 			<div className="searchFieldWrapper">
-				<input id="searchField" default="haku"/>
+				<input id="searchField" value="Haku"/>
 			</div>
 			<div id="tagFilter">
 				{/*esimerkki*/}
