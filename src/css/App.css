@@ -39,5 +39,5 @@
 @font-face {
   font-family: "Regular";   /*Can be any text*/
   src: local("SignikaNegative"),
-    url("/src/fonts/SignikaNegative-Regular.ttf") format("truetype");
+    url("../fonts/SignikaNegative-Regular.ttf") format("truetype");
 }
