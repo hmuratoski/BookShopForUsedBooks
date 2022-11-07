@@ -18,7 +18,7 @@ export const Category = () => {
 							<input type="checkbox"></input>
 						</div>
 						<div className="checkboxTextWrapper">
-							<p>Matematiikka</p>
+							<h5>Matematiikka</h5>
 						</div>
 					</div>
 					<div>
@@ -26,7 +26,7 @@ export const Category = () => {
 							<input type="checkbox"></input>
 						</div>
 						<div className="checkboxTextWrapper">
-							<p>Fysiikka</p>
+							<h5>Fysiikka</h5>
 						</div>
 					</div>
 					<div>
@@ -34,7 +34,7 @@ export const Category = () => {
 							<input type="checkbox"></input>
 						</div>
 						<div className="checkboxTextWrapper">
-							<p>Kemia</p>
+							<h5>Kemia</h5>
 						</div>
 					</div>
 					{/*esimerkki*/}
