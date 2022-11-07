@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { language } from './variables.js'
+import { language } from '../locale/variables.js'
 import '../css/Header.css';
 
 //logot sun muut.
