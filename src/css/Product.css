@@ -31,3 +31,23 @@
 	height: 100%;
 }
 
+.cartIcon {
+	width: 20px;
+	padding: 0;
+	margin: 0;
+}
+
+.productButtonWrapper {
+	justify-content: center;
+	display: flex;
+    text-align: center;
+}
+
+.productButton {
+	margin: 1px;
+	padding: 5px;
+	flex: 1;
+	vertical-align: middle;
+	display: inline-block;
+	width: 75px;
+}

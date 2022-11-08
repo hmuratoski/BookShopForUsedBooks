@@ -22,8 +22,9 @@ export const Product = (props) => {
 							<h5 className="fw-bolder bookPrice">{props.productPrice}€</h5>
 						</div>
 					</div>
-					<div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails" href="#">{language.productDetails}</a></div>
+					<div className="card-footer p-3 pt-0 border-top-0 bg-transparent productButtonWrapper flex-container">
+						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" href="#">{language.productDetails}</a></div>
+						{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../images/cart.png')}/></a></div> : null}
 					</div>
 				</div>
 			</div>

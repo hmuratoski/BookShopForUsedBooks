@@ -7,6 +7,16 @@ import { language } from '../locale/FI.js'
 //kokoaa headerin ja footerin väliin tulevat komponentit
 
 export const Login = (props) => {
+
+	const testLogin = () => {
+		var userName = document.getElementById('userName').value;
+		console.log(userName)
+		props.setLoggedIn(true);
+		props.setUserName(userName);
+		props.setShowLogin(false);
+	}
+
+
 	return (
 		<div className="toastLogin">
 			<div className="toast show" aria-live="assertive" aria-atomic="true">
@@ -16,9 +26,9 @@ export const Login = (props) => {
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
 				<div className="toast-body">
+					<input className="toastInput" id="userName"/><br/>
 					<input className="toastInput"/><br/>
-					<input className="toastInput"/><br/>
-					<button className="btn btn-secondary loginButton">{language.loginTitle}</button>
+					<button className="btn btn-secondary loginButton" onClick={testLogin}>{language.loginTitle}</button>
 				</div>
 			</div>
 		</div>

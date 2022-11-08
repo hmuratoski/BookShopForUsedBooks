@@ -12,9 +12,9 @@ import './fonts/SignikaNegative-Regular.ttf';
 
 function App() {
 
-	const [loggedIn, setLoggedIn] = useState(false);
-	const [userName, setUserName] = useState('Testi')         //testausta varten
-	const [itemsInCart, setItemsInCart] = useState(5)
+	const [loggedIn, setLoggedIn] = useState(true);
+	const [userName, setUserName] = useState('TestiKäyttäjä');        //testausta varten
+	const [itemsInCart, setItemsInCart] = useState(5);
 
 
 	useEffect(() => {
@@ -23,9 +23,15 @@ function App() {
 
 	return (
 		<div>
-			<Navbar itemsInCart={itemsInCart} loggedIn={loggedIn} userName={userName} />
+			<Navbar
+				itemsInCart={itemsInCart}
+				loggedIn={loggedIn}
+				setLoggedIn={setLoggedIn}
+				userName={userName}
+				setUserName={setUserName}
+			/>
 			<Header />
-			<Content />
+				<Content loggedIn={loggedIn}/>
 			<Footer />
 		</div>
 	);

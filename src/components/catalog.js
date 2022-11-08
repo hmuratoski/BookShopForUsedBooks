@@ -13,6 +13,7 @@ export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- content.
 					<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center catalogContainer">
 						{props.booksToDisplay.map((item) => (
 							<Product
+								loggedIn={props.loggedIn}
 								key={item.bookId}
 								productPrice={item.price}
 								productName={item.bookName}

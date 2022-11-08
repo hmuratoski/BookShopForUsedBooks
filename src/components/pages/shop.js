@@ -6,7 +6,7 @@ import { Catalog } from '../catalog';
 import { Category } from '../category';
 import { Database } from '../../database/variables.js';  //vaihda php-server extensionin portti 3001:ksi -> avaa index.php, rightclick, serve
 
-export const Shop = () => {
+export const Shop = (props) => {
 
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 
@@ -28,7 +28,7 @@ export const Shop = () => {
 	return (
 		<div className="pageContent">
 			<Category />                                    {/*filtterit*/}
-			<Catalog booksToDisplay={booksFromDatabase} />  {/*tuotteet*/}
+			<Catalog booksToDisplay={booksFromDatabase} loggedIn={props.loggedIn} />  {/*tuotteet*/}
 		</div>
 	);
 }
