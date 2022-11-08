@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { Catalog } from '../catalog';
 import { Category } from '../category';
-import { Database } from '../../database/variables.js';  //vaihda php-server extensionin portti 3001:ksi -> avaa index.php, rightclick, serve
+import { Database } from '../../database/variables.js';		//vaihda php-server extensionin portti 3001:ksi -> avaa index.php, rightclick, serve
+															//vältä useamman terminaalin avaamista, ettei kehityspalvelin syö tietokannan porttia
 
 export const Shop = (props) => {
 
