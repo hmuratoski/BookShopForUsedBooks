@@ -16,7 +16,7 @@ export const Product = (props) => {
 					<div className="card-body p-4">
 						<div className="text-center productDetails">
 							<h5 className="fw-bolder bookTitle">{props.productName}</h5>
-							<h6 className="bookAuthor">{props.productAuthor}, {props.productYear}</h6>
+							<p className="bookAuthor">{props.productAuthor}, {props.productYear}</p>
 						</div>
 						<div className="text-center productPrice">
 							<h5 className="fw-bolder bookPrice">{props.productPrice}€</h5>
