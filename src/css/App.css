@@ -58,3 +58,7 @@ html {
 	src: local("SignikaNegative"),
 		url("../fonts/SignikaNegative-Regular.ttf") format("truetype");
 }
+
+.bookDetails {
+	padding-top: 7px;
+}

@@ -22,10 +22,6 @@
 	font-family: "Regular";
 }
 
-.productDetails {
-	min-height: 105px;
-}
-
 .card,
 .col {
 	height: 100%;
@@ -54,10 +50,15 @@
 }
 
 .productButton {
+	min-height: 40px;
 	margin: 1px;
 	padding: 5px;
 	flex: 1;
 	vertical-align: middle;
 	display: inline-block;
 	width: 75px;
+}
+
+.detailsText {
+	margin-top: 5px;
 }
