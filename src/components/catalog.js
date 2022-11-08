@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Product } from './product';
 import '../css/Catalog.css'
 
+
+
+
 //listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
 
 const books = [             //from database
@@ -19,6 +22,7 @@ const books = [             //from database
 	{ 'id': '11', 'image': require('../images/product5.png'), 'price': '17', 'name': 'Kirja11', 'author': 'Kirjoittaja'},
 	{ 'id': '12', 'image': require('../images/product2.png'), 'price': '14', 'name': 'Kirja12', 'author': 'Kirjoittaja' }
 ]
+
 
 export const Catalog = () => {
 	return (
