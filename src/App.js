@@ -21,7 +21,7 @@ function App() {
 	
 	
 	useEffect(() => {
-		document.title = language.shopName;
+		document.title = language.shopName;             //asettaa välilehden titlen
 	})
 
 	return (
