@@ -4,16 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { Catalog } from './catalog';
 import { Category } from './category';
+import { Database } from '../database/variables.js';  //vaihda php-server extensionin portti 3001:ksi
 import '../css/Content.css'
 
-const requestUrl = 'http://localhost:3001/src/database';        //vaihda php-server extensionin portti 3001:ksi
+ 
 
 export const Content = () => {
 
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 
 	useEffect(() => {
-		axios.get(requestUrl).then((response) => {
+		axios.get(Database.requestUrl).then((response) => {
 			var books = [];
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
