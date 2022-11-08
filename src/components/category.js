@@ -6,7 +6,7 @@ import '../css/Category.css'
 
 export const Category = () => {
 
-	const categories = ["Matematiikka", "Fysiikka", "Kemia"];   //from database
+	const categories = ["Matematiikka", "Fysiikka", "Kemia"];   //from database     (ks. content.js)
 
 	return (
 		<div className="filterOuter mt-5">
