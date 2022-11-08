@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const Frontpage = () => {
 	return (
 		<div>
-			
+			<h1>ETUSIVU (frontpage.js)</h1>
 		</div>
 	);
 }

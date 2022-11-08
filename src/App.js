@@ -15,6 +15,7 @@ function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [itemsInCart, setItemsInCart] = useState(5);
+	const page = useState("Shop");
 
 
 	useEffect(() => {
@@ -31,7 +32,10 @@ function App() {
 				setUserName={setUserName}
 			/>
 			<Header />
-				<Content loggedIn={loggedIn}/>
+				<Content 
+					page={page}
+					loggedIn={loggedIn
+				}/>
 			<Footer />
 		</div>
 	);
