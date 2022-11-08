@@ -18,6 +18,8 @@ function App() {
 	
 	const page = useState("Shop");                  //vaihtaa sivua testausta varten ennen routingia
 													//Home, About, Shop (content.js)
+	
+	
 	useEffect(() => {
 		document.title = language.shopName;
 	})
