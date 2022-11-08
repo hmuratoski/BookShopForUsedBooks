@@ -5,7 +5,7 @@ import { Team } from '../team';
 export const About = () => {
 	return (
 		<div>
-			<Team/>     {/*purkka-ratkaisu esitystä varten, voidaan myöhemmin siirtää about sivulle*/}
+			<Team/>
 		</div>
 	);
 }
