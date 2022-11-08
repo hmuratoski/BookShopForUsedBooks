@@ -11,11 +11,11 @@ import './css/App.css';
 import './fonts/SignikaNegative-Regular.ttf';
 
 function App() {
-	
+
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [userName, setUserName] = useState('Testi')       //testausta varten
+	const [userName, setUserName] = useState('Testi')         //testausta varten
 	const [itemsInCart, setItemsInCart] = useState(5)
-	
+
 
 	useEffect(() => {
 		document.title = language.shopName;
@@ -23,10 +23,10 @@ function App() {
 
 	return (
 		<div>
-			<Navbar itemsInCart={itemsInCart} loggedIn={loggedIn} userName={userName}/>
-			<Header/>
-			<Content/>
-			<Footer/>
+			<Navbar itemsInCart={itemsInCart} loggedIn={loggedIn} userName={userName} />
+			<Header />
+			<Content />
+			<Footer />
 		</div>
 	);
 }
