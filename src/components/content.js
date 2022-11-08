@@ -20,7 +20,7 @@ export const Content = () => {
 				for (var i = 0; i < response.data.length; i++) {
 					if (response.data[i].image == null) {
 						response.data[i].image = "product" + Math.floor(Math.random() * (5 - 2 + 1) + 2) + ".png"
-															//random kuva testiksi
+															//random kuva testiksi jos kuvaa ei ole
 					}
 					books.push(response.data[i]);
 				}
