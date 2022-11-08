@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Category.css'
 
 //tuotelistauksen haku ja filtterit
-	//tarvitaan täältä filtteri takaisin content.js tiedostoon, jotta voidaan laittaa se argumentiksi
+	//tarvitaan täältä tiedot takaisin content.js tiedostoon, jotta voidaan laittaa se argumentiksi
 	//phplle SQL kyselyä varten. (ks. login.js:16 )
 
 export const Category = () => {
