@@ -12,7 +12,7 @@ export const Product = (props) => {
 		<div className="product">
 			<div className="col">
 				<div className="card">
-					<img className="card-img-top" src={props.productImage} alt="..." />
+					<img className="card-img-top productImage" src={props.productImage} alt="..." />
 					<div className="card-body p-4">
 						<div className="text-center productDetails">
 							<h5 className="fw-bolder bookTitle">{props.productName}</h5>
