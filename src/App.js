@@ -14,10 +14,10 @@ function App() {
 
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userName, setUserName] = useState('');
-	const [itemsInCart, setItemsInCart] = useState(5);
 	
-	const page = useState("Shop");                  //vaihtaa sivua testausta varten ennen routingia
-													//Home, About, Shop (content.js)
+	//näitä voi muuttaa
+	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet
+	const page = useState("Shop");                      //vaihtaa sivua testausta varten ennen routingia //Home, About, Shop (content.js)
 	
 	
 	useEffect(() => {
