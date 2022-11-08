@@ -51,7 +51,7 @@ export const Navbar = (props) => {
 							
 							<button className="btn btn-outline-dark cartButton" type="submit">
 								<i className="bi-cart-fill me-1"></i>
-								{language.navCart}
+								<img className="cartIcon" src={require('../images/cart.png')}/>
 								<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 							</button>
 						</form>
