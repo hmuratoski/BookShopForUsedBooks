@@ -37,6 +37,16 @@
 	margin: 0;
 }
 
+.cartButton > img {
+	filter: invert(0);
+	transition: 0.2s;
+}
+
+.cartButton:hover > img {
+	filter: invert(1);
+	transition: 0.2s;
+}
+
 .productButtonWrapper {
 	justify-content: center;
 	display: flex;

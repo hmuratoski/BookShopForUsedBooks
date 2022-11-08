@@ -12,8 +12,8 @@ import './fonts/SignikaNegative-Regular.ttf';
 
 function App() {
 
-	const [loggedIn, setLoggedIn] = useState(true);
-	const [userName, setUserName] = useState('TestiKäyttäjä');        //testausta varten
+	const [loggedIn, setLoggedIn] = useState(false);
+	const [userName, setUserName] = useState('');
 	const [itemsInCart, setItemsInCart] = useState(5);
 
 
