@@ -2,15 +2,21 @@
 
 global $json;
 require_once 'inc/functions.php';
-$db = openSQLite();
+$db = openSQLite();         
+$action = "getBooks"; //kovakoodi purkka, hävitetään myöhemmin, voi vaihtaa jos haluaa testailla
+						//tulee siis requestin mukana
+switch ($action) {  //tein case switchin, että php tietää mitä yritetään saavuttaa
+    case "getBooks":
+        $query = 'select * from BOOKS';
+        break;
+    case "getAuthors":
+		$query = 'select author from BOOKS';
+        break;
+}
+
 try {
-	$query = 'select * from BOOKS';
 	$json = selectAsJson($db, $query);
-	print $json[0]['bookName'];
-	print " ";
-	print $json[0]['author'];
-	print " ";
-	print $json[0]['price'];
+	print_r($json);         //Prints human-readable information about a variable
 } catch (PDOException $pdoex) {
 	returnError($pdoex);
 }
