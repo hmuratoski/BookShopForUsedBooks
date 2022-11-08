@@ -19,7 +19,7 @@ export const Content = () => {
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
 					if (response.data[i].image == null) {
-						response.data[i].image = "product" + Math.floor(Math.random() * (5 - 2 + 1) + 2) + ".png" //random kuva testiksi jos kuvaa ei ole
+						response.data[i].image = "product" + Math.floor(Math.random() * (5 - 1 + 1) + 1) + ".png" //random kuva testiksi jos kuvaa ei ole
 					}
 					books.push(response.data[i]);
 				}
@@ -30,8 +30,8 @@ export const Content = () => {
 
 	return (
 		<div className="pageContent">
-			<Category />     {/*filtterit*/}
-			<Catalog booksToDisplay={booksFromDatabase} /> {/*tuotteet*/}
+			<Category />                                    {/*filtterit*/}
+			<Catalog booksToDisplay={booksFromDatabase} />  {/*tuotteet*/}
 		</div>
 	);
 }

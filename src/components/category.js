@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Category.css'
 
 //tuotelistauksen haku ja filtterit
+	//tarvitaan täältä filtteri takaisin content.js tiedostoon, jotta voidaan laittaa se argumentiksi
+	//phplle SQL kyselyä varten. (ks. login.js:16 )
 
 export const Category = () => {
 
@@ -16,7 +18,7 @@ export const Category = () => {
 						<input id="searchField" defaultValue="Haku" />
 					</div>
 					<div id="tagFilter">
-						{categories.map((item, index) => (
+						{categories.map((item, index) => (          //luo elementit jokaiselle kategorialle
 							<div key={index} className="checkboxFilter">
 								<div className="checkboxWrapper">
 									<input type="checkbox"></input>

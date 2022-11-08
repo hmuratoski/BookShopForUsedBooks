@@ -5,7 +5,7 @@ import '../css/Catalog.css'
 
 export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- content.js
 	if (props.booksToDisplay.length > 0 &&
-		typeof props.booksToDisplay[0].bookId != 'undefined'    //purkka
+		typeof props.booksToDisplay[0].bookId != 'undefined'    //jos ei yhtään tuotetta, ei luoda katalogia ollenkaan.
 	) {
 		return (
 			<section>

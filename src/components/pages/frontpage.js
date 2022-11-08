@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//listaa tuotteet haun/filtterin perusteella käyttäen "Product" komponenttia
+//Kaupan etusivu. tietoja sitä tätä tuota, ehkä jotakin kuvaa
 
 export const Frontpage = () => {
 	return (
