@@ -14,8 +14,8 @@ export const Content = () => {
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 
 	useEffect(() => {
-		axios.get(Database.requestUrl).then((response) => {
-			var books = [];
+		axios.get(Database.requestUrl).then((response) => {         //tästä pitää muuttaa post -request kunhan filtteri toimii, jotta saadaan
+			var books = [];                                         //filtterin tiedot välitettyä phplle
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
 					if (response.data[i].image == null) {
