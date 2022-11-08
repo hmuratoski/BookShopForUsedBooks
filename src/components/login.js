@@ -16,8 +16,8 @@ export const Login = (props) => {
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
 				<div className="toast-body">
-					<input className="toastInput"/><br />
-					<input className="toastInput"/><br />
+					<input className="toastInput"/><br/>
+					<input className="toastInput"/><br/>
 					<button className="btn btn-secondary loginButton">{language.loginTitle}</button>
 				</div>
 			</div>
