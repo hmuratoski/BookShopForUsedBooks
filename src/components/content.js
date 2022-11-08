@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { Catalog } from './catalog';
 import { Category } from './category';
-import { Database } from '../database/variables.js';  //vaihda php-server extensionin portti 3001:ksi
+import { Database } from '../database/variables.js';  //vaihda php-server extensionin portti 3001:ksi -> avaa index.php, rightclick, serve
 import '../css/Content.css'
 
  
