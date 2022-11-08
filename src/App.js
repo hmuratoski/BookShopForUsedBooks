@@ -15,9 +15,9 @@ function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [itemsInCart, setItemsInCart] = useState(5);
-	const page = useState("Shop");
-
-
+	
+	const page = useState("Shop");                  //vaihtaa sivua testausta varten ennen routingia
+													//Home, About, Shop (content.js)
 	useEffect(() => {
 		document.title = language.shopName;
 	})
