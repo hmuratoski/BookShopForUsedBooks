@@ -4,22 +4,26 @@ import { Product } from './product';
 import '../css/Catalog.css'
 
 export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- content.js
-	return (
-		<section>
-			<div className="container px-4 px-lg-5">
-				<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center catalogContainer">
-					{props.booksToDisplay.map((item) => (
-						<Product
-							key={item.bookId}
-							productPrice={item.price}
-							productName={item.bookName}
-							productImage={require(`../images/product/${item.image}`)}
-							productAuthor={item.author}
-							productYear={item.year}
-						/>
-					))}
+	if (props.booksToDisplay.length > 0 &&
+		typeof props.booksToDisplay[0].bookId != 'undefined'    //purkka
+	) {
+		return (
+			<section>
+				<div className="container px-4 px-lg-5">
+					<div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center catalogContainer">
+						{props.booksToDisplay.map((item) => (
+							<Product
+								key={item.bookId}
+								productPrice={item.price}
+								productName={item.bookName}
+								productImage={require(`../images/product/${item.image}`)}
+								productAuthor={item.author}
+								productYear={item.year}
+							/>
+						))}
+					</div>
 				</div>
-			</div>
-		</section>
-	);
+			</section>
+		);
+	}
 };
