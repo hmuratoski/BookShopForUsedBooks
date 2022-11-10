@@ -10,14 +10,14 @@
 		switch ($action) {  //tein case switchin, että php tietää mitä yritetään saavuttaa
 			case "getBooks":
 				$query = 'select * from BOOKS';
-				break;
-				case "getCatProducts":
-					if (isset($_GET["category"]))
-					$query = 'select * from BOOKS where categoryId = ' . $_GET["category"];
-				break;
-				case "getCat":
-					$query = 'select * from CATEGORY';
-				break;
+			break;
+			case "getCatProducts":
+				if (isset($_GET["category"]))
+				$query = 'select * from BOOKS where categoryId = ' . $_GET["category"];
+			break;
+			case "getCat":
+				$query = 'select * from CATEGORY';
+			break;
 		} try {
 			$json = selectAsJson($db, $query);
 			$json = json_encode($json);
