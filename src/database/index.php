@@ -23,7 +23,6 @@
 			returnError($pdoex);
 		}
 	} else {
-	
+		echo "no action";
 	}
-	
 ?>
