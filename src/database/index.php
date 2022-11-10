@@ -11,9 +11,12 @@
 			case "getBooks":
 				$query = 'select * from BOOKS';
 				break;
-			case "getCat":
-				if (isset($_GET["category"]))
-				$query = 'select * from BOOKS where categoryId = ' . $_GET["category"];
+				case "getCatProducts":
+					if (isset($_GET["category"]))
+					$query = 'select * from BOOKS where categoryId = ' . $_GET["category"];
+				break;
+				case "getCat":
+					$query = 'select * from CATEGORY';
 				break;
 		} try {
 			$json = selectAsJson($db, $query);
