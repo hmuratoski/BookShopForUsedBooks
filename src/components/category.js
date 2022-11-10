@@ -20,7 +20,6 @@ export const Category = () => {
 					let categoryFromDatabase = {categoryName: response.data[i].categoryName, categoryId: response.data[i].categoryId}
 					categories.push(categoryFromDatabase);
 				}
-				console.log(categories);
 			}
 		});
 	}, []);
