@@ -13,6 +13,15 @@
 	    case "getCat":
 			$query = 'select * from CATEGORY';
 	        break;
+		case "getCat1":
+			$query = 'select * from BOOKS where categoryId = 1';
+	        break;
+		case "getCat2":
+			$query = 'select * from BOOKS where categoryId = 2';
+			break;
+		case "getCat3":
+			$query = 'select * from BOOKS where categoryId = 3';
+			break;
 	}
 	
 	try {
