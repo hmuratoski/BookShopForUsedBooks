@@ -1,6 +1,9 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Category.css'
+import { Database } from '../database/variables.js';
 
 //tuotelistauksen haku ja filtterit
 	//tarvitaan täältä tiedot takaisin content.js tiedostoon, jotta voidaan laittaa se argumentiksi
@@ -8,7 +11,19 @@ import '../css/Category.css'
 
 export const Category = () => {
 
-	const categories = ["Matematiikka", "Fysiikka", "Kemia"];   //from database     (ks. content.js)
+	const [categories, setCategories] = useState([]);
+	
+	useEffect(() => {
+		axios.get(Database.requestUrl + "?action=getCat").then((response) => {   
+			if (response.data.length > 0 && categories.length == 0) {
+				for (var i = 0; i < response.data.length; i++) {
+					let categoryFromDatabase = {categoryName: response.data[i].categoryName, categoryId: response.data[i].categoryId}
+					categories.push(categoryFromDatabase);
+				}
+				console.log(categories);
+			}
+		});
+	}, []);
 
 	return (
 		<div className="filterOuter mt-5">
@@ -21,10 +36,10 @@ export const Category = () => {
 						{categories.map((item, index) => (          //luo elementit jokaiselle kategorialle
 							<div key={index} className="checkboxFilter">
 								<div className="checkboxWrapper">
-									<input type="checkbox"></input>
+									<input id={`category${item.categoryId}`} type="checkbox"></input>
 								</div>
 								<div className="checkboxTextWrapper">
-									<h5>{item}</h5>
+									<h5>{item.categoryName}</h5>
 								</div>
 							</div>
 						))}
