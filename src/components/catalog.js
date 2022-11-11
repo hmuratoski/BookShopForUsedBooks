@@ -17,7 +17,7 @@ export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- content.
 								key={item.bookId}
 								productPrice={item.price}
 								productName={item.bookName}
-								productImage={require(`../images/product/${item.image}`)}
+								productImage={require(`../images/product/${item.bookId}.png`)}
 								productAuthor={item.author}
 								productYear={item.year}
 							/>
