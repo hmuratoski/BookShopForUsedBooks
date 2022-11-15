@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Routes } from "react-router-dom"
 import { Shop } from './pages/shop';
 import { About } from './pages/about';
 import { FrontPage } from './pages/frontpage';
@@ -9,16 +10,16 @@ import '../css/Header.css';
 
 export const Content = (props) => {
 
-	{/* <BrowserRouter>
-      <Routes>
-        <Route path="" element={<FrontPage />} />
-		
-		<Route path="/shop" element={<Shop loggedIn={props.loggedIn} />} />
-        
-      </Routes>
-</BrowserRouter> */ }
-
-
+	return (
+		<Routes>
+			<Route path="/" element={<FrontPage />} />
+			<Route path="/about" element={<About />} />
+			<Route path="/shop" element={<Shop loggedIn={props.loggedIn}/>} />
+			<Route path="/product" element={<ProductPage loggedIn={props.loggedIn} bookId="2"/>} />
+		</Routes>
+	);
+  
+{/*}
 	switch (props.page[0]) {                //yksittäisten sivujen testaukseen ennen routingia
 		case "Home":
 			return (
@@ -42,5 +43,5 @@ export const Content = (props) => {
 				<Shop loggedIn={props.loggedIn} />
 			);
 
-	}
+	}*/}
 }

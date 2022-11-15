@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/header';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
@@ -14,12 +14,12 @@ function App() {
 
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userName, setUserName] = useState('');
-	
+
 	//näitä voi muuttaa
 	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet
 	const page = useState("ProductPage");                      //vaihtaa sivua testausta varten ennen routingia //Home, About, Shop, ProductPage (content.js)
-	
-	
+
+
 	useEffect(() => {
 		document.title = language.shopName;             //asettaa välilehden titlen
 	})
@@ -34,10 +34,9 @@ function App() {
 				setUserName={setUserName}
 			/>
 			<Header />
-				<Content 
-					page={page}
-					loggedIn={loggedIn
-				}/>
+			<Content
+				loggedIn={loggedIn}
+			/>
 			<Footer />
 		</div>
 	);
