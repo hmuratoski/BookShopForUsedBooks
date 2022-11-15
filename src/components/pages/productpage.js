@@ -32,7 +32,7 @@ export const ProductPage = (props) => {
 			<div className="container">
 				<div className="row">
 					<div className="col-xs-4 item-photo">
-						<img style={{width: "30%"}} src={require(`../../images/product/1.png`)} /> 
+						<img style={{width: "30%"}} src={require(`../../images/product/${bookDetails[0].bookId}.png`)} /> 
 					</div>
 					<div className="col-xs-5">
 						<h3>{bookDetails[0].bookName}</h3>
