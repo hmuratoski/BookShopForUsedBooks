@@ -20,6 +20,7 @@ export const ProductPage = (props) => {
 					details.push(response.data[i]);
 				}
 				setBookDetails(details);
+				console.log(bookDetails)
 			}
 		});
 	}, []);
@@ -27,18 +28,18 @@ export const ProductPage = (props) => {
 	//${bookDetails.bookId}
 
 	return (
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-4 item-photo">
+		<div className="container">
+			<div className="row">
+				<div className="col-xs-4 item-photo">
 					<img src={require(`../../images/product/1.png`)} /> 
 				</div>
-				<div class="col-xs-5">
-					<h3>{bookDetails.bookName}</h3>
+				<div className="col-xs-5">
+					<h3>{bookDetails[0].bookName}</h3>
 
-					<h6 class="title-price"><small>{bookDetails.author}</small></h6>
-					<h3>{bookDetails.price}</h3>
-					<h3>{language.condition}: {bookDetails.condition}</h3>
-					<h6 class="title-price"><small>{bookDetails.description}</small></h6>
+					<h6 className="title-price"><small>{bookDetails[0].author}</small></h6>
+					<h3>{bookDetails[0].price} €</h3>
+					<h6>{language.condition}: {bookDetails[0].condition}</h6>
+					<h6 className="title-price"><small>{bookDetails[0].description}</small></h6>
 				</div>
 				{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../../images/cart.png')}/></a></div> : null }
 				
