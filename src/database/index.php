@@ -11,11 +11,11 @@
 			case "getBooks":
 				$query = 'select * from BOOK';
 			break;
-
 			
 			case "getCatProducts":
-				if (isset($_GET["category"]))
-					$query = 'select * from BOOK where categoryId = ' . $_GET["category"] . 'order by categoryId';     // = > in
+				if (isset($_GET["category"])) {
+					$query = 'select * from BOOK where categoryId in ' . $_GET["category"] . 'order by categoryId';     // = > in
+				}
 			break;
 			
 			case "getCategories":
@@ -23,8 +23,9 @@
 			break;
 
 			case "getBookDetails":
-				if (isset($_GET["bookId"]))
-				$query = 'select * from BOOK where bookId = '. $_GET["bookId"];  
+				if (isset($_GET["bookId"])) {
+					$query = 'select * from BOOK where bookId = '. $_GET["bookId"]; 
+				}
 			break;
 			
 		} try {
