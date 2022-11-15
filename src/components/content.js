@@ -9,6 +9,8 @@ import '../css/Header.css';
 
 export const Content = (props) => {
 
+// Routingin alustavaa koodia, ei toimi tälläisenaan, tästä voi jatkaa. Jos jatkat, laita switchi kommentiksi ja poista tästä kommentointi
+
 	{/* <BrowserRouter>
       <Routes>
         <Route path="" element={<FrontPage />} />
