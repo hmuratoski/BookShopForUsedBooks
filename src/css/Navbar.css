@@ -14,3 +14,7 @@
 .cartIcon {
 	width: 25px;
 }
+
+.activeLink {
+	box-shadow: 5px 10px #111111;
+}

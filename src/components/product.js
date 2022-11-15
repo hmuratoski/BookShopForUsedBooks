@@ -26,7 +26,7 @@ export const Product = (props) => {
 					</div>
 					<div className="card-footer p-3 pt-0 border-top-0 bg-transparent productButtonWrapper flex-container">
 						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" href="#">{language.productDetails}</a></div>
-						{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../images/cart.png')}/></a></div> : null}
+						<div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../images/cart.png')}/></a></div>
 					</div>
 				</div>
 			</div>
