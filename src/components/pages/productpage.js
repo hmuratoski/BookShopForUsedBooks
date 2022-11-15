@@ -18,6 +18,7 @@ export const ProductPage = (props) => {
 					<h6 class="title-price"><small>{props.productAuthor}</small></h6>
 					<h3>{props.productPrice}</h3>
 					<h3>{language.condition}: {props.productCondition}</h3>
+					<h6 class="title-price"><small>{props.productDescription}</small></h6>
 				</div>
 				{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../../images/cart.png')}/></a></div> : null }
 				
