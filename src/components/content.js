@@ -10,7 +10,6 @@ import '../css/Header.css';
 
 export const Content = (props) => {
 
-<<<<<<< HEAD
 	return (
 		<Routes>
 			<Route path="/" element={<FrontPage />} />
@@ -19,44 +18,4 @@ export const Content = (props) => {
 			<Route path="/product" element={<ProductPage loggedIn={props.loggedIn} bookId="2"/>} />
 		</Routes>
 	);
-  
-{/*}
-=======
-// Routingin alustavaa koodia, ei toimi tälläisenaan, tästä voi jatkaa. Jos jatkat, laita switchi kommentiksi ja poista tästä kommentointi
-
-	{/* <BrowserRouter>
-      <Routes>
-        <Route path="" element={<FrontPage />} />
-		
-		<Route path="/shop" element={<Shop loggedIn={props.loggedIn} />} />
-        
-      </Routes>
-</BrowserRouter> */ }
-
-
->>>>>>> a005ea30c8d19a4dc868d6aba8649ad40d57d807
-	switch (props.page[0]) {                //yksittäisten sivujen testaukseen ennen routingia
-		case "Home":
-			return (
-				<FrontPage />
-			);
-			
-		case "ProductPage":
-			return (
-				<ProductPage 
-					bookId="2"
-				/>
-			);
-
-		case "About":
-			return (
-				<About />
-			);
-
-		case "Shop":
-			return (
-				<Shop loggedIn={props.loggedIn} />
-			);
-
-	}*/}
 }
