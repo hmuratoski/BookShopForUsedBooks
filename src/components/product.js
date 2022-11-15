@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI.js'
 import '../css/Product.css';
+import { Condition } from './condition';
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
@@ -20,7 +21,9 @@ export const Product = (props) => {
 						</div>
 						<div className="text-center productPrice">
 							<h5 className="fw-bolder bookPrice">{props.productPrice}€</h5>
+							<h5 className="bookCondition">{language.condition}: <Condition condition={props.productCondition}/></h5>
 						</div>
+						
 					</div>
 					<div className="card-footer p-3 pt-0 border-top-0 bg-transparent productButtonWrapper flex-container">
 						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" href="#">{language.productDetails}</a></div>

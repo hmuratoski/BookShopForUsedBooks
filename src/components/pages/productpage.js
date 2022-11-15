@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/ProductPage.css';
+import { Condition } from '../condition';
 import { language } from '../../locale/FI';
 import { Database } from '../../database/variables.js';
 
@@ -23,8 +24,6 @@ export const ProductPage = (props) => {
 			}
 		});
 	}, []);
-	
-	//${bookDetails.bookId}
 
 	if (bookDetails.length > 0) {
 		return (
@@ -38,7 +37,10 @@ export const ProductPage = (props) => {
 	
 						<h6 className="title-price"><small>{bookDetails[0].author}</small></h6>
 						<h3>{bookDetails[0].price} €</h3>
-						<h6>{language.condition}: {bookDetails[0].condition}</h6>
+						<div style={{display: "flex"}}>
+							<h6 style={{marginTop: "5px"}}>{language.condition}:</h6>
+							<Condition condition={bookDetails[0].condition}/>
+						</div>
 						<h6 className="title-price"><small>{bookDetails[0].description}</small></h6>
 					</div>
 					{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../../images/cart.png')}/></a></div> : null }
