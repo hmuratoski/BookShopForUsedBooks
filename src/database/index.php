@@ -15,7 +15,7 @@
 			
 			case "getCatProducts":
 				if (isset($_GET["category"]))
-				$query = 'select * from BOOK where categoryId = ' . $_GET["category"] . 'order by categoryId';     // = > in
+					$query = 'select * from BOOK where categoryId = ' . $_GET["category"] . 'order by categoryId';     // = > in
 			break;
 			
 			case "getCategories":

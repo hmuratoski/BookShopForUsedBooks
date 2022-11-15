@@ -16,9 +16,6 @@ export const Shop = (props) => {
 			var books = [];                                         //filtterin tiedot välitettyä phplle
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
-					if (response.data[i].image == null) {
-						response.data[i].image = "product" + Math.floor(Math.random() * (5 - 1 + 1) + 1) + ".png" //random kuva testiksi jos kuvaa ei ole
-					}
 					books.push(response.data[i]);
 				}
 				setBooksFromDatabase(books);
