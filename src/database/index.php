@@ -11,6 +11,7 @@
 			case "getBooks":
 				$query = 'select * from BOOK';
 			break;
+
 			
 			case "getCatProducts":
 				if (isset($_GET["category"]))
@@ -19,6 +20,11 @@
 			
 			case "getCategories":
 				$query = 'select * from CATEGORY';
+			break;
+
+			case "getBookDetails":
+				if (isset($_GET["bookId"]))
+				$query = 'select * from BOOK where bookId = '. $_GET["bookId"];  
 			break;
 			
 		} try {

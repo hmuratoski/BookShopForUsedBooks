@@ -17,7 +17,7 @@ function App() {
 	
 	//näitä voi muuttaa
 	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet
-	const page = useState("ProductPage");                      //vaihtaa sivua testausta varten ennen routingia //Home, About, Shop, ProductPage (content.js)
+	const page = useState("Shop");                      //vaihtaa sivua testausta varten ennen routingia //Home, About, Shop, ProductPage (content.js)
 	
 	
 	useEffect(() => {
