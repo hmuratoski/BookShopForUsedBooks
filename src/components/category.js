@@ -14,7 +14,7 @@ export const Category = () => {
 	const [categories, setCategories] = useState([]);
 	
 	useEffect(() => {
-		axios.get(Database.requestUrl + "?action=getCat").then((response) => {   
+		axios.get(Database.requestUrl + "?action=getCategories").then((response) => {   
 			if (response.data.length > 0 && categories.length == 0) {
 				for (var i = 0; i < response.data.length; i++) {
 					let categoryFromDatabase = {categoryName: response.data[i].categoryName, categoryId: response.data[i].categoryId}
@@ -24,6 +24,7 @@ export const Category = () => {
 		});
 	}, []);
 
+	if (categories.length > 0) {
 	return (
 		<div className="filterOuter mt-5">
 			<div className="filterPadding" />
@@ -47,4 +48,7 @@ export const Category = () => {
 			<div className="filterPadding" />
 		</div>
 	);
+	} else {
+		return;
+	}
 }

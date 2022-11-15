@@ -17,7 +17,7 @@
 				$query = 'select * from BOOK where categoryId = ' . $_GET["category"] . 'order by categoryId';     // = > in
 			break;
 			
-			case "getCat":
+			case "getCategories":
 				$query = 'select * from CATEGORY';
 			break;
 			
