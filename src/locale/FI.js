@@ -6,6 +6,8 @@ export const language = {
 	navAbout: "Tietoja",
 	navShop: "Kauppa",
 	
+	condition: "Kunto",
+	
 	shoppingCart: "Ostoskori",
 	
 	productDetails: "Tietoja",
