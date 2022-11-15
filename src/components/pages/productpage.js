@@ -18,32 +18,36 @@ export const ProductPage = (props) => {
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
 					details.push(response.data[i]);
+					console.log(response.data[i]);
 				}
 				setBookDetails(details);
-				console.log(bookDetails)
 			}
 		});
 	}, []);
 	
 	//${bookDetails.bookId}
 
-	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-xs-4 item-photo">
-					<img src={require(`../../images/product/1.png`)} /> 
+	if (bookDetails.length > 0) {
+		return (
+			<div className="container">
+				<div className="row">
+					<div className="col-xs-4 item-photo">
+						<img style={{width: "30%"}} src={require(`../../images/product/1.png`)} /> 
+					</div>
+					<div className="col-xs-5">
+						<h3>{bookDetails[0].bookName}</h3>
+	
+						<h6 className="title-price"><small>{bookDetails[0].author}</small></h6>
+						<h3>{bookDetails[0].price} €</h3>
+						<h6>{language.condition}: {bookDetails[0].condition}</h6>
+						<h6 className="title-price"><small>{bookDetails[0].description}</small></h6>
+					</div>
+					{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../../images/cart.png')}/></a></div> : null }
+					
 				</div>
-				<div className="col-xs-5">
-					<h3>{bookDetails[0].bookName}</h3>
-
-					<h6 className="title-price"><small>{bookDetails[0].author}</small></h6>
-					<h3>{bookDetails[0].price} €</h3>
-					<h6>{language.condition}: {bookDetails[0].condition}</h6>
-					<h6 className="title-price"><small>{bookDetails[0].description}</small></h6>
-				</div>
-				{props.loggedIn ? <div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" href="#"><img className="cartIcon" src={require('../../images/cart.png')}/></a></div> : null }
-				
-			</div>
-		</div>        
-	);
+			</div>        
+		);
+	} else {
+		return;
+	}
 }
