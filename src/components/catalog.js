@@ -20,6 +20,7 @@ export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- shop.js
 								productImage={require(`../images/product/${item.bookId}.png`)}
 								productAuthor={item.author}
 								productYear={item.year}
+								productCondition={item.condition}
 							/>
 						))}
 					</div>

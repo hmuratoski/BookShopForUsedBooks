@@ -17,7 +17,7 @@ export const Content = (props) => {
 		case "ProductPage":
 			return (
 				<ProductPage 
-					bookId="1"
+					bookId="2"
 				/>
 			);
 
