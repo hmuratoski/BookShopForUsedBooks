@@ -6,7 +6,7 @@ import { Condition } from './condition';
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
-//voidaan koodata toimimaan myös ostoskorin tuotteiden näyttämiseen
+	//voidaan koodata toimimaan myös ostoskorin tuotteiden näyttämiseen 
 
 export const Product = (props) => {
 	return (

@@ -12,8 +12,8 @@ export const Shop = (props) => {
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 
 	useEffect(() => {
-		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {         //tästä pitää muuttaa post -request kunhan filtteri toimii, jotta saadaan
-			var books = [];                                         //filtterin tiedot välitettyä phplle
+		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {         //filtterin tiedot -> php
+			var books = [];                                                             
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
 					books.push(response.data[i]);
@@ -25,7 +25,7 @@ export const Shop = (props) => {
 
 	return (
 		<div className="pageContent">
-			<Category />                                    {/*filtterit*/}
+			<Category />                                                              {/*filtterit*/}
 			<Catalog booksToDisplay={booksFromDatabase} loggedIn={props.loggedIn} />  {/*tuotteet*/}
 		</div>
 	);

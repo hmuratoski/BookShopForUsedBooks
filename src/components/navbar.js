@@ -43,8 +43,8 @@ export const Navbar = (props) => {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 							<li className="nav-item"><NavLink to="/" className="nav-link" aria-current="page">{language.navHome}</NavLink></li>
-							<li className="nav-item"><NavLink to="/about" className="nav-link">{language.navAbout}</NavLink></li>
 							<li className="nav-item"><NavLink to="/shop" className="nav-link">{language.navShop}</NavLink></li>
+							<li className="nav-item"><NavLink to="/about" className="nav-link">{language.navAbout}</NavLink></li>
 						</ul>
 					</div>
 					<form className="d-flex">

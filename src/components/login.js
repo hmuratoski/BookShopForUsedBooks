@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Login.css';
 import { language } from '../locale/FI.js'
 
-//kokoaa headerin ja footerin väliin tulevat komponentit
+//toast -tyyppinen kirjautumisruutu
+	//hyväksyy tällähetkellä minkä tahansa käyttäjänimen testikirjautumiseen
 
 export const Login = (props) => {
 

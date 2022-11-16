@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header } from './components/header';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { Navbar } from './components/navbar';
 import { language } from './locale/FI.js';
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
@@ -12,11 +12,13 @@ import './fonts/SignikaNegative-Regular.ttf';
 
 function App() {
 
+	console.log(useLocation().pathname);                //pitää tarkistaa opettajalta, onko käyttökelpoinen product sivulle
+
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [userName, setUserName] = useState('');
 
 	//näitä voi muuttaa
-	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet
+	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
 
 	useEffect(() => {
 		document.title = language.shopName;             //asettaa välilehden titlen

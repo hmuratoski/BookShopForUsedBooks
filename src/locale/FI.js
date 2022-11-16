@@ -1,6 +1,6 @@
 export const language = {
-	shopName: "Kirijoja",            //kirjapirtti, kirjavintti
-	shopSlogan: "Käytettyjä oppikirjoja. Halavalla!",     //books for less suomeksi
+	shopName: "Kirijoja",
+	shopSlogan: "Käytettyjä oppikirjoja. Halavalla!",
 	
 	navHome: "Koti",
 	navAbout: "Tietoja",
