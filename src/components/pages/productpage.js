@@ -35,7 +35,7 @@ export const ProductPage = (props) => {
 					<div className="col-xs-5">
 						<h3>{bookDetails[0].bookName}</h3>
 	
-						<h6 className="title-price"><small>{bookDetails[0].author}</small></h6>
+						<h6 className="title-price"><small>{bookDetails[0].author}, {bookDetails[0].year}</small></h6>
 						<h3>{bookDetails[0].price} €</h3>
 						<div style={{display: "flex"}}>
 							<h6 style={{marginTop: "5px"}}>{language.condition}:</h6>
