@@ -3,22 +3,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI.js'
 import '../css/Product.css';
 import { Condition } from './condition';
+import { useState } from 'react';
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
-	//voidaan koodata toimimaan myös ostoskorin tuotteiden näyttämiseen 
+//voidaan koodata toimimaan myös ostoskorin tuotteiden näyttämiseen 
 
-const addToCart = (e) => {
-	var shoppingCart = []
-	console.log(e)
-	var id = e.target.id.replace(/\D/g, '');
-	console.log(id)
-	}
 
-	
+
+
 
 
 export const Product = (props) => {
+
+	const [shoppingCart, setShoppingCart] = useState([]);
+
+	const addToCart = (e) => {
+		var cartItems = shoppingCart
+		console.log(cartItems)
+		var id = e.target.id.replace(/\D/g, '');
+
+		cartItems.push(id);
+		setShoppingCart(cartItems)
+	
+	}
+
+
 	return (
 		<div className="product">
 			<div className="col">
@@ -31,12 +41,12 @@ export const Product = (props) => {
 						</div>
 						<div className="text-center productPrice">
 							<h5 className="fw-bolder bookPrice">{props.productPrice}€</h5>
-							<h5 className="bookCondition">{language.condition}: <Condition condition={props.productCondition}/></h5>
+							<h5 className="bookCondition">{language.condition}: <Condition condition={props.productCondition} /></h5>
 						</div>
 					</div>
 					<div className="card-footer p-3 pt-0 border-top-0 bg-transparent productButtonWrapper flex-container">
 						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" href="#">{language.productDetails}</a></div>
-						<div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" id={`cart${props.productId}`} onClick={e => addToCart(e)}><img className="cartIcon" src={require('../images/cart.png')}/></a></div>
+						<div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" id={`cart${props.productId}`} onClick={e => addToCart(e)}><img className="cartIcon" src={require('../images/cart.png')} /></a></div>
 					</div>
 				</div>
 			</div>
