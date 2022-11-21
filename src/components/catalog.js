@@ -22,6 +22,7 @@ export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- shop.js
 								productAuthor={item.author}
 								productYear={item.year}
 								productCondition={item.condition}
+								addToCart={props.addToCart}
 							/>
 						))}
 					</div>
