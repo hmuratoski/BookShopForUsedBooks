@@ -33,10 +33,14 @@ export const Shop = (props) => {
 		});
 	}
 
-	const addToCart = (e) => {
-		var id = e.target.id.replace(/\D/g, '');
-		shoppingCart.push(id);
-		console.log(shoppingCart);
+	const addToCart = (e) => {                                      //tuotteen id eventistä (e)
+		var id = e.target.id.replace(/\D/g, '');                    //riisutaan kaikki paitsi numerot
+		if (!shoppingCart.includes(id)) {
+			shoppingCart.push(id);
+			console.log("%c Adding product " + id + " to cart         " + shoppingCart, 'color: #22AA22');
+		} else {
+			console.log("%c Product already in cart          " + shoppingCart, 'color: #DD2222');
+		}
 	}
 
 	useEffect(() => {
@@ -55,12 +59,12 @@ export const Shop = (props) => {
 		<div className="pageContent">
 			<Category
 				filterBooks={filterBooks}
-			/>                                                              {/*filtterit*/}
+			/>
 			<Catalog
 				booksToDisplay={booksFromDatabase}
 				loggedIn={props.loggedIn}
 				addToCart={addToCart}
-			/>  {/*tuotteet*/}
+			/>
 		</div>
 	);
 }
