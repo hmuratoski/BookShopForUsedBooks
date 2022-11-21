@@ -12,22 +12,22 @@ import { Database } from '../database/variables.js';
 export const Category = (props) => {
 
 	const [categories, setCategories] = useState([]);
-	const [checked, setChecked] = useState({})
+	const [checked, setChecked] = useState({});
 
-	const checkedCategories = (e) => {
+	const processFilter = (e) => {
 		const value = {
 			...checked,
 			[e.target.name]: e.target.checked,
 		}
 		setChecked(value);
 		
-		var categoriesToGet = []
+		var categoriesToGet = [];
 		for (const key in value) {
 			if(value[key]) {
 				categoriesToGet.push(key);
 			}
 		}
-		var searchTerm = document.getElementById('searchField').value
+		var searchTerm = document.getElementById('searchField').value;
 		props.filterBooks(categoriesToGet, searchTerm);
 	}
 
@@ -53,7 +53,7 @@ export const Category = (props) => {
 				<div className="filterPadding" />
 				<div className="filterWrapper ">
 					<div className="searchFieldWrapper">
-						<input id="searchField" placeholder="Haku" onChange={e => checkedCategories(e)}/>
+						<input id="searchField" placeholder="Haku" onChange={e => processFilter(e)}/>
 					</div>
 					<div id="tagFilter">
 						{categories.map((item, index) => {          //luo elementit jokaiselle kategorialle
@@ -63,7 +63,7 @@ export const Category = (props) => {
 										<input
 											id={`category${item.categoryId}`}
 											name={item.categoryId} type="checkbox"
-											onChange={e => { checkedCategories(e) }}
+											onChange={e => { processFilter(e) }}
 										/>
 									</div>
 									<div className="checkboxTextWrapper">

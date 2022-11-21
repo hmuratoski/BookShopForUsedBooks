@@ -14,13 +14,11 @@ export const Shop = (props) => {
 	const filterBooks = (categoriesToGet, searchTerm) => {
 		var axiosRequest = "?action=getBooks";
 		if (categoriesToGet.length > 0) {
-			axiosRequest += "&categoriesToGet=" + categoriesToGet
+			axiosRequest += "&categoriesToGet=" + categoriesToGet;
 		}
 		if (searchTerm.length > 0) {
-			axiosRequest += "&searchTerm=" + searchTerm
+			axiosRequest += "&searchTerm=" + searchTerm;
 		}
-		
-		console.log(axiosRequest);
 		
 		axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
 			var books = [];                                                             
