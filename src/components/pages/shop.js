@@ -11,8 +11,30 @@ export const Shop = (props) => {
 
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 
+	const filterBooks = (categoriesToGet, searchTerm) => {
+		var axiosRequest = "?action=getBooks";
+		if (categoriesToGet.length > 0) {
+			axiosRequest += "&categoriesToGet=" + categoriesToGet
+		}
+		if (searchTerm.length > 0) {
+			axiosRequest += "&searchTerm=" + searchTerm
+		}
+		
+		console.log(axiosRequest);
+		
+		axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
+			var books = [];                                                             
+			if (response.data.length > 0) {
+				for (var i = 0; i < response.data.length; i++) {
+					books.push(response.data[i]);
+				}
+			}
+			setBooksFromDatabase(books);
+		});
+	}
+
 	useEffect(() => {
-		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {         //filtterin tiedot -> php
+		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
 			var books = [];                                                             
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
@@ -25,8 +47,13 @@ export const Shop = (props) => {
 
 	return (
 		<div className="pageContent">
-			<Category />                                                              {/*filtterit*/}
-			<Catalog booksToDisplay={booksFromDatabase} loggedIn={props.loggedIn} />  {/*tuotteet*/}
+			<Category
+				filterBooks={filterBooks}
+			/>                                                              {/*filtterit*/}
+			<Catalog 
+				booksToDisplay={booksFromDatabase}
+				loggedIn={props.loggedIn} 
+			/>  {/*tuotteet*/}
 		</div>
 	);
 }
