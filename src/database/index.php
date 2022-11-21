@@ -33,7 +33,6 @@
 					}
 					$query = $query . ')';
 				}
-				
 			break;
 			
 			case "getCatProducts":
