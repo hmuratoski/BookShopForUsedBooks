@@ -12,7 +12,7 @@ import { Database } from '../database/variables.js';
 export const Category = (props) => {
 
 	const [categories, setCategories] = useState([]);
-	const [checked, setChecked] = useState({})
+	const [checked, setChecked] = useState({});
 
 	const processFilter = (e) => {
 		const value = {
@@ -21,13 +21,13 @@ export const Category = (props) => {
 		}
 		setChecked(value);
 		
-		var categoriesToGet = []
+		var categoriesToGet = [];
 		for (const key in value) {
 			if(value[key]) {
 				categoriesToGet.push(key);
 			}
 		}
-		var searchTerm = document.getElementById('searchField').value
+		var searchTerm = document.getElementById('searchField').value;
 		props.filterBooks(categoriesToGet, searchTerm);
 	}
 
