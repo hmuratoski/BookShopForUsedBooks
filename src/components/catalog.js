@@ -15,6 +15,7 @@ export const Catalog = (props) => {     //kirjat tulee nyt propsina <-- shop.js
 							<Product
 								loggedIn={props.loggedIn}
 								key={item.bookId}
+								productId={item.bookId}
 								productPrice={item.price}
 								productName={item.bookName}
 								productImage={require(`../images/product/${item.bookId}.png`)}
