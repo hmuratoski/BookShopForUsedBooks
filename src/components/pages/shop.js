@@ -9,7 +9,7 @@ import { Database } from '../../database/variables.js';		//vaihda php-server ext
 //vältä useamman terminaalin avaamista, ettei kehityspalvelin syö tietokannan porttia
 
 export const Shop = (props) => {
-
+	var newItemToCookiesCounter = 1;
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 	const [shoppingCart, setShoppingCart] = useState([]);
 
@@ -38,6 +38,8 @@ export const Shop = (props) => {
 		if (!shoppingCart.includes(id)) {
 			shoppingCart.push(id);
 			console.log("%c Adding product " + id + " to cart         " + shoppingCart, 'color: #22AA22');
+			localStorage.setItem("item" + newItemToCookiesCounter, id);
+			newItemToCookiesCounter += 1;
 		} else {
 			console.log("%c Product already in cart          " + shoppingCart, 'color: #DD2222');
 		}
