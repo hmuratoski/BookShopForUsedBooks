@@ -26,8 +26,12 @@ function App() {
 		var shoppingCart = localStorage.shoppingCart;
 		
 		if (typeof shoppingCart != "undefined") {
-			let obj = JSON.parse(shoppingCart);
-			setItemsInCart(obj.length);
+			try {
+				let obj = JSON.parse(shoppingCart);
+				setItemsInCart(obj.length);
+			} catch {
+				localStorage.removeItem("shoppingCart");
+			}
 		} else {
 			setItemsInCart(0);
 		}

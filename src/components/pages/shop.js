@@ -49,8 +49,13 @@ export const Shop = (props) => {
 
 	useEffect(() => {
 		var shoppingCart = localStorage.shoppingCart;
+		
 		if (typeof shoppingCart != "undefined") {
-			setShoppingCart(JSON.parse(shoppingCart));
+			try {
+				setShoppingCart(JSON.parse(shoppingCart));
+			} catch {
+				localStorage.removeItem("shoppingCart");
+			}
 		}
 
 		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
