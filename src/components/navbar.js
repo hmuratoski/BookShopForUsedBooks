@@ -10,8 +10,6 @@ import { About } from './pages/about'
 
 import '../css/Navbar.css';
 
-
-
 export const Navbar = (props) => {
 	const [showLogin, setShowLogin] = useState(false);
 

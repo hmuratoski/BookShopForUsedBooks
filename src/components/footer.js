@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI.js'
 import '../css/Footer.css';
-import { Team } from '../components/team'
 
 
 export const Footer = () => {
