@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Login.css';
 import { language } from '../locale/FI.js'
