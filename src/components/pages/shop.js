@@ -48,9 +48,10 @@ export const Shop = (props) => {
 	}
 
 	useEffect(() => {
-	
-		var shoppingCart = localStorage.shoppingCart;
-		setShoppingCart(JSON.parse(shoppingCart));
+			var shoppingCart = localStorage.shoppingCart;
+			if (typeof shoppingCart != "undefined") {
+				setShoppingCart(JSON.parse(shoppingCart));
+			}
 	
 		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
 			var books = [];
