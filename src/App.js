@@ -18,10 +18,13 @@ function App() {
 	const [userName, setUserName] = useState('');
 
 	//näitä voi muuttaa
-	const [itemsInCart, setItemsInCart] = useState(5);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
+	const [itemsInCart, setItemsInCart] = useState(0);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
 
 	useEffect(() => {
 		document.title = language.shopName;             //asettaa välilehden titlen
+		var shoppingCart = localStorage.shoppingCart;
+		let obj = JSON.parse(shoppingCart);
+		setItemsInCart(obj.length)
 	})
 
 	return (
@@ -35,6 +38,7 @@ function App() {
 			/>
 			<Header />
 			<Content
+				setItemsInCart={setItemsInCart}
 				loggedIn={loggedIn}
 			/>
 			<Footer />

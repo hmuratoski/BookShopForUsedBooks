@@ -14,8 +14,16 @@ export const Content = (props) => {
 		<Routes>
 			<Route path="/" element={<FrontPage />} />
 			<Route path="/about" element={<About />} />
-			<Route path="/shop" element={<Shop loggedIn={props.loggedIn}/>} />
-			<Route path="/product" element={<ProductPage loggedIn={props.loggedIn} bookId="2"/>} />
+			<Route path="/shop" element={
+				<Shop 
+				loggedIn={props.loggedIn}
+				setItemsInCart={props.setItemsInCart}
+			/>} />
+			<Route path="/product" element={
+				<ProductPage 
+				loggedIn={props.loggedIn}
+				bookId="2"
+			/>} />
 		</Routes>
 	);
 }
