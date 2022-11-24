@@ -4,9 +4,6 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI';
 import { Login } from '../components/login'
-import { Shop } from './pages/shop'
-import { FrontPage } from './pages/frontpage'
-import { About } from './pages/about'
 
 import '../css/Navbar.css';
 
