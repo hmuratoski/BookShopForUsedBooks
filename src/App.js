@@ -21,10 +21,14 @@ function App() {
 	const [itemsInCart, setItemsInCart] = useState(0);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
 
 	useEffect(() => {
+		if (localStorage.shoppingCart === undefined) {
+			localStorage.shoppingCart = [];
+		}	
 		document.title = language.shopName;             //asettaa välilehden titlen
 		var shoppingCart = localStorage.shoppingCart;
+
 		let obj = JSON.parse(shoppingCart);
-		setItemsInCart(obj.length)
+		setItemsInCart(obj.length);
 	})
 
 	return (
