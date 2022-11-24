@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI';
