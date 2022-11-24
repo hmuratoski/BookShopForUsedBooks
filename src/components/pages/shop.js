@@ -34,12 +34,12 @@ export const Shop = (props) => {
 	}
 
 	const addToCart = (e) => {                                      //tuotteen id eventistä (e)
-		
+
 		var id = e.target.id.replace(/\D/g, '');                    //riisutaan kaikki paitsi numerot = tuotteen id
 		if (!shoppingCart.includes(id)) {
 			shoppingCart.push(id);
 			console.log("%c Adding product " + id + " to cart         " + JSON.stringify(shoppingCart), 'color: #22AA22');
-			
+
 			localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
 			props.setItemsInCart(shoppingCart.length);
 		} else {
@@ -48,11 +48,11 @@ export const Shop = (props) => {
 	}
 
 	useEffect(() => {
-			var shoppingCart = localStorage.shoppingCart;
-			if (typeof shoppingCart != "undefined") {
-				setShoppingCart(JSON.parse(shoppingCart));
-			}
-	
+		var shoppingCart = localStorage.shoppingCart;
+		if (typeof shoppingCart != "undefined") {
+			setShoppingCart(JSON.parse(shoppingCart));
+		}
+
 		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
 			var books = [];
 			if (response.data.length > 0) {
