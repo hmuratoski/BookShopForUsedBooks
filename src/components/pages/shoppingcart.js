@@ -6,7 +6,7 @@ import { Database } from '../../database/variables.js';
 import axios from 'axios';
 //ostoskori
 
-export const ShoppingCart = () => {
+export const ShoppingCart = (props) => {
 
 	const [shoppingCart, setShoppingCart] = useState([]);
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
@@ -22,9 +22,12 @@ export const ShoppingCart = () => {
 				setShoppingCart(obj);
 			} catch {
 				localStorage.removeItem("shoppingCart");
+				localStorage.shoppingCart = [];
 			}
 		} else {
 			setShoppingCart([]);
+			localStorage.removeItem("shoppingCart");
+			localStorage.shoppingCart = [];
 		}
 		
 		if (shoppingCart.length > 0) {
@@ -58,11 +61,16 @@ export const ShoppingCart = () => {
 				{booksFromDatabase.map((item) => {
 				console.log(item.price)
 					totalPrice = totalPrice-(-item.price);
-					return (
+					return (            //tähän shoppingcartitem.js ja alla oleva tavara sinne propsina
 						<p key={item.bookId}>{item.bookId} {item.price} {item.bookName} {item.author} {item.year} {item.condition}</p>
 					)
 				})}
 				<p>{language.totalPrice}: {totalPrice}</p>
+				<button onClick={event => {
+					setShoppingCart([]);
+					localStorage.shoppingCart = [];
+					props.setItemsInCart(0);
+				}}>{language.emptyCart}</button>
 			</div>
 		);
 	}

@@ -55,6 +55,7 @@ export const Shop = (props) => {
 				setShoppingCart(JSON.parse(shoppingCart));
 			} catch {
 				localStorage.removeItem("shoppingCart");
+				localStorage.shoppingCart = [];
 			}
 		}
 

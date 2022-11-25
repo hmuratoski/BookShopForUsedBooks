@@ -31,6 +31,7 @@ function App() {
 				setItemsInCart(obj.length);
 			} catch {
 				localStorage.removeItem("shoppingCart");
+				localStorage.shoppingCart = [];
 			}
 		} else {
 			setItemsInCart(0);

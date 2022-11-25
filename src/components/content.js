@@ -25,7 +25,9 @@ export const Content = (props) => {
 				loggedIn={props.loggedIn}
 				bookId="2"
 			/>} />
-			<Route path="/cart" element={<ShoppingCart />} />
+			<Route path="/cart" element={
+			<ShoppingCart setItemsInCart={props.setItemsInCart} />
+			} />
 		</Routes>
 	);
 }
