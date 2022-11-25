@@ -14,6 +14,7 @@ export const language = {
 	emptyCart: "Tyhjennä ostoskori",
 	
 	productDetails: "Tietoja",
+	back: "Takaisin",
 	
 	loginTitle: "Kirjaudu",
 	loginMessage: "Kirjaudu sisään"

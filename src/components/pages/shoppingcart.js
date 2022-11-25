@@ -77,7 +77,7 @@ export const ShoppingCart = (props) => {
 				{booksFromDatabase.map((item) => {
 					totalPrice = totalPrice - (-item.price);
 					return (            //tähän shoppingcartitem.js ja alla oleva tavara sinne propsina
-					<div key={item.bookId}>
+					<div key={item.bookId} style={{display: "flex"}}>
 						<p>{item.bookId} {item.price} {item.bookName} {item.author} {item.year} {item.condition}</p><button onClick={event => removeItem(item.bookId)}>X</button>
 					</div>
 					)

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../locale/FI.js'
 import '../css/Product.css';
 import { Condition } from './condition';
-import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 //yksittäisen tuotteen komponentti, käytettään Catalogissa tuotteiden näyttämiseen
@@ -32,7 +32,7 @@ export const Product = (props) => {
 						</div>
 					</div>
 					<div className="card-footer p-3 pt-0 border-top-0 bg-transparent productButtonWrapper flex-container">
-						<div className="text-center"><a className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" href="#">{language.productDetails}</a></div>
+							<NavLink to={`/product?${props.productId}`}><div className="text-center"><span className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" >{language.productDetails}</span></div></NavLink>
 						<div className="text-center"><a className="btn btn-outline-dark mt-auto cartButton productButton flex-child" id={`cart${props.productId}`} onClick={e => props.addToCart(e)}><img className="cartIcon" src={require('../images/cart.png')} /></a></div>
 					</div>
 				</div>

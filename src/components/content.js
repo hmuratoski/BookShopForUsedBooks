@@ -23,7 +23,6 @@ export const Content = (props) => {
 			<Route path="/product" element={
 				<ProductPage 
 				loggedIn={props.loggedIn}
-				bookId="2"
 			/>} />
 			<Route path="/cart" element={
 			<ShoppingCart setItemsInCart={props.setItemsInCart} />
