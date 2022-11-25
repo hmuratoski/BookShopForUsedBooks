@@ -23,17 +23,18 @@ function App() {
 	useEffect(() => {
 
 		document.title = language.shopName;             //asettaa välilehden titlen
-		var shoppingCart = localStorage.shoppingCart;
+		var cookie = localStorage.shoppingCart;
 		
-		if (typeof shoppingCart != "undefined") {
+		if (cookie) {
 			try {
-				let obj = JSON.parse(shoppingCart);
+				let obj = JSON.parse(cookie);
 				setItemsInCart(obj.length);
 			} catch {
 				localStorage.removeItem("shoppingCart");
 				localStorage.shoppingCart = [];
 			}
 		} else {
+			localStorage.shoppingCart = [];
 			setItemsInCart(0);
 		}
 

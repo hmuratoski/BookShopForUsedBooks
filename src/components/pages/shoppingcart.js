@@ -10,15 +10,14 @@ export const ShoppingCart = (props) => {
 
 	const [shoppingCart, setShoppingCart] = useState([]);
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
-	
+
 	useEffect(() => {
-	
-		var shoppingCart = localStorage.shoppingCart;
-		
-		if (typeof shoppingCart != "undefined") {
+
+		var cookie = localStorage.shoppingCart;
+
+		if (cookie) {
 			try {
-				console.log("Ostoskori: " + shoppingCart);
-				let obj = JSON.parse(shoppingCart);
+				let obj = JSON.parse(cookie);
 				setShoppingCart(obj);
 			} catch {
 				localStorage.removeItem("shoppingCart");
@@ -29,26 +28,43 @@ export const ShoppingCart = (props) => {
 			localStorage.removeItem("shoppingCart");
 			localStorage.shoppingCart = [];
 		}
-		
-		if (shoppingCart.length > 0) {
-			var axiosRequest = "?action=getBooks";
-				axiosRequest += "&bookIds=" + JSON.parse(shoppingCart);
 
-	
-			axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
-				var books = [];
-				if (response.data.length > 0) {
-					for (var i = 0; i < response.data.length; i++) {
-						books.push(response.data[i]);
+		if (cookie) {
+			if (JSON.parse(cookie).length > 0) {
+				var axiosRequest = "?action=getBooks";
+				axiosRequest += "&bookIds=" + JSON.parse(cookie);
+				axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
+					var books = [];
+					if (response.data.length > 0) {
+						for (var i = 0; i < response.data.length; i++) {
+							books.push(response.data[i]);
+						}
 					}
-				}
-				console.log(books)
-				setBooksFromDatabase(books);
-			});
+					console.log(books)
+					setBooksFromDatabase(books);
+				});
+			}
 		}
 	}, [])
 	
-	if (shoppingCart.length == 0) {
+	const removeItem = (id) => {
+		const index = shoppingCart.indexOf(id);
+		const newCart = shoppingCart;
+		newCart.splice(index, 1);
+		setShoppingCart(newCart);
+		localStorage.shoppingCart = JSON.stringify(newCart);
+		
+		for (var i = booksFromDatabase.length - 1; i >= 0; --i) {
+			if (booksFromDatabase[i].bookId == id) {
+				booksFromDatabase.splice(i,1);
+			}
+		}
+		props.setItemsInCart(booksFromDatabase.length);
+		console.log("setting length: " + booksFromDatabase.length)
+	}
+	
+	console.log(booksFromDatabase);
+	if (booksFromDatabase.length == 0) {
 		return (
 			<div>
 				{language.shoppingCartEmpty}
@@ -59,10 +75,11 @@ export const ShoppingCart = (props) => {
 		return (
 			<div>
 				{booksFromDatabase.map((item) => {
-				console.log(item.price)
-					totalPrice = totalPrice-(-item.price);
+					totalPrice = totalPrice - (-item.price);
 					return (            //tähän shoppingcartitem.js ja alla oleva tavara sinne propsina
-						<p key={item.bookId}>{item.bookId} {item.price} {item.bookName} {item.author} {item.year} {item.condition}</p>
+					<div key={item.bookId}>
+						<p>{item.bookId} {item.price} {item.bookName} {item.author} {item.year} {item.condition}</p><button onClick={event => removeItem(item.bookId)}>X</button>
+					</div>
 					)
 				})}
 				<p>{language.totalPrice}: {totalPrice}</p>
@@ -75,3 +92,4 @@ export const ShoppingCart = (props) => {
 		);
 	}
 }
+

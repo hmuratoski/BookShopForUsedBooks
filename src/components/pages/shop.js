@@ -48,15 +48,20 @@ export const Shop = (props) => {
 	}
 
 	useEffect(() => {
-		var shoppingCart = localStorage.shoppingCart;
+		var cookie = localStorage.shoppingCart;
 		
-		if (typeof shoppingCart != "undefined") {
+		if (cookie) {
 			try {
-				setShoppingCart(JSON.parse(shoppingCart));
+				let obj = JSON.parse(cookie);
+				props.setItemsInCart(obj.length);
+				setShoppingCart(obj);
 			} catch {
 				localStorage.removeItem("shoppingCart");
 				localStorage.shoppingCart = [];
 			}
+		} else {
+			localStorage.shoppingCart = [];
+			props.setItemsInCart(0);
 		}
 
 		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
