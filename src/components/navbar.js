@@ -48,12 +48,13 @@ export const Navbar = (props) => {
 							:
 							<button className="btn btn-outline-dark" type="button" onClick={event => props.setLoggedIn(false)} >{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
 						}
-
+						<NavLink to="cart">
 						<button className="btn btn-outline-dark cartButton" type="submit">
 							<i className="bi-cart-fill me-1"></i>
 							<img className="cartIcon" src={require('../images/cart.png')} />
 							<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 						</button>
+						</NavLink>
 					</form>
 				</div>
 			</nav>

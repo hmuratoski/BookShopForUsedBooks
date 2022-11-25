@@ -9,6 +9,7 @@ export const language = {
 	condition: "Kunto",
 	
 	shoppingCart: "Ostoskori",
+	shoppingCartEmpty: "Ei tuotteita",
 	
 	productDetails: "Tietoja",
 	
