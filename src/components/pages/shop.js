@@ -9,7 +9,7 @@ import { Database } from '../../database/variables.js';		//vaihda php-server ext
 //vältä useamman terminaalin avaamista, ettei kehityspalvelin syö tietokannan porttia
 
 export const Shop = (props) => {
-	var newItemToCookiesCounter = 1;
+
 	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 	const [shoppingCart, setShoppingCart] = useState([]);
 

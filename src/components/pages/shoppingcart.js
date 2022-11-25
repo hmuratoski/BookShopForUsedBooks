@@ -2,12 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { language } from '../../locale/FI.js'
-
+import { Database } from '../../database/variables.js';
+import axios from 'axios';
 //ostoskori
 
 export const ShoppingCart = () => {
 
 	const [shoppingCart, setShoppingCart] = useState([]);
+	const [booksFromDatabase, setBooksFromDatabase] = useState([]);
 	
 	useEffect(() => {
 	
@@ -26,7 +28,20 @@ export const ShoppingCart = () => {
 		}
 		
 		if (shoppingCart.length > 0) {
-		//tässä haetaan tarvittavat tiedot tuotteista tietokannasta, laitetaan kaikki näytettävät tiedot menemään propsina -> shoppingcartitem.js
+			var axiosRequest = "?action=getBooks";
+				axiosRequest += "&bookIds=" + JSON.parse(shoppingCart);
+
+	
+			axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
+				var books = [];
+				if (response.data.length > 0) {
+					for (var i = 0; i < response.data.length; i++) {
+						books.push(response.data[i]);
+					}
+				}
+				console.log(books)
+				setBooksFromDatabase(books);
+			});
 		}
 	}, [])
 	
@@ -37,13 +52,17 @@ export const ShoppingCart = () => {
 			</div>
 		);
 	} else {
+		var totalPrice = 0;
 		return (
 			<div>
-				{shoppingCart.map((item) => {
+				{booksFromDatabase.map((item) => {
+				console.log(item.price)
+					totalPrice = totalPrice-(-item.price);
 					return (
-						<h2>tuote {item}</h2>
+						<p key={item.bookId}>{item.bookId} {item.price} {item.bookName} {item.author} {item.year} {item.condition}</p>
 					)
 				})}
+				<p>{language.totalPrice}: {totalPrice}</p>
 			</div>
 		);
 	}

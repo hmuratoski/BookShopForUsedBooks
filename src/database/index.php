@@ -14,25 +14,28 @@
 				if (
 					isset($_GET["categoriesToGet"]) ||
 					isset($_GET["searchTerm"])
-					) {
-						$query = $query . ' WHERE (';
-						
-								if (isset($_GET["searchTerm"])) {
-									$query = $query . "(bookName LIKE '%" . $_GET["searchTerm"] . "%' OR ";
-									$query = $query . "author LIKE '%" . $_GET["searchTerm"] . "%' OR ";
-									$query = $query . "year LIKE '%" . $_GET["searchTerm"] . "%')";
-								}
-						
-						if (isset($_GET["categoriesToGet"]) && (isset($_GET["searchTerm"]))) {
-							$query = $query . " AND ";
-						}
-						
-								if (isset($_GET["categoriesToGet"])) {
-									$query = $query . "categoryId IN (" . $_GET["categoriesToGet"] . ")" ;
-								}
-						
-						$query = $query . ')';
+				) {
+					$query = $query . ' WHERE (';
+					
+							if (isset($_GET["searchTerm"])) {
+								$query = $query . "(bookName LIKE '%" . $_GET["searchTerm"] . "%' OR ";
+								$query = $query . "author LIKE '%" . $_GET["searchTerm"] . "%' OR ";
+								$query = $query . "year LIKE '%" . $_GET["searchTerm"] . "%')";
+							}
+					
+					if (isset($_GET["categoriesToGet"]) && (isset($_GET["searchTerm"]))) {
+						$query = $query . " AND ";
 					}
+					
+							if (isset($_GET["categoriesToGet"])) {
+								$query = $query . "categoryId IN (" . $_GET["categoriesToGet"] . ")" ;
+							}
+					
+					$query = $query . ')';
+				} else if (isset($_GET["bookIds"])) {
+					$query = $query . ' WHERE (';
+					$query = $query . "bookId IN (" . $_GET["bookIds"] . "))" ;
+				}
 			break;
 			
 			case "getCatProducts":

@@ -10,6 +10,7 @@ export const language = {
 	
 	shoppingCart: "Ostoskori",
 	shoppingCartEmpty: "Ei tuotteita",
+	totalPrice: "Kokonaishinta",
 	
 	productDetails: "Tietoja",
 	
