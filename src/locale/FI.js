@@ -13,6 +13,11 @@ export const language = {
 	totalPrice: "Kokonaishinta",
 	emptyCart: "Tyhjennä ostoskori",
 	
+	productId: "Tuotenumero",
+	product: "Tuote",
+	price: "hinta",
+	remove: "poista",
+	
 	productDetails: "Tietoja",
 	back: "Takaisin",
 	

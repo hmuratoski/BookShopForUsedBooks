@@ -1,0 +1,14 @@
+tr > th {
+	background-color: #9C9C9C;
+	border: solid 1px black;
+	text-align: center;
+}
+
+td {
+	border: solid 1px black;
+	text-align: center;
+}
+
+td > button {
+	width: 100%;
+}
