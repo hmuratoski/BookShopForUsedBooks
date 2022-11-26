@@ -62,3 +62,25 @@ html {
 .bookDetails {
 	padding-top: 7px;
 }
+
+/* unvisited link */
+a:link {
+	color: #444444;
+  }
+  
+  /* visited link */
+  a:visited {
+	color: #444444;
+  }
+  
+  /* mouse over link */
+  a:hover {
+	color: #444444;
+	text-shadow: #0000007a 1px 0 15px;
+  }
+  
+  /* selected link */
+  a:active {
+	color: #444444;
+	text-shadow: #000000FF 1px 0 8px;
+  }

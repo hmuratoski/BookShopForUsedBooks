@@ -34,6 +34,10 @@
 	pointer-events: none
 }
 
+.cartButton {
+	transition: 0.5s;
+}
+
 .cartButton > img {
 	filter: invert(0);
 	transition: 0.2s;
@@ -47,6 +51,7 @@
 
 .cartButton:active {
 	filter: brightness(0.7) sepia(.5) hue-rotate(100deg) saturate(500%);
+	transition: 0s;
 }
 
 
