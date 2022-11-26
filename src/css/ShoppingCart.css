@@ -1,14 +1,33 @@
 tr > th {
-	background-color: #9C9C9C;
 	border: solid 1px black;
+	border-radius: 5px;
 	text-align: center;
 }
 
+
+
 td {
-	border: solid 1px black;
+	border: solid 1px rgb(100, 100, 100);
+	border-radius: 5px;
+	text-align: center;
 	text-align: center;
 }
 
 td > button {
 	width: 100%;
 }
+
+table {
+    border-collapse:separate;
+
+    border:solid black 1px;
+    border-radius:6px;
+}
+
+
+td > button {
+	border-radius: 5px;
+	border: 0;
+	background-color: rgba(1, 1, 1, 0)
+}
+
