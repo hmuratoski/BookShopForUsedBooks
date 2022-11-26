@@ -11,7 +11,6 @@ export const ShoppingCartItem = (props) => {
 			<td><Condition condition={props.condition}/></td>
 			<td>{props.price}€</td>
 			<td><button onClick={event => props.removeItem(props.bookId)}>X</button></td>
-		
 		</tr>
 	)
 }

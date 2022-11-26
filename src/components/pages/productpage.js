@@ -63,7 +63,7 @@ export const ProductPage = (props) => {
 	if (bookDetails.length > 0) {
 		return (
 			<div className="container">
-			<NavLink to="/shop"><div className="text-center"><span className="btn btn-outline-dark mt-auto bookDetails productButton flex-child">{language.back}</span></div></NavLink>
+			<div className="text-center"><span className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" onClick={e => navigate(-1)}>{language.back}</span></div>
 				<div className="row">
 					<div className="col-xs-4 item-photo">
 						<img style={{width: "30%"}} src={require(`../../images/product/${bookDetails[0].bookId}.png`)} /> 

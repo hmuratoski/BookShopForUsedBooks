@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Login.css';
 import { language } from '../locale/FI.js'
+import { NavLink } from 'react-router-dom';
 
 //toast -tyyppinen kirjautumisruutu
 	//hyväksyy tällähetkellä minkä tahansa käyttäjänimen testikirjautumiseen
@@ -26,9 +27,18 @@ export const Login = (props) => {
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
 				<div className="toast-body">
-					<input className="toastInput" id="userName"/><br/>
-					<input className="toastInput"/><br/>
+					<input className="toastInput" id="userName" placeholder={language.userName}/><br/>
+					<input className="toastInput" id="password" type="password" placeholder={language.password}/><br/>
 					<button className="btn btn-secondary loginButton" onClick={testLogin}>{language.loginTitle}</button>
+					<NavLink 
+						style={{
+							right: "15px", 
+							position: "absolute", 
+							paddingTop: "10px"
+						}} 
+						to="/register" 
+						onClick={event => props.setShowLogin(false)}
+					>{language.register}</NavLink>
 				</div>
 			</div>
 		</div>
