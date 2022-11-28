@@ -26,11 +26,6 @@ export const Team = () => {
 				<h6>Säkkinen</h6>
 				<img className="profileImage" src={require('../images/team/unknown.png')}/>
 			</div>
-			<div className="profile">
-				<h6>Joku</h6>
-				<h6>Jäbä</h6>
-				<img className="profileImage" src={require('../images/team/unknown.png')}/>
-			</div>
 		</div>
 	);
 }
