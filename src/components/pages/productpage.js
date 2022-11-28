@@ -61,12 +61,20 @@ export const ProductPage = (props) => {
 	}, []);
 
 	if (bookDetails.length > 0) {
+		let src;
+		try {
+			src = require(`../../images/product/${bookDetails[0].bookId}.png`);
+		}
+		catch {
+			let randomNumber = Math.floor(Math.random() * (5 - 1 + 1) + 1)
+			src = require(`../../images/product/product${randomNumber}.png`);          //jos tuotekuva puuttuu, laitetaan random placeholderi tilalle
+		}
 		return (
 			<div className="container">
 			<div className="text-center"><span className="btn btn-outline-dark mt-auto bookDetails productButton flex-child" onClick={e => navigate(-1)}>{language.back}</span></div>
 				<div className="row">
 					<div className="col-xs-4 item-photo">
-						<img style={{width: "30%"}} src={require(`../../images/product/${bookDetails[0].bookId}.png`)} /> 
+						<img style={{width: "30%"}} src={src} /> 
 					</div>
 					<div className="col-xs-5">
 						<h3>{bookDetails[0].bookName}</h3>
