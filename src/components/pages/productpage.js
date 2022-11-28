@@ -6,7 +6,7 @@ import '../../css/ProductPage.css';
 import { Condition } from '../condition';
 import { language } from '../../locale/FI';
 import { Database } from '../../database/variables.js';
-import { useLocation, NavLink, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 //yksittäisen tuotteen tarkempi sivu tuotetta klikattaessa
 
