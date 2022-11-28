@@ -77,18 +77,22 @@ export const ShoppingCart = (props) => {
 		return (
 			<div className="container mt-2">
 				<table>
-					<tr>
-						<th style={{width: "30px"}}>#</th>
-						<th style={{width: "250px"}}>{language.product}</th>
-						<th style={{width: "50px"}}>{language.condition}</th>
-						<th>{language.price}</th>
-						<th>{language.remove}</th>
-					</tr>
+					<thead>
+						<tr>
+							<th style={{ width: "30px" }}>#</th>
+							<th style={{ width: "250px" }}>{language.product}</th>
+							<th style={{ width: "50px" }}>{language.condition}</th>
+							<th>{language.price}</th>
+							<th>{language.remove}</th>
+						</tr>
+					</thead>
 
-					{booksFromDatabase.map((item) => {
-						totalPrice = totalPrice - (-item.price);
-						return (            //tähän shoppingcartitem.js ja alla oleva tavara sinne propsina
+					<tbody>
+						{booksFromDatabase.map((item) => {
+							totalPrice = totalPrice - (-item.price);
+							return (            //tähän shoppingcartitem.js ja alla oleva tavara sinne propsina
 								<ShoppingCartItem
+									key={item.bookId}
 									bookId={item.bookId}
 									price={item.price}
 									name={item.bookName}
@@ -97,13 +101,16 @@ export const ShoppingCart = (props) => {
 									condition={item.condition}
 									removeItem={removeItem}
 								/>
-							
-						)
-					})}
+
+							)
+						})}
+					</tbody>
 				</table>
 				<p>{language.totalPrice}: {totalPrice}</p>
 				<button onClick={event => {
 					setShoppingCart([]);
+					setBooksFromDatabase([]);
+					localStorage.removeItem("shoppingCart");
 					localStorage.shoppingCart = [];
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
