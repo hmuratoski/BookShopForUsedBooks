@@ -32,10 +32,9 @@ export const Navbar = (props) => {
 
 	return (
 		<div className="navbarWrapper">
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<nav className="navbar navbar-expand navbar-light bg-light">
 				<div className="container px-4 px-lg-5">
-					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<div className="" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 							<li className="nav-item"><NavLink to="/" className="nav-link" aria-current="page">{language.navHome}</NavLink></li>
 							<li className="nav-item"><NavLink to="/shop" className="nav-link">{language.navShop}</NavLink></li>
