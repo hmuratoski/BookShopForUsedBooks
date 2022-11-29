@@ -21,7 +21,7 @@ export const language = {
 	userName: "Käyttäjänimi",
 	password: "Salasana",
 
-	fname: "Etunimi",	//	const fields = ['fname', 'lname', 'address', 'postalcode', 'city', 'email', 'phone']
+	fname: "Etunimi",
 	lname: "Sukunimi",
 	address: "Osoite",
 	postalcode: "Postinro",
