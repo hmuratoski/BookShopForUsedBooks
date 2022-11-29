@@ -9,19 +9,17 @@ import { language } from '../../locale/FI';
 
 export const OrderDetails = () => {
 
-	const fields = ['fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
-	const types = ['text',		'text',		'text',		'number',		'text',	'text',		'number']
-	const length = ['255',		'255',		'255',		'5',			'35',	'255',	'10']
+	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
+	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
+	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',	'10']
 
 	const [data, setData] = useState({})
 
 	const updateData = (e) => {
 		var err = 0;
-		console.log(length[fields.indexOf(e.target.name)])
-		console.log(e.target.value.length)
-		if (e.target.value.length > length[fields.indexOf(e.target.name)]) {
+		if (e.target.value.length > lengthreq[fields.indexOf(e.target.name)]) {
 			err++
-			e.target.value = e.target.value.slice(0, length[fields.indexOf(e.target.name)])
+			e.target.value = e.target.value.slice(0, lengthreq[fields.indexOf(e.target.name)])
 		} 
 		
 		if (e.target.value.length == 0) {
@@ -37,14 +35,14 @@ export const OrderDetails = () => {
 					e.target.style.borderColor = "green"
 				}
 		} else if (e.target.name == "phone") {
-			if (e.target.value.length != 10) {
+			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
 				err++;
 				e.target.style.borderColor = "red"
 			} else {
 				e.target.style.borderColor = "green"
 			}
 		} else if (e.target.name == "postalcode") {
-			if (e.target.value.length != 5) {
+			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
 				err++;
 				e.target.style.borderColor = "red"
 			} else {
