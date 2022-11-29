@@ -106,8 +106,8 @@ export const ShoppingCart = (props) => {
 						})}
 					</tbody>
 				</table>
-				<p>{language.totalPrice}: {totalPrice}</p>
-				<button onClick={event => {
+				<p className='pricetag'>{language.totalPrice}: {totalPrice}</p>
+				<button className='removeB'  onClick={event => {
 					setShoppingCart([]);
 					setBooksFromDatabase([]);
 					localStorage.removeItem("shoppingCart");
