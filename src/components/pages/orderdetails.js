@@ -25,7 +25,7 @@ export const OrderDetails = (props) => {
 		setInputs(values => ({ ...values, [postalcode]: values }))
 		setInputs(values => ({ ...values, [city]: values }))
 		setInputs(values => ({ ...values, [email]: values }))
-		setInputs(values => ({ ...values, [phone]: values}))
+		setInputs(values => ({ ...values, [phone]: values }))
 
 	}
 
@@ -39,69 +39,69 @@ export const OrderDetails = (props) => {
 
 
 		<div>
-			<div class="flex-container">
-			<form onSubmit={handleSubmit}>
-			<div>
-				<label>First name:
-					<input
-						type="text"
-						name="fname"
-						value={inputs.fname || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>Last name:
-					<input
-						type="text"
-						name="lname"
-						value={inputs.lname || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>Address:
-					<input
-						type="text"
-						name="address"
-						value={inputs.address || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>Postla code:
-					<input
-						type="text"
-						name="postalcode"
-						value={inputs.postalcode || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				</div>
-				<label>City:
-					<input
-						type="text"
-						name="city"
-						value={inputs.city || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>Email:
-					<input
-						type="text"
-						name="email"
-						value={inputs.email || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>Phone:
-					<input
-						type="text"
-						name="phone"
-						value={inputs.phone || ""}
-						onChange={handleChange}
-					/>
-				</label>
-				
-				<input type="submit" />
-			</form>
+			<div class="container mt-2">
+				<form onSubmit={handleSubmit}>
+
+					<label>First name:
+						<input
+							type="text"
+							name="fname"
+							value={inputs.fname || ""}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>Last name:
+						<input
+							type="text"
+							name="lname"
+							value={inputs.lname || ""}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>Address:
+						<input
+							type="text"
+							name="address"
+							value={inputs.address || ""}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>Postla code:
+						<input
+							type="text"
+							name="postalcode"
+							value={inputs.postalcode || ""}
+							onChange={handleChange}
+						/>
+					</label>
+
+					<label>City:
+						<input
+							type="text"
+							name="city"
+							value={inputs.city || ""}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>Email:
+						<input
+							type="text"
+							name="email"
+							value={inputs.email || ""}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>Phone:
+						<input
+							type="text"
+							name="phone"
+							value={inputs.phone || ""}
+							onChange={handleChange}
+						/>
+					</label>
+
+					<input type="submit" />
+				</form>
 			</div>
 		</div>
 	);
