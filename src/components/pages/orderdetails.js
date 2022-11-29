@@ -11,7 +11,7 @@ export const OrderDetails = () => {
 
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
-	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',	'10']
+	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
 	const [data, setData] = useState({})
 
