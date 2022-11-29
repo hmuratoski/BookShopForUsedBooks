@@ -26,7 +26,7 @@ export const OrderDetails = () => {
 
 	return (
 		<div>
-			<div className="container mt-2">
+			<div className="container1 mt-2">
 				<form>
 					{fields.map((item) => {
 						return (
@@ -41,7 +41,7 @@ export const OrderDetails = () => {
 						)
 					})}
 				</form>
-				<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button>	{/* pitää muuttaa myöhemmin */}
+				<button className='sendB' type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button>	{/* pitää muuttaa myöhemmin */}
 			</div>
 		</div>
 	);
