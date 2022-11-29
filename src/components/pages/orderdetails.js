@@ -2,106 +2,48 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Orderdetails.css';
 import { useState } from 'react';
+import { language } from '../../locale/FI';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
 
-export const OrderDetails = (props) => {
+export const OrderDetails = () => {
 
-	const [inputs, setInputs] = useState({});
+	const fields = ['fname', 'lname', 'address', 'postalcode', 'city', 'email', 'phone']
+	const [data, setData] = useState({})
 
-	const handleChange = (event) => {
-		const fname = event.target.fname;
-		const lname = event.target.lname;
-		const address = event.target.address;
-		const postalcode = event.target.postalcode;
-		const city = event.target.city;
-		const email = event.target.email;
-		const phone = event.target.phone;
-
-		setInputs(values => ({ ...values, [fname]: values }))
-		setInputs(values => ({ ...values, [lname]: values }))
-		setInputs(values => ({ ...values, [address]: values }))
-		setInputs(values => ({ ...values, [postalcode]: values }))
-		setInputs(values => ({ ...values, [city]: values }))
-		setInputs(values => ({ ...values, [email]: values }))
-		setInputs(values => ({ ...values, [phone]: values }))
-
+	const updateData = (e) => {
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		})
 	}
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		alert(inputs);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(data)
 	}
-
 
 	return (
 
 
 		<div>
-			<div class="container mt-2">
-				<form onSubmit={handleSubmit}>
-
-					<label>First name:
-						<input
-							type="text"
-							name="fname"
-							value={inputs.fname || ""}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>Last name:
-						<input
-							type="text"
-							name="lname"
-							value={inputs.lname || ""}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>Address:
-						<input
-							type="text"
-							name="address"
-							value={inputs.address || ""}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>Postla code:
-						<input
-							type="text"
-							name="postalcode"
-							value={inputs.postalcode || ""}
-							onChange={handleChange}
-						/>
-					</label>
-
-					<label>City:
-						<input
-							type="text"
-							name="city"
-							value={inputs.city || ""}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>Email:
-						<input
-							type="text"
-							name="email"
-							value={inputs.email || ""}
-							onChange={handleChange}
-						/>
-					</label>
-					<label>Phone:
-						<input
-							type="text"
-							name="phone"
-							value={inputs.phone || ""}
-							onChange={handleChange}
-						/>
-					</label>
-
-					<input type="submit" />
+			<div className="container mt-2">
+				<form>
+					{fields.map((item) => {
+						return (
+							<div key={item}>
+								<label>{`${language[item]}`}</label>
+								<input
+									type="text"
+									name={item}
+									onChange={updateData}
+								/>
+							</div>
+						)
+					})}
 				</form>
+				<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button>	{/* pitää muuttaa myöhemmin */}
 			</div>
 		</div>
 	);

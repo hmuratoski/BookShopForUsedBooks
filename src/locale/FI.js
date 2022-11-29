@@ -21,6 +21,15 @@ export const language = {
 	userName: "Käyttäjänimi",
 	password: "Salasana",
 
+	fname: "Etunimi",	//	const fields = ['fname', 'lname', 'address', 'postalcode', 'city', 'email', 'phone']
+	lname: "Sukunimi",
+	address: "Osoite",
+	postalcode: "Postinro",
+	city: "Kaupunki",
+	email: "Sähköposti",
+	phone: "Puhelin",
+	submit: "Lähetä",
+
 	productDetails: "Tietoja",
 	back: "Takaisin",
 	
