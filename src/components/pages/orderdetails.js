@@ -25,8 +25,6 @@ export const OrderDetails = () => {
 	}
 
 	return (
-
-
 		<div>
 			<div className="container mt-2">
 				<form>
