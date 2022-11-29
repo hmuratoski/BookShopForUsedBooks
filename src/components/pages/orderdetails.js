@@ -13,58 +13,73 @@ export const OrderDetails = () => {
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
 	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
-	const [data, setData] = useState({})
+	const [data, setData] = useState({});
+
+	const [err, setErr] = useState(0);
+
 
 	const updateData = (e) => {
-		var err = 0;
+		var errs = 0
 		if (e.target.value.length > lengthreq[fields.indexOf(e.target.name)]) {
-			err++
 			e.target.value = e.target.value.slice(0, lengthreq[fields.indexOf(e.target.name)])
 		} 
 		
 		if (e.target.value.length == 0) {
 			e.target.style.borderColor = "red"
-			err++;
-		} else if (e.target.name == "email") {
+			errs++;
+		} else {
+			e.target.style.borderColor = "green"
+		}
+		if (e.target.name == "email") {
 			if (!e.target.value.includes("@") ||
 				!e.target.value.includes(".")) {
-					err++;
-					console.log("email invalid");
+					errs++;
 					e.target.style.borderColor = "red"
 				} else {
 					e.target.style.borderColor = "green"
 				}
 		} else if (e.target.name == "phone") {
 			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
-				err++;
+				errs++;
 				e.target.style.borderColor = "red"
 			} else {
 				e.target.style.borderColor = "green"
 			}
 		} else if (e.target.name == "postalcode") {
 			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
-				err++;
+				errs++;
 				e.target.style.borderColor = "red"
 			} else {
 				e.target.style.borderColor = "green"
 			}
 		}
 
-		if (err == 0) {
+		if (errs == 0) {
 			setData({
 				...data,
 				[e.target.name]: e.target.value
+			})
+		} else {
+			setData({
+				...data,
+				[e.target.name]: ""
 			})
 		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		var errs = 0;
 		for (var i = 0; i < fields.length; i++) {
-			if (!data[fields[i]]) {
-				console.log(fields[i] + " missing")
+			if (!data[fields[i]] || data[fields[i]] == "") {
+				errs++;
+				console.log(fields[i] + " missing or invalid:");
+				console.log(data);
 				i = fields.length;
 			}
+		}
+		if (errs == 0) {
+			console.log("all fields seem ok")
 		}
 	}
 
