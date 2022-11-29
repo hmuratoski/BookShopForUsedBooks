@@ -1,12 +1,13 @@
-.container1{
+.container1 {
     width: 200px; 
     text-align: left;
     display: table-cell;
     margin: auto;
     display: block;
  }
- .sendB{
-margin-top: 10px;
+button[type="submit"] {
+    margin-top: 10px;
+    border-radius: 5px;
  }
 
  
