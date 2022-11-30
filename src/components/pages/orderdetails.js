@@ -16,17 +16,12 @@ export const OrderDetails = (props) => {
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
 	const lengthmax = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
-	const [fieldData, setFieldData] = useState([]);
-
 	const [data, setData] = useState({});
 	const location = useLocation();
 
-
 	useEffect(() => {
 	  	if (props.loggedIn) {
-			console.log("on kirjauduttu, esitäytetään formi");
 			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
-				setFieldData(response.data[0]);
 				setData(response.data[0]);
 				for (var i = 0; i < fields.length; i++) {
 					document.getElementById(fields[i]).value = response.data[0][fields[i]];
@@ -92,7 +87,6 @@ export const OrderDetails = (props) => {
 			if (!data[fields[i]] || data[fields[i]] == "") {
 				errs++;
 				console.log(fields[i] + " missing or invalid:");
-				console.log(data);
 				i = fields.length;
 			}
 		}
