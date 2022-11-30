@@ -5,6 +5,7 @@ import { language } from '../../locale/FI.js'
 import { Database } from '../../database/variables.js';
 import { ShoppingCartItem } from '../shoppingcartitem.js';
 import '../../css/ShoppingCart.css';
+import { NavLink } from "react-router-dom"
 import axios from 'axios';
 //ostoskori
 
@@ -114,6 +115,8 @@ export const ShoppingCart = (props) => {
 					localStorage.shoppingCart = [];
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
+				<NavLink to="../orderdetails"> <button className='orderB'>{language.orderCart} 
+				  </button></NavLink>
 			</div>
 		);
 	}
