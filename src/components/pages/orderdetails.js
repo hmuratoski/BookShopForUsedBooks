@@ -12,7 +12,7 @@ export const OrderDetails = (props) => {
 
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
-	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
+	const lengthmax = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
 	const [data, setData] = useState({});
 	const location = useLocation();
@@ -26,8 +26,8 @@ export const OrderDetails = (props) => {
 
 	const updateData = (e) => {
 		var errs = 0
-		if (e.target.value.length > lengthreq[fields.indexOf(e.target.name)]) {
-			e.target.value = e.target.value.slice(0, lengthreq[fields.indexOf(e.target.name)])
+		if (e.target.value.length > lengthmax[fields.indexOf(e.target.name)]) {
+			e.target.value = e.target.value.slice(0, lengthmax[fields.indexOf(e.target.name)])
 		} 
 		
 		if (e.target.value.length == 0) {
@@ -45,14 +45,14 @@ export const OrderDetails = (props) => {
 					e.target.style.borderColor = "green"
 				}
 		} else if (e.target.name == "phone") {
-			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
+			if (e.target.value.length != lengthmax[fields.indexOf(e.target.name)]) {
 				errs++;
 				e.target.style.borderColor = "red"
 			} else {
 				e.target.style.borderColor = "green"
 			}
 		} else if (e.target.name == "postalcode") {
-			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
+			if (e.target.value.length != lengthmax[fields.indexOf(e.target.name)]) {
 				errs++;
 				e.target.style.borderColor = "red"
 			} else {
