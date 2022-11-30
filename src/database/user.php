@@ -14,6 +14,8 @@
                   	$query = $query . " WHERE username = '" . $_GET["userName"] . "'";
                 }
             	break;
+			case "login":
+				break;
                   
         } try {
 			$json = selectAsJson($db, $query);
