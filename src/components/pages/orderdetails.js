@@ -16,21 +16,19 @@ export const OrderDetails = (props) => {
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
 	const lengthmax = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
+	const [fieldData, setFieldData] = useState([]);
+
 	const [data, setData] = useState({});
 	const location = useLocation();
+
 
 	useEffect(() => {
 	  	if (props.loggedIn) {
 			console.log("on kirjauduttu, esitäytetään formi");
-
 			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
-				console.log(response.data);
-				if (response.data.length == fields.length) {
-					
-					console.log("oikea määrä infoa saatu");
-				}
+				setFieldData(response.data[0]);
+				setData(response.data[0]);
 			});
-
 		}
 	}, [])
 	
