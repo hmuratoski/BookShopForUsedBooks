@@ -65,7 +65,7 @@ export const OrderDetails = (props) => {
 				...data,
 				[e.target.name]: e.target.value
 			})
-		} else {
+		} else {			//tyhjennetään muistissa oleva tieto ettei virheellistä tietoa mene läpi
 			setData({
 				...data,
 				[e.target.name]: ""
