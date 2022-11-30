@@ -18,7 +18,8 @@ export const Content = (props) => {
 			<Route path="/" element={<FrontPage />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/orderdetails" element={
-				<OrderDetails 
+				<OrderDetails
+					userName={props.userName}
 					loggedIn={props.loggedIn}
 				/>
 			}/>

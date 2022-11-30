@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Orderdetails.css';
 import { useState, useEffect } from 'react';
 import { language } from '../../locale/FI';
+import axios from 'axios';
+import { Database } from '../../database/variables.js';
 import { useLocation } from 'react-router-dom';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
@@ -20,6 +22,14 @@ export const OrderDetails = (props) => {
 	useEffect(() => {
 	  	if (props.loggedIn) {
 			console.log("on kirjauduttu, esitäytetään formi");
+
+			axios.get(Database.requestUrl + "/user.php" + "?action=getDetails&userName=" + props.userName).then((response) => {
+				if (response.data.length == fields.length) {
+					console.log(response.data);
+					console.log("oikea määrä infoa saatu");
+				}
+			});
+
 		}
 	}, [])
 	

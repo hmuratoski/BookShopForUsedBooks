@@ -53,6 +53,7 @@ function App() {
 			<Content
 				setItemsInCart={setItemsInCart}
 				loggedIn={loggedIn}
+				userName={userName}
 			/>
 			<Footer />
 		</div>
