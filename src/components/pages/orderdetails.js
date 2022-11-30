@@ -15,7 +15,6 @@ export const OrderDetails = () => {
 	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
 	const [data, setData] = useState({});
-	const [err, setErr] = useState(0);
 	const location = useLocation();
 
 
