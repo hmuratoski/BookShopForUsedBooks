@@ -29,7 +29,7 @@ export const language = {
 	city: "Kaupunki",
 	email: "Sähköposti",
 	phone: "Puhelin",
-	submit: "Lähetä",
+	order: "Tilaa",
 
 	productDetails: "Tietoja",
 	back: "Takaisin",

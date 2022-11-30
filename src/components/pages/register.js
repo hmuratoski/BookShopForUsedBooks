@@ -1,13 +1,15 @@
 
 import '../../css/Register.css';
 import { UsernamePassword } from '../usernamepassword';
+import { OrderDetails } from './orderdetails';
 
 export const Register = (props) => {
 	
 	return (
-		<div>
+		<div className="container1 mt-2">
 			<UsernamePassword/>
-					{/* tähän orderdetails -komponentti */}
+			<OrderDetails/>
+			<button className="btn btn btn-outline-dark">Päivitä tiedot</button>
 		</div>
 	)
 }

@@ -76,7 +76,7 @@ export const ShoppingCart = (props) => {
 	} else {
 		var totalPrice = 0;
 		return (
-			<div className="container mt-2">
+			<div className="container text-center mt-2">
 				<table>
 					<thead>
 						<tr>
@@ -108,7 +108,7 @@ export const ShoppingCart = (props) => {
 					</tbody>
 				</table>
 				<p className='pricetag'>{language.totalPrice}: {totalPrice}</p>
-				<button className='removeB'  onClick={event => {
+				<button className="btn btn btn-outline-dark"  onClick={event => {
 					setShoppingCart([]);
 					setBooksFromDatabase([]);
 					localStorage.removeItem("shoppingCart");
@@ -116,7 +116,7 @@ export const ShoppingCart = (props) => {
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
 				<NavLink to="../orderdetails">
-					<button className='orderB'>{language.orderCart}</button>
+					<button className="btn btn btn-outline-dark m-2">{language.orderCart}</button>
 				</NavLink>
 			</div>
 		);

@@ -93,10 +93,10 @@ export const OrderDetails = () => {
 						i++;
 						return (
 							<div key={item}>
-								<label>{`${language[item]}`}</label>
 								<input
 									type={types[i]}
 									name={item}
+									placeholder={`${language[item]}`}
 									onChange={updateData}
 								/>
 							</div>
@@ -105,7 +105,7 @@ export const OrderDetails = () => {
 					})}
 				</form>
 				{location.pathname == "/orderdetails" ? 
-					<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button> 
+					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.order}</button> 
 					: 
 					null
 				}
