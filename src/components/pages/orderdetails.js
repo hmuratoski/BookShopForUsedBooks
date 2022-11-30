@@ -28,6 +28,9 @@ export const OrderDetails = (props) => {
 			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
 				setFieldData(response.data[0]);
 				setData(response.data[0]);
+				for (var i = 0; i < fields.length; i++) {
+					document.getElementById(fields[i]).value = response.data[0][fields[i]];
+				}
 			});
 		}
 	}, [])
@@ -109,6 +112,7 @@ export const OrderDetails = (props) => {
 						return (
 							<div key={item}>
 								<input
+									id={item}
 									type={types[i]}
 									name={item}
 									placeholder={`${language[item]}`}
