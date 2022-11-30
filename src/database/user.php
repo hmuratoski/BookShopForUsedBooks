@@ -10,8 +10,8 @@
 		switch ($action) {
 			case "getUser":
             	if (isset($_GET["userName"])) {
-           			$query = 'SELECT fname, lname, address, postalcode, city, email, phone FROM USER';
-                  	$query = $query . " WHERE username = " . $_GET["userName"];
+           			$query = "SELECT fname, lname, address, postalcode, city, email, phone FROM USER";
+                  	$query = $query . " WHERE username = '" . $_GET["userName"] . "'";
                 }
             	break;
                   
