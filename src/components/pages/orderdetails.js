@@ -23,9 +23,10 @@ export const OrderDetails = (props) => {
 	  	if (props.loggedIn) {
 			console.log("on kirjauduttu, esitäytetään formi");
 
-			axios.get(Database.requestUrl + "/user.php" + "?action=getDetails&userName=" + props.userName).then((response) => {
+			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
+				console.log(response.data);
 				if (response.data.length == fields.length) {
-					console.log(response.data);
+					
 					console.log("oikea määrä infoa saatu");
 				}
 			});
