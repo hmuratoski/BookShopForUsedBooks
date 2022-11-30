@@ -9,10 +9,12 @@
 		
 		switch ($action) {
 			case "getUser":
-            	if (isset($_GET["categoriesToGet"])) {
+            	if (isset($_GET["userName"])) {
            			$query = 'SELECT fname, lname, address, postalcode, city, email, phone FROM USER';
+                  	$query = $query . " WHERE username = " . $_GET["userName"];
                 }
             	break;
+                  
         } try {
 			$json = selectAsJson($db, $query);
 			$json = json_encode($json);
