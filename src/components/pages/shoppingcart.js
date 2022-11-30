@@ -107,7 +107,7 @@ export const ShoppingCart = (props) => {
 						})}
 					</tbody>
 				</table>
-				<p className='pricetag'>{language.totalPrice}: {totalPrice}</p>
+				<h3>{language.totalPrice}: {totalPrice} €</h3>
 				<button className="btn btn btn-outline-dark"  onClick={event => {
 					setShoppingCart([]);
 					setBooksFromDatabase([]);
