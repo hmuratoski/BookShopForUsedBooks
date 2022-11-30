@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Orderdetails.css';
 import { useState } from 'react';
 import { language } from '../../locale/FI';
+import { useLocation } from 'react-router-dom';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
@@ -14,8 +15,8 @@ export const OrderDetails = () => {
 	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
 	const [data, setData] = useState({});
-
 	const [err, setErr] = useState(0);
+	const location = useLocation();
 
 
 	const updateData = (e) => {
@@ -104,7 +105,11 @@ export const OrderDetails = () => {
 
 					})}
 				</form>
-				<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button>	{/* pitää muuttaa myöhemmin, poistin classin tältä koska ei jää pysyvästi tähän */}
+				{location.pathname == "/orderdetails" ? 
+					<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button> 
+					: 
+					null
+				}
 			</div>
 		</div>
 	);

@@ -115,8 +115,9 @@ export const ShoppingCart = (props) => {
 					localStorage.shoppingCart = [];
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
-				<NavLink to="../orderdetails"> <button className='orderB'>{language.orderCart} 
-				  </button></NavLink>
+				<NavLink to="../orderdetails">
+					<button className='orderB'>{language.orderCart}</button>
+				</NavLink>
 			</div>
 		);
 	}
