@@ -114,6 +114,9 @@ export const ShoppingCart = (props) => {
 					localStorage.shoppingCart = [];
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
+
+				<button className='kassalle'  onClick={event => {
+				}}>{language.toCheckout}</button>
 			</div>
 		);
 	}
