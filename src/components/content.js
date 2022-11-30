@@ -17,7 +17,11 @@ export const Content = (props) => {
 		<Routes>
 			<Route path="/" element={<FrontPage />} />
 			<Route path="/about" element={<About />} />
-			<Route path="/orderdetails" element={<OrderDetails />} />
+			<Route path="/orderdetails" element={
+				<OrderDetails 
+					loggedIn={props.loggedIn}
+				/>
+			}/>
 			<Route path="/register" element={<Register />} />
 			<Route path="/shop" element={
 				<Shop
@@ -29,7 +33,10 @@ export const Content = (props) => {
 					loggedIn={props.loggedIn}
 				/>} />
 			<Route path="/cart" element={
-				<ShoppingCart setItemsInCart={props.setItemsInCart} />
+				<ShoppingCart 
+				loggedIn={props.loggedIn}
+					setItemsInCart={props.setItemsInCart}
+				/>
 			} />
 		</Routes>
 	);

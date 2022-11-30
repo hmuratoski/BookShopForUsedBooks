@@ -1,14 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Orderdetails.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { language } from '../../locale/FI';
 import { useLocation } from 'react-router-dom';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
 
-export const OrderDetails = () => {
+export const OrderDetails = (props) => {
 
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
@@ -17,6 +17,12 @@ export const OrderDetails = () => {
 	const [data, setData] = useState({});
 	const location = useLocation();
 
+	useEffect(() => {
+	  	if (props.loggedIn) {
+			console.log("on kirjauduttu, esitäytetään formi");
+		}
+	}, [])
+	
 
 	const updateData = (e) => {
 		var errs = 0
