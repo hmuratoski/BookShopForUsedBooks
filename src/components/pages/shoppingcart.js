@@ -5,6 +5,7 @@ import { language } from '../../locale/FI.js'
 import { Database } from '../../database/variables.js';
 import { ShoppingCartItem } from '../shoppingcartitem.js';
 import '../../css/ShoppingCart.css';
+import { NavLink } from "react-router-dom"
 import axios from 'axios';
 //ostoskori
 
@@ -75,7 +76,7 @@ export const ShoppingCart = (props) => {
 	} else {
 		var totalPrice = 0;
 		return (
-			<div className="container mt-2">
+			<div className="container text-center mt-2">
 				<table>
 					<thead>
 						<tr>
@@ -106,17 +107,17 @@ export const ShoppingCart = (props) => {
 						})}
 					</tbody>
 				</table>
-				<p className='pricetag'>{language.totalPrice}: {totalPrice}</p>
-				<button className='removeB'  onClick={event => {
+				<h3>{language.totalPrice}: {totalPrice} €</h3>
+				<button className="btn btn btn-outline-dark"  onClick={event => {
 					setShoppingCart([]);
 					setBooksFromDatabase([]);
 					localStorage.removeItem("shoppingCart");
 					localStorage.shoppingCart = [];
 					props.setItemsInCart(0);
 				}}>{language.emptyCart}</button>
-
-				<button className='kassalle'  onClick={event => {
-				}}>{language.toCheckout}</button>
+				<NavLink to="../orderdetails">
+					<button className="btn btn btn-outline-dark m-2">{language.orderCart}</button>
+				</NavLink>
 			</div>
 		);
 	}

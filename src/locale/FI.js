@@ -12,7 +12,7 @@ export const language = {
 	shoppingCartEmpty: "Ei tuotteita",
 	totalPrice: "Kokonaishinta",
 	emptyCart: "Tyhjennä ostoskori",
-	toCheckout: "Kassalle",
+	orderCart: "Tilaa",
 	
 	productId: "Tuotenumero",
 	product: "Tuote",
@@ -29,7 +29,7 @@ export const language = {
 	city: "Kaupunki",
 	email: "Sähköposti",
 	phone: "Puhelin",
-	submit: "Lähetä",
+	order: "Tilaa",
 
 	productDetails: "Tietoja",
 	back: "Takaisin",

@@ -1,27 +1,33 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Orderdetails.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { language } from '../../locale/FI';
+import { useLocation } from 'react-router-dom';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
 
-export const OrderDetails = () => {
+export const OrderDetails = (props) => {
 
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
-	const lengthreq = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
+	const lengthmax = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
 
 	const [data, setData] = useState({});
+	const location = useLocation();
 
-	const [err, setErr] = useState(0);
-
+	useEffect(() => {
+	  	if (props.loggedIn) {
+			console.log("on kirjauduttu, esitäytetään formi");
+		}
+	}, [])
+	
 
 	const updateData = (e) => {
 		var errs = 0
-		if (e.target.value.length > lengthreq[fields.indexOf(e.target.name)]) {
-			e.target.value = e.target.value.slice(0, lengthreq[fields.indexOf(e.target.name)])
+		if (e.target.value.length > lengthmax[fields.indexOf(e.target.name)]) {
+			e.target.value = e.target.value.slice(0, lengthmax[fields.indexOf(e.target.name)])
 		} 
 		
 		if (e.target.value.length == 0) {
@@ -39,14 +45,14 @@ export const OrderDetails = () => {
 					e.target.style.borderColor = "green"
 				}
 		} else if (e.target.name == "phone") {
-			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
+			if (e.target.value.length != lengthmax[fields.indexOf(e.target.name)]) {
 				errs++;
 				e.target.style.borderColor = "red"
 			} else {
 				e.target.style.borderColor = "green"
 			}
 		} else if (e.target.name == "postalcode") {
-			if (e.target.value.length != lengthreq[fields.indexOf(e.target.name)]) {
+			if (e.target.value.length != lengthmax[fields.indexOf(e.target.name)]) {
 				errs++;
 				e.target.style.borderColor = "red"
 			} else {
@@ -59,7 +65,7 @@ export const OrderDetails = () => {
 				...data,
 				[e.target.name]: e.target.value
 			})
-		} else {
+		} else {			//tyhjennetään muistissa oleva tieto ettei virheellistä tietoa mene läpi
 			setData({
 				...data,
 				[e.target.name]: ""
@@ -93,10 +99,10 @@ export const OrderDetails = () => {
 						i++;
 						return (
 							<div key={item}>
-								<label>{`${language[item]}`}</label>
 								<input
 									type={types[i]}
 									name={item}
+									placeholder={`${language[item]}`}
 									onChange={updateData}
 								/>
 							</div>
@@ -104,7 +110,11 @@ export const OrderDetails = () => {
 
 					})}
 				</form>
-				<button type="submit" onClick={e => handleSubmit(e)}>{language.submit}</button>	{/* pitää muuttaa myöhemmin, poistin classin tältä koska ei jää pysyvästi tähän */}
+				{location.pathname == "/orderdetails" ? 
+					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.order}</button> 
+					: 
+					null
+				}
 			</div>
 		</div>
 	);

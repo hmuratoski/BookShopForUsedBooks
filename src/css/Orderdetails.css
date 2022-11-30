@@ -5,11 +5,6 @@
     margin: auto;
     display: block;
  }
- 
-button[type="submit"] {
-    margin-top: 10px;
-    border-radius: 5px;
- }
 
  /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
