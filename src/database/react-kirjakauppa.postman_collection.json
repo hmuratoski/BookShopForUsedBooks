@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "dc49a4a7-9e0b-48bd-a3fe-960d64892d80",
+		"name": "react-kirjakauppa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24361077"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "testi_user121",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testi_pass",
+							"type": "text"
+						},
+						{
+							"key": "fname",
+							"value": "testiF",
+							"type": "text"
+						},
+						{
+							"key": "lname",
+							"value": "testiL",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "testiA",
+							"type": "text"
+						},
+						{
+							"key": "postalcode",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "testiC",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "testiE2@testi.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "1234567890",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/src/database/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"src",
+						"database",
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

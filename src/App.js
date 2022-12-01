@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { Header } from './components/header';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { Navbar } from './components/navbar';
 import { language } from './locale/FI.js';
+import { Database } from './database/variables';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
@@ -21,6 +23,14 @@ function App() {
 	const [itemsInCart, setItemsInCart] = useState(0);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
 
 	useEffect(() => {
+
+		axios.post(Database.requestUrl + "/user.php?action=loginSession", {}, {withCredentials:true} )
+			.then((response) => {
+				if (response.data) {
+					setUserName(response.data);
+					setLoggedIn(true);
+				}
+			}).catch(e => console.log(e.message));
 
 		document.title = language.shopName;             //asettaa välilehden titlen
 		var cookie = localStorage.shoppingCart;

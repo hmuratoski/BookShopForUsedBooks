@@ -26,7 +26,6 @@
 					if (isset($_GET["categoriesToGet"]) && (isset($_GET["searchTerm"]))) {
 						$query = $query . " AND ";
 					}
-					
 							if (isset($_GET["categoriesToGet"])) {
 								$query = $query . "categoryId IN (" . $_GET["categoriesToGet"] . ")" ;
 							}
@@ -41,6 +40,9 @@
 			case "getCatProducts":
 				if (isset($_GET["category"])) {
 					$query = 'select * from BOOK where categoryId in ' . $_GET["category"] . 'order by categoryId';     // = > in
+				} else {
+					http_response_code(400);
+					echo "Missing argument";
 				}
 			break;
 			
@@ -51,6 +53,9 @@
 			case "getBookDetails":
 				if (isset($_GET["bookId"])) {
 					$query = 'select * from BOOK where bookId = '. $_GET["bookId"]; 
+				} else {
+					http_response_code(400);
+					echo "Missing argument";
 				}
 			break;
 			
@@ -62,6 +67,7 @@
 			returnError($pdoex);
 		}
 	} else {
+		http_response_code(400);
 		echo "no action";
 	}
 ?>
