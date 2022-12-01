@@ -1,6 +1,6 @@
 # A webpage for used study books.
 
-This web-project was required for OAMK's Online Service course and was made by 4 contributors.
+This web-project was required for OAMK's Online Service course and was made by 3 contributors.
 We have used and implemented the following technologies:
 
 1) React JS
