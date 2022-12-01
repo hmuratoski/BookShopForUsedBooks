@@ -9,7 +9,6 @@ $err = 0;
 
 foreach ($requiredInfo as $key) {
     if(!isset($_POST[$key])) {
-        echo $_POST[$key] . " not set";
         $err++;
     }
 }

@@ -40,9 +40,10 @@ export const Register = (props) => {
 				if (response.data) {
 					if (!response.data[1]) {
 						console.log("Error message: " + response.data[2])
+						alert(`${language[response.data[2]]}`);
 						console.log(response.data[0]);
 						registerErr = response.data[2];
-					} else {
+					} else {	//response.data[2] = 'accountCreated'
 						props.setLoggedIn(true);
 						props.setUserName(userPass["username"]);
 						navigate("/shop");

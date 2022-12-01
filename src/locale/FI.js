@@ -22,6 +22,9 @@ export const language = {
 	userName: "Käyttäjänimi",
 	password: "Salasana",
 
+	alreadyExists: "Käyttäjänimi tai sähköpostiosoite on jo rekisteröity",
+	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",
+
 	fname: "Etunimi",
 	lname: "Sukunimi",
 	address: "Osoite",
