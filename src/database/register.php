@@ -19,16 +19,25 @@ if($err != 0) {
     echo "Missing information";
     return;
 } else {
-    $checkUserExist = "select * from USER where (username = '" . $_POST["username"]."' or email = '" . $_POST["email"] . "')";
+    $checkUserExist = "select * from USER where username = '" . $_POST["username"]."'";
     $checkUserExist = selectAsJson($db, $checkUserExist);
     if (count($checkUserExist) != 0) {
         http_response_code(409);
-        echo "User already exists";
+        echo "Username or email already exists in the database";
         return;
     } else {
 
         $hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
-        $sql = "INSERT INTO USER(username,password,fname,lname,address,postalcode,city,email,phone,city) VALUES('";
+        $sql = "INSERT INTO USER(";
+        $i = 0;
+        foreach ($requiredInfo as $key) {
+            $sql .= $key;
+            $i++;
+            if ($i != count($requiredInfo)) {
+                $sql .= ",";
+            }
+        }
+        $sql .= ") VALUES('";
         $sql .= $_POST["username"] . "','";
         $sql .= $hash . "','";
         $sql .= $_POST["fname"] . "','";
@@ -37,8 +46,7 @@ if($err != 0) {
         $sql .= $_POST["postalcode"] . "','";
         $sql .= $_POST["city"] . "','";
         $sql .= $_POST["email"] . "','";
-        $sql .= $_POST["phone"] . "','";
-        $sql .= $_POST["city"] . "')";
+        $sql .= $_POST["phone"] . "')";
         try {
             executeInsert($db, $sql);
             echo "Success";
