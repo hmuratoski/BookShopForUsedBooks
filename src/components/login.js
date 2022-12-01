@@ -11,7 +11,8 @@ import { NavLink } from 'react-router-dom';
 
 export const Login = (props) => {
 
-	const HandleLogin = () => {
+	const HandleLogin = (e) => {
+		e.preventDefault();
 		var username = document.getElementById('userName').value;
 		var password = document.getElementById('password').value;
 
@@ -48,9 +49,11 @@ export const Login = (props) => {
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
 				<div className="toast-body" onBlur={resetColor}>
-					<input className="toastInput" id="userName" placeholder={language.userName}/><br/>
-					<input className="toastInput" id="password" type="password" placeholder={language.password}/><br/>
-					<button className="btn btn-secondary loginButton" onClick={HandleLogin}>{language.loginTitle}</button>
+					<form>
+						<input className="toastInput" id="userName" placeholder={language.userName}/><br/>
+						<input className="toastInput" id="password" type="password" placeholder={language.password}/><br/>
+						<button className="btn btn-secondary loginButton" onClick={e => HandleLogin(e)}>{language.loginTitle}</button>
+					</form>
 					<NavLink 
 						style={{
 							right: "15px", 

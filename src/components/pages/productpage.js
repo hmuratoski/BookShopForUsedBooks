@@ -27,7 +27,7 @@ export const ProductPage = (props) => {
 		} else {
 			console.log("%c Product already in cart          " + JSON.stringify(shoppingCart), 'color: #DD2222');
 		}
-		navigate('/shop');
+		navigate(-1);
 	}
 
 	useEffect(() => {
