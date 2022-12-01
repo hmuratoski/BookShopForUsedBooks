@@ -48,7 +48,7 @@ if($err != 0) {
         $sql .= $_POST["phone"] . "')";
         try {
             executeInsert($db, $sql);
-            echo ['Account creation success', true, 'accountCreated'];
+            echo json_encode(['Account creation success', true, 'accountCreated']);
             session_start();
             $_SESSION['username'] = $_POST["username"];
             http_response_code(200);
