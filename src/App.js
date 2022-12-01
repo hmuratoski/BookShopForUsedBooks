@@ -27,7 +27,6 @@ function App() {
 		.then(response => {
 			setLoggedIn(false);
 			setUserName("");
-			console.log(response);
 		})
 		.catch(e => console.log(e.message));
 	}
@@ -36,8 +35,6 @@ function App() {
 		axios.post(Database.requestUrl + "/user.php?action=loginSession", {}, {withCredentials:true} )
 			.then((response) => {
 				if (response.data) {
-					console.log(response);
-					console.log("Logging in with session information");
 					setUserName(response.data);
 					setLoggedIn(true);
 				}
