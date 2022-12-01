@@ -53,11 +53,11 @@
 							$data = json_encode($data);
 							echo $data;
 						} else {
-							echo "fail";
+							echo "login failed";
 						}
 				}
 				} else {
-					echo "fail: no info";
+					echo "login failed, missing information";
 				}
 				break;
 			case "logout":
