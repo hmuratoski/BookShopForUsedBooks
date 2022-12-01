@@ -69,6 +69,8 @@ function App() {
 			/>
 			<Header />
 			<Content
+				setLoggedIn={setLoggedIn}
+				setUserName={setUserName}
 				setItemsInCart={setItemsInCart}
 				loggedIn={loggedIn}
 				userName={userName}

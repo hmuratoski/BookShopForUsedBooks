@@ -25,9 +25,17 @@ export const Login = (props) => {
 					props.setUserName(response.data["username"]);
 					props.setLoggedIn(true);
 					props.setShowLogin(false);
+				} else {
+					document.getElementById('userName').style.borderColor = "red";
+					document.getElementById('password').style.borderColor = "red";
 				}
 			}).catch(e => console.log(e.message));
 		}
+	}
+
+	const resetColor = () => {
+		document.getElementById('userName').style.borderColor = "rgb(113,113,113)";
+		document.getElementById('password').style.borderColor = "rgb(113,113,113)";
 	}
 
 
@@ -39,7 +47,7 @@ export const Login = (props) => {
 					<strong className="mr-auto loginTitle">{language.loginMessage}</strong>
 					<button type="button" className="closeButton" aria-label="Close" onClick={event => props.setShowLogin(false)} />
 				</div>
-				<div className="toast-body">
+				<div className="toast-body" onBlur={resetColor}>
 					<input className="toastInput" id="userName" placeholder={language.userName}/><br/>
 					<input className="toastInput" id="password" type="password" placeholder={language.password}/><br/>
 					<button className="btn btn-secondary loginButton" onClick={HandleLogin}>{language.loginTitle}</button>

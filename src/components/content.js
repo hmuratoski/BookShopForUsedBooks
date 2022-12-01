@@ -23,7 +23,7 @@ export const Content = (props) => {
 					loggedIn={props.loggedIn}
 				/>
 			}/>
-			<Route path="/register" element={<Register />} />
+			<Route path="/register" element={<Register setLoggedIn={props.setLoggedIn} setUserName={props.setUserName} />} />
 			<Route path="/shop" element={
 				<Shop
 					loggedIn={props.loggedIn}
@@ -35,7 +35,7 @@ export const Content = (props) => {
 				/>} />
 			<Route path="/cart" element={
 				<ShoppingCart 
-				loggedIn={props.loggedIn}
+					loggedIn={props.loggedIn}
 					setItemsInCart={props.setItemsInCart}
 				/>
 			} />

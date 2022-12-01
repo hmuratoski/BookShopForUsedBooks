@@ -20,6 +20,9 @@ export const OrderDetails = (props) => {
 	const location = useLocation();
 
 	useEffect(() => {
+		if (props.setDetailsOk) {
+			props.setDetailsOk(false);
+		}
 	  	if (props.loggedIn) {
 			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
 				setData(response.data[0]);
@@ -68,11 +71,31 @@ export const OrderDetails = (props) => {
 		}
 
 		if (errs == 0) {
+			errs = 0;
+			for (var i = 0; i < fields.length; i++) {
+				if (!data[fields[i]] || data[fields[i]] == "") {
+					errs++;
+					console.log(fields[i] + " missing or invalid:");
+					i = fields.length;
+				}
+			}
+			if (errs == 0) {
+				if (props.setDetailsOk) {
+					console.log("Details OK");
+					props.setDetailsOk(true);
+				}
+			}
 			setData({
 				...data,
 				[e.target.name]: e.target.value
 			})
+			if (props.setDetails) {
+				props.setDetails(data);
+			}
 		} else {			//tyhjennetään muistissa oleva tieto ettei virheellistä tietoa mene läpi
+			if (props.setDetailsOk) {
+				props.setDetailsOk(false);
+			}
 			setData({
 				...data,
 				[e.target.name]: ""

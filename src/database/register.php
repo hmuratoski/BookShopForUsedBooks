@@ -1,5 +1,4 @@
 <?php
-session_start();
 require('./inc/headers.php');
 require_once('./inc/functions.php');
 
@@ -10,20 +9,22 @@ $err = 0;
 
 foreach ($requiredInfo as $key) {
     if(!isset($_POST[$key])) {
+        echo $_POST[$key] . " not set";
         $err++;
     }
 }
 
 if($err != 0) {
     http_response_code(400);
-    echo "Missing information";
+    echo json_encode(["Missing information", false, 'missingInfo']);
     return;
 } else {
     $checkUserExist = "select * from USER where (username = '" . $_POST["username"]."' OR email = '" . $_POST["email"] . "')";
     $checkUserExist = selectAsJson($db, $checkUserExist);
     if (count($checkUserExist) != 0) {
         http_response_code(409);
-        echo "Username or email already exists in the database";
+        echo json_encode(["Username or email already exists in the database", false, 'alreadyExists']);
+        
         return;
     } else {
         $hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
@@ -48,7 +49,8 @@ if($err != 0) {
         $sql .= $_POST["phone"] . "')";
         try {
             executeInsert($db, $sql);
-            echo "Success";
+            echo ['Account creation success', true, 'accountCreated'];
+            session_start();
             $_SESSION['username'] = $_POST["username"];
             http_response_code(200);
         } catch (Exception $e) {
