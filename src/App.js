@@ -22,11 +22,22 @@ function App() {
 	//näitä voi muuttaa
 	const [itemsInCart, setItemsInCart] = useState(0);  //asettaa ostoskorin tuotteet, otetaan myöhemmin kekseistä
 
-	useEffect(() => {
+	const logOut = () => {
+		axios.post(Database.requestUrl + "/user.php?action=logout", {}, {withCredentials:true})
+		.then(response => {
+			setLoggedIn(false);
+			setUserName("");
+			console.log(response);
+		})
+		.catch(e => console.log(e.message));
+	}
 
+	useEffect(() => {
 		axios.post(Database.requestUrl + "/user.php?action=loginSession", {}, {withCredentials:true} )
 			.then((response) => {
 				if (response.data) {
+					console.log(response);
+					console.log("Logging in with session information");
 					setUserName(response.data);
 					setLoggedIn(true);
 				}
@@ -47,7 +58,6 @@ function App() {
 			localStorage.shoppingCart = [];
 			setItemsInCart(0);
 		}
-
 	})
 
 	return (
@@ -56,6 +66,7 @@ function App() {
 				itemsInCart={itemsInCart}
 				loggedIn={loggedIn}
 				setLoggedIn={setLoggedIn}
+				logOut={logOut}
 				userName={userName}
 				setUserName={setUserName}
 			/>

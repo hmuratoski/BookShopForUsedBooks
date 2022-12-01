@@ -45,7 +45,7 @@ export const Navbar = (props) => {
 						{!props.loggedIn ?
 							<LoginButton />
 							:
-							<button className="btn btn-outline-dark" type="button" onClick={event => props.setLoggedIn(false)} >{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
+							<button className="btn btn-outline-dark" type="button" onClick={event => props.logOut()} >{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
 						}
 						{props.itemsInCart > 0 ?
 							<NavLink to="cart">

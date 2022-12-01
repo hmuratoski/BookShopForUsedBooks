@@ -25,7 +25,7 @@
 				}
             	break;
 			case "loginSession":
-				
+				session_start();
 				if (isset($_SESSION['username'])) {
 					http_response_code(200);
 					echo $_SESSION['username'];
@@ -38,13 +38,16 @@
 					isset($_POST["username"]) &&
 					isset($_POST['password'])
 				) {
-					$query = "SELECT password from USER where username = '" . $_POST['username'] ."'";
+					$password = urlencode($_POST['password']);
+					$username = urlencode($_POST['username']);
+					
+					$query = "SELECT password from USER where username = '" . $username ."'";
 					$hash = selectAsJson($db, $query);
 					if (count($hash) == 1) {
 						$hash = $hash[0]["password"];
 						if (password_verify($_POST['password'], $hash)) {
-							$_SESSION['username'] = $_POST["username"];
 							session_start();
+							$_SESSION['username'] = $_POST["username"];
 							$data["username"] = $_POST["username"];
 							$data["status"] = true;
 							$data = json_encode($data);
@@ -56,6 +59,12 @@
 				} else {
 					echo "fail: no info";
 				}
+				break;
+			case "logout":
+				session_start();
+				unset($_SESSION["username"]);
+				http_response_code(200);
+				echo "Logged out";
         } 
     } else {
 		echo "no action";

@@ -18,10 +18,6 @@ export const Login = (props) => {
 		const formData = new FormData();
 		formData.append("username", username);
 		formData.append("password", password);
-		//console.log(userName)
-		//props.setLoggedIn(true);
-		//props.setUserName(userName);
-		//props.setShowLogin(false);
 		if (username && password) {
 		axios.post(Database.requestUrl + "/user.php?action=login", formData, {withCredentials:true} )
 			.then((response) => {

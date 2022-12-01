@@ -26,7 +26,6 @@ if($err != 0) {
         echo "Username or email already exists in the database";
         return;
     } else {
-
         $hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
         $sql = "INSERT INTO USER(";
         $i = 0;
