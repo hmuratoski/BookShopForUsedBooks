@@ -36,7 +36,7 @@ export const ShoppingCart = (props) => {
 			if (JSON.parse(cookie).length > 0) {
 				var axiosRequest = "?action=getBooks";
 				axiosRequest += "&bookIds=" + JSON.parse(cookie);
-				axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
+				axios.get(Database.requestUrl + "/getData.php" + axiosRequest).then((response) => {         //filtterin tiedot -> php
 					var books = [];
 					if (response.data.length > 0) {
 						for (var i = 0; i < response.data.length; i++) {

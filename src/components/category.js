@@ -33,7 +33,7 @@ export const Category = (props) => {
 
 	useEffect(() => {
 		if (categories.length < 1) {
-		axios.get(Database.requestUrl + "?action=getCategories").then((response) => {
+		axios.get(Database.requestUrl + "/getData.php?action=getCategories").then((response) => {
 			var category = [];
 			if (response.data.length > 0 && categories.length == 0) {
 				for (var i = 0; i < response.data.length; i++) {

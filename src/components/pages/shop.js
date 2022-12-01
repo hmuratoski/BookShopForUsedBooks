@@ -22,7 +22,7 @@ export const Shop = (props) => {
 			axiosRequest += "&searchTerm=" + searchTerm;
 		}
 
-		axios.get(Database.requestUrl + axiosRequest).then((response) => {         //filtterin tiedot -> php
+		axios.get(Database.requestUrl + "/getData.php" + axiosRequest).then((response) => {         //filtterin tiedot -> php
 			var books = [];
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
@@ -64,7 +64,7 @@ export const Shop = (props) => {
 			props.setItemsInCart(0);
 		}
 
-		axios.get(Database.requestUrl + "?action=getBooks").then((response) => {
+		axios.get(Database.requestUrl + "/getData.php?action=getBooks").then((response) => {
 			var books = [];
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {

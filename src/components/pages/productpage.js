@@ -49,7 +49,7 @@ export const ProductPage = (props) => {
 		
 		
 		
-		axios.get(Database.requestUrl + "?action=getBookDetails&bookId=" + bookId).then((response) => {
+		axios.get(Database.requestUrl + "/getData.php?action=getBookDetails&bookId=" + bookId).then((response) => {
 			var details = [];
 			if (response.data.length > 0) {
 				for (var i = 0; i < response.data.length; i++) {
