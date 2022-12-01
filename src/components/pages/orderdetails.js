@@ -71,24 +71,25 @@ export const OrderDetails = (props) => {
 		}
 
 		if (errs == 0) {
+			setData({
+				...data,
+				[e.target.name]: e.target.value
+			})
 			errs = 0;
 			for (var i = 0; i < fields.length; i++) {
 				if (!data[fields[i]] || data[fields[i]] == "") {
+					console.log(fields[i]);
 					errs++;
 					console.log(fields[i] + " missing or invalid:");
 					i = fields.length;
 				}
 			}
-			if (errs == 0) {
+			if (errs == 1) {
 				if (props.setDetailsOk) {
 					console.log("Details OK");
 					props.setDetailsOk(true);
 				}
 			}
-			setData({
-				...data,
-				[e.target.name]: e.target.value
-			})
 			if (props.setDetails) {
 				props.setDetails(data);
 			}
@@ -134,6 +135,7 @@ export const OrderDetails = (props) => {
 									name={item}
 									placeholder={`${language[item]}`}
 									onChange={updateData}
+									onBlur={updateData}
 								/>
 							</div>
 						)
