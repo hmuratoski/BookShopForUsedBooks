@@ -9,30 +9,35 @@ export const UsernamePassword = (props) => {
 		}
 	}, [])
 
-	const handleChange = () => {
-		var username = document.getElementById("username");
-		var password = document.getElementById("password");
-		if (username.value.length > 0 && password.value.length >= 9) {
-			password.style.borderColor = "green";
-			password.style.borderColor = "green";
-			props.setUserPassOk(true);
-			console.log("Username and password OK");
-			props.setUserPass({username: username.value, password: password.value})
-		} else {
-			props.setUserPassOk(false);
-			if (password.value.length < 9) {
-				password.style.borderColor = "red";
+	const handleChange = (e) => {
+		if (e.target.id == "username") {
+			if (e.target.value.length < 1) {
+				e.target.style.borderColor = "red";
+			} else {
+				e.target.style.borderColor = "green";
 			}
-			if (username.value.length == 0) {
-				username.style.borderColor = "red";
+		} else if (e.target.id == "password") {
+			if (e.target.value.length < 9) {
+				e.target.style.borderColor = "red";
+			} else {
+				e.target.style.borderColor = "green";
 			}
 		}
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
 
+		if (username.length > 0 && password.length > 8) {
+			props.setUserPassOk(true);
+			props.setUserPass({username: username, password: password})
+			console.log("Username and password ok");
+		} else {
+			props.setUserPassOk(false);
+		}
 	}
 
 	return (
 		<div>
-			<input id="username" placeholder={language.userName} onChange={handleChange}/><br/>
+			<input id="username" placeholder={language.userName} onChange={e => handleChange(e)}/><br/>
 			<input id="password" type="password" placeholder={language.password} onChange={handleChange}/>
 		</div>
 	)

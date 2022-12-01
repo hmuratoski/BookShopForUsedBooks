@@ -32,6 +32,8 @@ export const Register = (props) => {
 			formData.append(key, details[key]);
 		}
 
+		console.log(values);
+
 		if (values == 9) {
 		axios.post(Database.requestUrl + "/register.php", formData, { validateStatus: () => true })
 			.then((response) => {
