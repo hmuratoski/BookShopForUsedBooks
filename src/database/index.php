@@ -1,5 +1,5 @@
 <?php
-	header("Access-Control-Allow-Origin: *");
+	require('./inc/headers.php');
 	require_once 'inc/functions.php';
 	
 	global $json;
@@ -8,7 +8,7 @@
 	if (isset($_GET["action"])) {
 		$action = $_GET["action"];
 		
-		switch ($action) {  //tein case switchin, että php tietää mitä yritetään saavuttaa
+		switch ($action) {
 			case "getBooks":
 				$query = 'select * from BOOK';
 				if (
