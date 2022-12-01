@@ -19,7 +19,7 @@ if($err != 0) {
     echo "Missing information";
     return;
 } else {
-    $checkUserExist = "select * from USER where username = '" . $_POST["username"]."'";
+    $checkUserExist = "select * from USER where (username = '" . $_POST["username"]."' OR email = '" . $_POST["email"] . "')";
     $checkUserExist = selectAsJson($db, $checkUserExist);
     if (count($checkUserExist) != 0) {
         http_response_code(409);

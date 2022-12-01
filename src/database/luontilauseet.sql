@@ -28,7 +28,7 @@ CREATE TABLE ORDER_ITEMS (
 );
 
 CREATE TABLE USER (
-	customerId varchar, PRIMARY KEY,
+	customerId integer PRIMARY KEY,
 	username varchar,
 	password varchar,
 	fname varchar,
@@ -38,5 +38,5 @@ CREATE TABLE USER (
 	address varchar,
 	city varchar,
 	stateprovince varchar,
-	postalcode varchar,
+	postalcode varchar
 );
