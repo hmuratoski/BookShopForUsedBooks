@@ -58,7 +58,8 @@ export const Login = (props) => {
 						style={{
 							right: "15px", 
 							position: "absolute", 
-							paddingTop: "10px"
+							paddingTop: "10px",
+							bottom: "15px"
 						}} 
 						to="/register" 
 						onClick={event => props.setShowLogin(false)}
