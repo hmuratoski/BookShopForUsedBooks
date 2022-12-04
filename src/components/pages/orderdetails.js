@@ -123,6 +123,7 @@ export const OrderDetails = (props) => {
 	}
 
 	var i = -1;
+	
 	return (
 		<div>
 			<div className="container1 mt-2">

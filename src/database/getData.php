@@ -5,6 +5,7 @@
 	global $json;
 	
 	$db = openSQLite();
+
 	if (isset($_GET["action"])) {
 		$action = $_GET["action"];
 		
@@ -43,6 +44,7 @@
 				} else {
 					http_response_code(400);
 					echo "Missing argument";
+					return;
 				}
 			break;
 			

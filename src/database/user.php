@@ -62,7 +62,7 @@
 							$data = json_encode($data);
 							echo $data;
 						} else {
-							echo "login failed";
+							echo "server error";
 						}
 				}
 				} else {
@@ -73,7 +73,7 @@
 				session_start();
 				unset($_SESSION["username"]);
 				http_response_code(200);
-				echo "Logged out";
+				echo "logged out";
         } 
     } else {
 		echo "no action";

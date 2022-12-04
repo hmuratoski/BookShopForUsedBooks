@@ -18,7 +18,7 @@ export const ProductPage = (props) => {
 	const bookId = location.search.replace(/\D/g, '');
 	const [bookDetails, setBookDetails] = useState([]);
 
-	const addToCart = (id) => {                                      //tuotteen id eventistä (e)
+	const addToCart = (id) => {                //tuotteen id eventistä (e)
 		if (!shoppingCart.includes(id)) {
 			shoppingCart.push(id);
 			console.log("%c Adding product " + id + " to cart         " + JSON.stringify(shoppingCart), 'color: #22AA22');
