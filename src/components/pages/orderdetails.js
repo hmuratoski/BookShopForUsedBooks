@@ -20,11 +20,14 @@ export const OrderDetails = (props) => {
 	const location = useLocation();
 
 	useEffect(() => {
+		const formData = new FormData();
 		if (props.setDetailsOk) {
 			props.setDetailsOk(false);
 		}
 	  	if (props.loggedIn) {
-			axios.get(Database.requestUrl + "/user.php" + "?action=getUser&userName=" + props.userName).then((response) => {
+			formData.append("username", props.userName);
+			axios.post(Database.requestUrl + "/user.php" + "?action=getUser", formData, {withCredentials:true})
+			.then((response) => {
 				setData(response.data[0]);
 				for (var i = 0; i < fields.length; i++) {
 					document.getElementById(fields[i]).value = response.data[0][fields[i]];

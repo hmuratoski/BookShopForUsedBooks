@@ -9,9 +9,18 @@
 		
 		switch ($action) {
 			case "getUser":
-            	if (isset($_GET["userName"])) {
-           			$query = "SELECT fname, lname, address, postalcode, city, email, phone FROM USER";
-                  	$query = $query . " WHERE username = '" . $_GET["userName"] . "'";
+            	if (isset($_POST["username"])) {
+					session_start();
+					if (isset($_SESSION["username"])) {
+						if ($_POST["username"] == $_SESSION["username"]) {
+							$query = "SELECT fname, lname, address, postalcode, city, email, phone FROM USER";
+							$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
+						}
+					} else {
+						echo "Forbidden";
+						http_response_code(403);
+						return;
+					}
                 } else {
 					http_response_code(400);
 					echo "Missing argument";
@@ -19,7 +28,7 @@
 				} try {
 					$json = selectAsJson($db, $query);
 					$json = json_encode($json);
-					print $json;
+					echo $json;
 				} catch (PDOException $pdoex) {
 					returnError($pdoex);
 				}
