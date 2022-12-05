@@ -11,7 +11,6 @@ import { useLocation } from 'react-router-dom';
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
 
 export const OrderDetails = (props) => {
-
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
 	const types = [		'text',		'text',		'text',		'number',		'text',	'text',		'number']
 	const lengthmax = [	'255',		'255',		'255',		'5',			'35',	'255',		'10']
