@@ -22,7 +22,8 @@ CREATE TABLE BOOK (
 	author varchar,
 	description varchar,
 	year smallint,
-	condition varchar
+	condition varchar,
+	active integer
 );
 
 CREATE TABLE CATEGORY (
