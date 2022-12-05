@@ -1,5 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import { Catalog } from '../catalog';
+import { Category } from '../category';
+import { Database } from '../../database/variables.js';
 
 //admin paneeli tuotteitten muokkausta varten.
 //tehdään erillinen admin.php tiedosto;
@@ -10,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const AdminPanel = () => {
 	return (
 		<div>
-			
+			<h1>ADMINPANEELI</h1>
 		</div>
 	);
 }

@@ -39,6 +39,18 @@ export const Content = (props) => {
 					setItemsInCart={props.setItemsInCart}
 				/>
 			} />
+			<Route path="/admin" element={
+				<Admin 
+					loggedIn={props.loggedIn}
+					setItemsInCart={props.setItemsInCart}
+				/>
+			} />
+			<Route path="/user" element={
+				<User 
+					loggedIn={props.loggedIn}
+					setItemsInCart={props.setItemsInCart}
+				/>
+			} />
 		</Routes>
 	);
 }

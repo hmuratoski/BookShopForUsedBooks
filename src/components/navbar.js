@@ -30,6 +30,7 @@ export const Navbar = (props) => {
 		}
 	}
 
+
 	return (
 		<div className="navbarWrapper">
 			<nav className="navbar navbar-expand navbar-light bg-light">
@@ -62,6 +63,12 @@ export const Navbar = (props) => {
 								<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 							</div>
 						}
+						<div className="" id="adminusercontrol">
+						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+							<li className="nav-item"><NavLink to="/admin" className="nav-link" aria-current="page">{language.navAdmin}</NavLink></li>
+							<li className="nav-item"><NavLink to="/user" className="nav-link">{language.navUser}</NavLink></li>
+						</ul>
+					</div>
 					</form>
 				</div>
 			</nav>

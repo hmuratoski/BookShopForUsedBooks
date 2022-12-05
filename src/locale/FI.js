@@ -5,6 +5,8 @@ export const language = {
 	navHome: "Koti",
 	navAbout: "Tietoja",
 	navShop: "Kauppa",
+	navAdmin: "Admin",
+	navUser: "Käyttäjäpaneeli",
 	
 	condition: "Kunto",
 	
