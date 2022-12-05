@@ -1,0 +1,8 @@
+<?php
+
+require('./inc/headers.php');
+require_once 'inc/functions.php';
+require('/admin.php');
+
+
+
