@@ -18,7 +18,8 @@ if($err != 0) {
     echo json_encode(["Missing information", false, 'missingInfo']);
     return;
 } else {
-    $checkUserExist = "select * from USER where (username = '" . $_POST["username"]."' OR email = '" . $_POST["email"] . "')";
+    $username = urlencode($_POST["username"]);
+    $checkUserExist = "select * from USER where (username = '" . $username . "' OR email = '" . $_POST["email"] . "')";
     $checkUserExist = selectAsJson($db, $checkUserExist);
     if (count($checkUserExist) != 0) {
         http_response_code(409);
@@ -26,7 +27,7 @@ if($err != 0) {
         
         return;
     } else {
-        $hash = password_hash($_POST["password"],PASSWORD_DEFAULT);
+        $hash = password_hash(urlencode($_POST["password"]),PASSWORD_DEFAULT);
         $sql = "INSERT INTO USER(";
         $i = 0;
         foreach ($requiredInfo as $key) {
@@ -37,7 +38,7 @@ if($err != 0) {
             }
         }
         $sql .= ") VALUES('";
-        $sql .= $_POST["username"] . "','";
+        $sql .= $username . "','";
         $sql .= $hash . "','";
         $sql .= $_POST["fname"] . "','";
         $sql .= $_POST["lname"] . "','";
@@ -50,7 +51,7 @@ if($err != 0) {
             executeInsert($db, $sql);
             echo json_encode(['Account creation success', true, 'accountCreated']);
             session_start();
-            $_SESSION['username'] = $_POST["username"];
+            $_SESSION['username'] = $username;
             http_response_code(200);
         } catch (Exception $e) {
             echo "Failed";

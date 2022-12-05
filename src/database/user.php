@@ -10,9 +10,10 @@
 		switch ($action) {
 			case "getUser":
             	if (isset($_POST["username"])) {
+					$username = urlencode($_POST['username']);
 					session_start();
 					if (isset($_SESSION["username"])) {
-						if ($_POST["username"] == $_SESSION["username"]) {
+						if ($username == $_SESSION["username"]) {
 							$query = "SELECT fname, lname, address, postalcode, city, email, phone FROM USER";
 							$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
 						}
@@ -33,6 +34,7 @@
 					returnError($pdoex);
 				}
             	break;
+
 			case "loginSession":
 				session_start();
 				if (isset($_SESSION['username'])) {
@@ -56,8 +58,8 @@
 						$hash = $hash[0]["password"];
 						if (password_verify($_POST['password'], $hash)) {
 							session_start();
-							$_SESSION['username'] = $_POST["username"];
-							$data["username"] = $_POST["username"];
+							$_SESSION['username'] = $username;
+							$data["username"] = $username;
 							$data["status"] = true;
 							$data = json_encode($data);
 							echo $data;
@@ -69,6 +71,7 @@
 					echo "login failed, missing information";
 				}
 				break;
+
 			case "logout":
 				session_start();
 				unset($_SESSION["username"]);
