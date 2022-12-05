@@ -13,9 +13,5 @@ import { Database } from '../../database/variables.js';
 		//jonka mukaan päätetään mitä tehdään   (erillinen adminFunctions.php?)
 
 export const AdminPanel = () => {
-	return (
-		<div>
-			<h1>ADMINPANEELI</h1>
-		</div>
-	);
+	<h1>ADMINPANEL</h1>
 }

@@ -5,4 +5,56 @@ require_once 'inc/functions.php';
 require('/admin.php');
 
 
+$db = openSQLite();
 
+$requiredInfo = array('bookId','categoryId','bookName','price','author','description','year','condition','active');
+$err = 0;
+
+foreach ($requiredInfo as $key) {
+    if(!isset($_POST[$key])) {
+        $err++;
+    }
+}
+
+if($err != 0) {
+    http_response_code(400);
+    echo json_encode(["Missing information", false, 'missingInfo']);
+    return;
+} else {
+    $bookname = urlencode($_POST["bookName"]);
+    $checkBookExist = "select * from BOOK where (bookName = '" . $bookname . "')";
+    $checkBookExist= selectAsJson($db, $checkBookExist);
+    if (count($checkBookExist) != 0) {
+        http_response_code(409);
+        echo json_encode(["Book already in the database", false, 'alreadyExists']);
+        
+        return;
+    } else {
+        $sql = "INSERT INTO BOOK(";
+        $i = 0;
+        foreach ($requiredInfo as $key) {
+            $sql .= $key;
+            $i++;
+            if ($i != count($requiredInfo)) {
+                $sql .= ",";
+            }
+        }
+        $sql .= ") VALUES('";
+        $sql .= $_POST["bookId"] . "','";
+        $sql .= $_POST["categoryId"] . "','";
+        $sql .= $bookname . "','";
+        $sql .= $_POST["price"] . "','";
+        $sql .= $_POST["author"] . "','";
+        $sql .= $_POST["description"] . "','";
+        $sql .= $_POST["year"] . "','";
+        $sql .= $_POST["condition"] . "','";
+        $sql .= $_POST["active"] . "','";
+        try {
+            executeInsert($db, $sql);
+            echo json_encode(['Book inserted into database', true, 'bookInserted']);
+        } catch (Exception $e) {
+            echo "Failed";
+            print_r($e);
+        }
+    }
+}
