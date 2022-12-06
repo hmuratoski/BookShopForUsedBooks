@@ -7,6 +7,7 @@ import { Category } from '../category';
 import { Database } from '../../database/variables.js';
 
 //user paneeli, käyttäjätietojen muokkausta varten
+//Juho: ei tarvitse kopioida tätä kaikkea orderdetailssista. Voi käyttää suoraan <OrderDetails> komponenttia. ks. register.js
 
 const SetDetails = (props) => {
 	const fields = [	'fname',	'lname',	'address',	'postalcode',	'city',	'email',	'phone']
