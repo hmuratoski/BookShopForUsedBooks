@@ -25,7 +25,7 @@ export const OrderDetails = (props) => {
 		}
 	  	if (props.loggedIn) {
 			formData.append("username", props.userName);
-			axios.post(Database.requestUrl + "/adminaddbook.php", formData, {withCredentials:true})
+			axios.post(Database.requestUrl + "/user.php" + "?action=getUser", formData, {withCredentials:true})
 			.then((response) => {
 				setData(response.data[0]);
 				for (var i = 0; i < fields.length; i++) {

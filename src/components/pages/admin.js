@@ -24,8 +24,8 @@ export const AdminAddBook = (props) => {
 			props.setDetailsOk(false);
 		}
 	  	if (props.loggedIn) {
-			formData.append("username", props.userName);
-			axios.post(Database.requestUrl + "/user.php" + "?action=getUser", formData, {withCredentials:true})
+			formData.append("bookName", props.bookName);
+			axios.post(Database.requestUrl + "/adminaddbook.php", formData, {withCredentials:true})
 			.then((response) => {
 				setData(response.data[0]);
 				for (var i = 0; i < fields.length; i++) {
@@ -124,7 +124,7 @@ export const AdminAddBook = (props) => {
 					})}
 				</form>
 				{location.pathname == "/admin" ? 
-					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.order}</button> 
+					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.addbook}</button> 
 					: 
 					null
 				}
