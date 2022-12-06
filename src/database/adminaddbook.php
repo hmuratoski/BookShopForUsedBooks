@@ -1,31 +1,62 @@
 <?php
-
 require('./inc/headers.php');
-require('/admin.php');
-require('/adminfunctions.php');
-session_start();
+require_once('./inc/functions.php');
 
+$db = openSQLite();
 
-$body = file_get_contents("php://input");
-$book = json_decode($book);
+$requiredInfo = array('categoryId','bookName','price','author','description','year','condition','active');
+$err = 0;
 
-if(!isset($user->uname) || !isset($user->pw)){
-    http_response_code(400);
-    echo "User not defined. Give valid username and password";
-    return;
+foreach ($requiredInfo as $key) {
+    if(!isset($_POST[$key])) {
+        $err++;
+    }
 }
 
-//Oikeasti pitäisi käyttäjänimi ja salasana
-//tutkia järkevästi (mitkä merkit sallittuja jne. ja ilmoittaa käyttäjälle)
-//$uname = strip_tags($user->uname);
+if($err != 0) {
+    http_response_code(400);
+    echo json_encode(["Missing information", false, 'missingInfo']);
+    return;
+} else {
+    $bookName = urlencode($_POST["bookName"]);
+    $checkBookExist = "select * from BOOK where (bookName = '" . $bookName ."')";
+    $checkBookExist = selectAsJson($db, $checkBookExist);
+    if (count($checkBookExist) != 0) {
+        http_response_code(409);
+        echo json_encode(["Book by that name already in database", false, 'alreadyExists']);
+        
+        return;
+    } else {
+        $sql = "INSERT INTO BOOK(";
+        $i = 0;
+        foreach ($requiredInfo as $key) {
+            $sql .= $key;
+            $i++;
+            if ($i != count($requiredInfo)) {
+                $sql .= ",";
+            }
+        }
+        $sql .= ") VALUES('";
+        $sql .= $_POST["categoryId"] . "','";
+        $sql .= $_POST["bookName"] . "','";
+        $sql .= $_POST["price"] . "','";
+        $sql .= $_POST["author"] . "','";
+        $sql .= $_POST["description"] . "','";
+        $sql .= $_POST["year"] . "','";
+        $sql .= $_POST["condition"] . "','";
+        $sql .= $_POST["active"] . "')";
 
-addBook($bookId->bookId, $categoryId->categoryId, $bookName->bookName, $price->price, $author->author, $description->description, $year->year, $condition->condition, $active->active);
-
-
-$_SESSION['username'] = $user->uname;
-
-http_response_code(200);
-echo "User ".$user->uname." registered";
+        try {
+            executeInsert($db, $sql);
+            echo json_encode(['Book successfully added to database', true, 'BookAdded']);
+            session_start();
+            $_SESSION['username'] = $username;
+            http_response_code(200);
+        } catch (Exception $e) {
+            echo "Failed";
+            print_r($e);
+        }
+    }
+}
 
 ?>
-

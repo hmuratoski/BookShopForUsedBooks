@@ -1,169 +1,134 @@
 import React from 'react';
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
-import { Shop } from './shop';
-
-//admin paneeli tuotteitten muokkausta varten.
-//tehdään erillinen admin.php tiedosto;
-//tarkistaa, onko requestin tekijä admin
-//ottaa requestista $action argumentin samoin kun getData
-//jonka mukaan päätetään mitä tehdään   (erillinen adminFunctions.php?)
+import '../../css/Orderdetails.css';
+import { useState, useEffect } from 'react';
+import { language } from '../../locale/FI';
+import axios from 'axios';
+import { Database } from '../../database/variables.js';
+import { useLocation } from 'react-router-dom';
 
 
-export const AdminPanel = () => {
 
 
-	const [loggedUser, setLoggedUser] = useState(null);
-	const [errorText, setErrorText] = useState("");
+export const AdminAddBook = (props) => {
+	const fields = [	'categoryId',	'bookName',	'price',	'author',	'description',	'year',	'condition' ,'active']
+	const types = [		'number',		'text',		'number',		'text',		'text',	'number',		'number', 'number']
+	const lengthmax = [	'5',		'255',		'35',		'255',			'255',	'5',	'10',	'5']
 
-	//Check login by session for the first time
+	const [data, setData] = useState({});
+	const location = useLocation();
+
 	useEffect(() => {
-		axios.post("adminlogin.php", {}, { withCredentials: true })
-			.then(resp => setLoggedUser(resp.data))
-			.catch(e => console.log(e.message));
-	}, []);
+		const formData = new FormData();
+		if (props.setDetailsOk) {
+			props.setDetailsOk(false);
+		}
+	  	if (props.loggedIn) {
+			formData.append("username", props.userName);
+			axios.post(Database.requestUrl + "/user.php" + "?action=getUser", formData, {withCredentials:true})
+			.then((response) => {
+				setData(response.data[0]);
+				for (var i = 0; i < fields.length; i++) {
+					document.getElementById(fields[i]).value = response.data[0][fields[i]];
+				}
+			});
+		}
+	}, [])
+	
 
-	//Logging out -> server ends the session
-	function logout() {
-		axios.post("adminlogout.php", {}, { withCredentials: true })
-			.then(resp => setLoggedUser(null))
-			.catch(e => console.log(e.message));
+	const updateData = (e) => {
+		var errs = 0
+		if (e.target.value.length > lengthmax[fields.indexOf(e.target.name)]) {
+			e.target.value = e.target.value.slice(0, lengthmax[fields.indexOf(e.target.name)])
+		} 
+		
+		if (e.target.value.length == 0) {
+			e.target.style.borderColor = "red"
+			errs++;
+		} else {
+			e.target.style.borderColor = "green"
+		}
+		
+
+		if (errs == 0) {
+			setData({
+				...data,
+				[e.target.name]: e.target.value
+			})
+			errs = 0;
+			for (var i = 0; i < fields.length; i++) {
+				if (!data[fields[i]] || data[fields[i]] == "") {
+					console.log(fields[i]);
+					errs++;
+					console.log(fields[i] + " missing or invalid:");
+					i = fields.length;
+				}
+			}
+			if (errs == 1) {
+				if (props.setDetailsOk) {
+					console.log("Details OK");
+					props.setDetailsOk(true);
+				}
+			}
+			if (props.setDetails) {
+				props.setDetails(data);
+			}
+		} else {			//tyhjennetään muistissa oleva tieto ettei virheellistä tietoa mene läpi
+			if (props.setDetailsOk) {
+				props.setDetailsOk(false);
+			}
+			setData({
+				...data,
+				[e.target.name]: ""
+			})
+		}
 	}
 
-	//Conditional rendering depending on the login status.
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		var errs = 0;
+		for (var i = 0; i < fields.length; i++) {
+			if (!data[fields[i]] || data[fields[i]] == "") {
+				errs++;
+				console.log(fields[i] + " missing or invalid:");
+				i = fields.length;
+			}
+		}
+		if (errs == 0) {
+			console.log("all fields seem ok")
+		}
+	}
+
+	var i = -1;
+	
 	return (
 		<div>
-			{loggedUser && <button type="button" onClick={logout}>Logout</button>}
-			{loggedUser ?
-				<Shop uname={loggedUser} /> :
-				<Login setLoggedUser={setLoggedUser} setError={setErrorText} />
-			}
-			{!loggedUser && <h3 style={{ color: 'red' }}>{errorText}</h3>}
+			<div className="container1 mt-2">
+				<form>
+					{fields.map((item) => {
+
+						i++;
+						return (
+							<div key={item}>
+								<input
+									id={item}
+									type={types[i]}
+									name={item}
+									placeholder={`${language[item]}`}
+									onChange={updateData}
+									onBlur={updateData}
+								/>
+							</div>
+						)
+
+					})}
+				</form>
+				{location.pathname == "/admin" ? 
+					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.order}</button> 
+					: 
+					null
+				}
+			</div>
 		</div>
 	);
 }
-
-/**
- * Login form. Sends the login data to the server and
- * sets the parent component username state if the login is successful.
- * Unsuccessful login sets error text retrieved from the server
- */
-function Login({ setLoggedUser, setError }) {
-	const [uname, setUname] = useState("");
-	const [pw, setPw] = useState("");
-
-	//Function for logging in with username/password
-	function logIn() {
-		const formData = new FormData();
-		formData.append("uname", uname);
-		formData.append("password", pw);
-
-		axios.post("adminlogin.php", formData, { withCredentials: true })
-			.then(resp => {
-				setLoggedUser(resp.data);
-				setError("");
-			})
-			.catch(e => setError(e.response.data));
-	}
-
-	return (
-		<form>
-			<label>Username:</label>
-			<input type="text" value={uname} onChange={e => setUname(e.target.value)} />
-			<label>Password:</label>
-			<input type="password" value={pw} onChange={e => setPw(e.target.value)} />
-			<button type="button" onClick={logIn}>Login</button>
-		</form>
-	)
-}
-
-// /**
-//  * Showing the user page and retieving the user messages from the server
-//  */
-// function UserPage({ uname }) {
-// 	const [messages, setMessages] = useState([]);
-
-// 	useEffect(() => {
-// 		axios.get(URL + "rest_user_info.php", { withCredentials: true })
-// 			.then(resp => setMessages(resp.data.messages))
-// 			.catch(e => console.log(e.message))
-// 	}, []);
-
-// 	return (
-// 		<div>
-// 			<h1>Welcome {uname}. Your message:</h1>
-// 			<ul>
-// 				{messages.map((msg, i) => <li key={"a" + i}>{msg}</li>)}
-// 			</ul>
-// 		</div>
-// 	)
-// }
-
-
-function AddBook({ setBook }) {
-	const [bookId, setBookid] = useState("");
-	const [categoryId, setCategoryId] = useState("");
-	const [bookName, setBookName] = useState("");
-	const [price, setPrice] = useState("");
-	const [author, setAuthor] = useState("");
-	const [description, setDescription] = useState("");
-	const [year, setYear] = useState("");
-	const [condition, setCondition] = useState("");
-	const [active, setActive] = useState("");
-
-	function addbook(e) {
-
-		const json = { bookId, categoryId, bookName, price, author, description, year, condition, active };
-
-		axios.post("adminfunctions.php", json, { withCredentials: true })
-			.then(resp => setBook(bookId))
-			.catch(e => console.log(e.message));
-	}
-
-
-	return (
-		<div>
-			<form>
-				<label>
-					bookId
-					<input type="text" onChange={e => setBookid(e.target.value)}></input>
-				</label>
-				<label>
-					categoryId:
-					<input type="password" onChange={e => setCategoryId(e.target.value)}></input>
-				</label>
-				<label>
-					bookName:
-					<input type="text" onChange={e => setBookName(e.target.value)}></input>
-				</label>
-				<label>
-					price:
-					<input type="text" onChange={e => setPrice(e.target.value)}></input>
-				</label>
-				<label>
-					author:
-					<input type="text" onChange={e => setAuthor(e.target.value)}></input>
-				</label>
-				<label>
-					description
-					<input type="text" onChange={e => setDescription(e.target.value)}></input>
-				</label>
-				<label>
-					year:
-					<input type="text" onChange={e => setYear(e.target.value)}></input>
-				</label>
-				<label>
-					condition:
-					<input type="text" onChange={e => setCondition(e.target.value)}></input>
-				</label>
-				<label>
-					active:
-					<input type="text" onChange={e => setActive(e.target.value)}></input>
-				</label>
-				<button type="button" onClick={addbook}>Add book</button>
-			</form>
-		</div>
-	)
-}
-
