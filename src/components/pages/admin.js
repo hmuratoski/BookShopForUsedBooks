@@ -24,7 +24,14 @@ export const AdminAddBook = (props) => {
 			props.setDetailsOk(false);
 		}
 	  	if (props.loggedIn) {
+			formData.append("categoryId", props.categoryId);
 			formData.append("bookName", props.bookName);
+			formData.append("price", props.price);
+			formData.append("author", props.author);
+			formData.append("description", props.description);
+			formData.append("year", props.year);
+			formData.append("condition", props.condition);
+			formData.append("active", props.active);
 			axios.post(Database.requestUrl + "/adminaddbook.php", formData, {withCredentials:true})
 			.then((response) => {
 				setData(response.data[0]);
@@ -96,6 +103,7 @@ export const AdminAddBook = (props) => {
 		}
 		if (errs == 0) {
 			console.log("all fields seem ok")
+			
 		}
 	}
 
