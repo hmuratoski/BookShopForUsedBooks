@@ -1,60 +1,15 @@
 <?php
-
 require('./inc/headers.php');
 require_once 'inc/functions.php';
-require('/admin.php');
 
 
-$db = openSQLite();
+function addBook($bookId, $categoryId, $bookName, $price ,$author , $description , $year, $condition, $active){
 
-$requiredInfo = array('bookId','categoryId','bookName','price','author','description','year','condition','active');
-$err = 0;
+    $db = openSQLite();
 
-foreach ($requiredInfo as $key) {
-    if(!isset($_POST[$key])) {
-        $err++;
-    }
+    $sql = "INSERT INTO BOOK (bookId, categoryId, bookName, price, author, description, year, condition, active) VALUES (?,?,?,?,?,?,?,?,?)";
+    $statement = $db->prepare($sql);
+    $statement->execute(array($bookId, $categoryId, $bookName, $price ,$author , $description , $year, $condition, $active));
 }
 
-if($err != 0) {
-    http_response_code(400);
-    echo json_encode(["Missing information", false, 'missingInfo']);
-    return;
-} else {
-    $bookname = urlencode($_POST["bookName"]);
-    $checkBookExist = "select * from BOOK where (bookName = '" . $bookname . "')";
-    $checkBookExist= selectAsJson($db, $checkBookExist);
-    if (count($checkBookExist) != 0) {
-        http_response_code(409);
-        echo json_encode(["Book already in the database", false, 'alreadyExists']);
-        
-        return;
-    } else {
-        $sql = "INSERT INTO BOOK(";
-        $i = 0;
-        foreach ($requiredInfo as $key) {
-            $sql .= $key;
-            $i++;
-            if ($i != count($requiredInfo)) {
-                $sql .= ",";
-            }
-        }
-        $sql .= ") VALUES('";
-        $sql .= $_POST["bookId"] . "','";
-        $sql .= $_POST["categoryId"] . "','";
-        $sql .= $bookname . "','";
-        $sql .= $_POST["price"] . "','";
-        $sql .= $_POST["author"] . "','";
-        $sql .= $_POST["description"] . "','";
-        $sql .= $_POST["year"] . "','";
-        $sql .= $_POST["condition"] . "','";
-        $sql .= $_POST["active"] . "','";
-        try {
-            executeInsert($db, $sql);
-            echo json_encode(['Book inserted into database', true, 'bookInserted']);
-        } catch (Exception $e) {
-            echo "Failed";
-            print_r($e);
-        }
-    }
-}
+?>
