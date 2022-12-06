@@ -3,6 +3,7 @@
 require('./inc/headers.php');
 require_once 'inc/functions.php';
 
+
 $db = openSQLite();
 
 session_start();
