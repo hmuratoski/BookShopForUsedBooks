@@ -29,12 +29,12 @@ export const AdminPanel = () => {
 	  
 		function addbook(e){
 	  
-		  const json = {bookId, categoryId,bookName,price,author, description, year,condition,active}; //same as {uname:uname, pw:pw}
+		  const json = {bookId, categoryId,bookName, price,author,year,condition, active}; //same as {uname:uname, pw:pw}
 	  
 		  //Sendig form data to server register. WithCredentials is required for cookies/sessions to work.
 		  //Successful response sets the parent component username state
 		  axios.post("/adminfunctions.php",  json, {withCredentials: true})
-			.then(resp => setBook(bookId,categoryId,bookName,price,author,year,condition,active))
+			.then(resp => setBook(bookId,categoryId,bookName,price,author, description, year,condition,active))
 			.catch(e=> console.log(e.message));
 		}
 	  
