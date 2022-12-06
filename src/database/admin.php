@@ -17,11 +17,9 @@ if (isset($_SESSION["username"])) {
 
     if (count($getAdminlevel) > 0) {
         echo "Admin level: " . $getAdminlevel[0]["level"] . PHP_EOL;
-    }
 
-    else {
-        break;
-    }
+
+    };
 
 }
 
