@@ -30,7 +30,7 @@ export const AdminPanel = () => {
 		function addbook(e){
 	  
 		  const json = {bookId, categoryId,bookName, price,author,year,condition, active}; //same as {uname:uname, pw:pw}
-				//Juho: tavara palvelimelle formDatana, ks. register.js:HandleClick
+				//Juho: tavara palvelimelle formDatana, ks. register.js:HandleClick. Suosittelen siirtämään muuttujat ja funktion addBook komponenttiin
 		  //Sendig form data to server register. WithCredentials is required for cookies/sessions to work.
 		  //Successful response sets the parent component username state
 		  axios.post("/adminfunctions.php",  json, {withCredentials: true})
