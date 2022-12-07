@@ -11,6 +11,7 @@ import { Database } from './database/variables';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import './fonts/SignikaNegative-Regular.ttf';
+import { UserPanel } from './components/pages/userpanel';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
 				userName={userName}
 				setUserName={setUserName}
 			/>
+		
 			<Header />
 			<Content
 				setLoggedIn={setLoggedIn}

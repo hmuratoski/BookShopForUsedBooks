@@ -69,7 +69,7 @@ export const Navbar = (props) => {
 						<div className="" id="adminusercontrol">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">	
 							<li className="nav-item"><NavLink to="/admin" className="nav-link" aria-current="page">{language.navAdmin}</NavLink></li>
-							<li className="nav-item"><NavLink to="/user" className="nav-link">{language.navUser}</NavLink></li>
+							<li className="nav-item"><NavLink to="/userpanel" className="nav-link">{language.navUser}</NavLink></li>
 						</ul>
 					</div>
 					</form>

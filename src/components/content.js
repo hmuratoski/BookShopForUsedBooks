@@ -9,7 +9,7 @@ import { Register } from './pages/register';
 import '../css/Header.css';
 import { OrderDetails } from './pages/orderdetails';
 import { AdminAddBook, AdminPanel } from './pages/admin';
-import { UserPanel } from './pages/user';
+import { UserPanel } from './pages/userpanel';
 
 //Headerin ja footerin välinen sisältö, tänne routingit
 
@@ -47,8 +47,8 @@ export const Content = (props) => {
 					setItemsInCart={props.setItemsInCart}
 				/>
 			} />
-			<Route path="/user" element={
-				<UserPanel 
+			<Route path="/userpanel" element={
+				<UserPanel
 					loggedIn={props.loggedIn}
 					setItemsInCart={props.setItemsInCart}
 				/>
