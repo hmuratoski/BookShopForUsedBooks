@@ -1,9 +1,9 @@
 <?php
-require_once 'functions.php';
-require_once 'headers.php';
+require('./inc/headers.php');
+require_once('./inc/functions.php');
 
 
-$db = openDb();
+$db = openSQLite();
   
 $bookId = $_POST['bookId'];
 $categoryId = $_POST['categoryId'];
@@ -15,13 +15,10 @@ $year = $_POST['year'];
 $condition = $_POST['condition'];
 $active = $_POST['active'];
 
+$sql = "INSERT INTO BOOK (bookId, categoryId, bookName, price, author, description, year, condition, active) VALUES ('$bookId', '$categoryId', '$bookName', '$price', '$author', '$description', '$year', '$condition', '$active'); ";
+
 try {
 
-  $sql = "INSERT INTO BOOK (bookId, categoryId, bookName, price, author, description, year, condition, active) VALUES ('$bookId', '$categoryId', '$bookName', '$price', '$author', '$description', '$year', '$condition', '$active'); ";
-
-  session_start();
-  $_SESSION['username'] = $username;
-  http_response_code(200);
   executeInsert($db, $sql);
   echo json_encode(['Book added successfully', true, 'bookAdded']);
 
