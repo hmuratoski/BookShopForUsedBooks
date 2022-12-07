@@ -8,7 +8,7 @@ import { ShoppingCart } from './pages/shoppingcart';
 import { Register } from './pages/register';
 import '../css/Header.css';
 import { OrderDetails } from './pages/orderdetails';
-import { AdminAddBook, AdminPanel } from './pages/admin';
+import { AdminAddBook } from './pages/admin';
 import { UserPanel } from './pages/userpanel';
 
 //Headerin ja footerin välinen sisältö, tänne routingit
