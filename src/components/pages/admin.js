@@ -1,142 +1,115 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../css/Orderdetails.css';
+import '../../css/Admin.css';
 import { useState, useEffect } from 'react';
-import { language } from '../../locale/FI';
 import axios from 'axios';
-import { Database } from '../../database/variables.js';
-import { useLocation } from 'react-router-dom';
 
 
 
 
-export const AdminAddBook = (props) => {
-	const fields = [	'categoryId',	'bookName',	'price',	'author',	'description',	'year',	'condition' ,'active']
-	const types = [		'number',		'text',		'number',		'text',		'text',	'number',		'number', 'number']
-	const lengthmax = [	'5',		'255',		'35',		'255',			'255',	'5',	'10',	'5']
 
-	const [data, setData] = useState({});
-	const location = useLocation();
+export const AdminAddBook = () => {
 
-	useEffect(() => {
-		const formData = new FormData();
-		if (props.setDetailsOk) {
-			props.setDetailsOk(false);
+	const [bookId, setBookId] = useState('');
+	const [categoryId, setCategoryid] = useState('');
+	const [bookName, setBookName] = useState('');
+	const [price, setPrice] = useState('');
+	const [author, setAuthor] = useState('');
+	const [description, setDescription] = useState('');
+	const [year, setYear] = useState('');
+	const [condition, setCondition] = useState('');
+	const [active, setActive] = useState('');
+
+	const handleSubmit = () => {
+
+		if(bookId.length === 0) {
+			alert("Book ID kenttää ei voi jättää tyhjäksi!");
 		}
-	  	if (props.loggedIn) {
-			formData.append("categoryId", props.categoryId);
-			formData.append("bookName", props.bookName);
-			formData.append("price", props.price);
-			formData.append("author", props.author);
-			formData.append("description", props.description);
-			formData.append("year", props.year);
-			formData.append("condition", props.condition);
-			formData.append("active", props.active);
-			axios.post(Database.requestUrl + "/adminaddbook.php", formData, {withCredentials:true})
-			.then((response) => {
-				setData(response.data[0]);
-				for (var i = 0; i < fields.length; i++) {
-					document.getElementById(fields[i]).value = response.data[0][fields[i]];
-				}
-			});
+		else if(categoryId.length === 0) {
+			alert("Category ID kenttää ei voi jättää tyhjäksi!");
 		}
-	}, [])
-	
+		else if(bookName.length === 0) {
+			alert("Book name kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(price.length === 0) {
+			alert("Price kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(author.length === 0) {
+			alert("Author kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(description.length === 0) {
+			alert("Description kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(year.length === 0) {
+			alert("Year kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(condition.length === 0) {
+			alert("Condition kenttää ei voi jättää tyhjäksi!");
+		}
+		else if(active.length === 0) {
+			alert("Active kenttää ei voi jättää tyhjäksi!");
+		}
 
-	const updateData = (e) => {
-		var errs = 0
-		if (e.target.value.length > lengthmax[fields.indexOf(e.target.name)]) {
-			e.target.value = e.target.value.slice(0, lengthmax[fields.indexOf(e.target.name)])
-		} 
-		
-		if (e.target.value.length == 0) {
-			e.target.style.borderColor = "red"
-			errs++;
-		} else {
-			e.target.style.borderColor = "green"
-		}
-		
+		else {
+			const url = "http://localhost:3001/src/database/inc/adminaddbook.php"
 
-		if (errs == 0) {
-			setData({
-				...data,
-				[e.target.name]: e.target.value
-			})
-			errs = 0;
-			for (var i = 0; i < fields.length; i++) {
-				if (!data[fields[i]] || data[fields[i]] == "") {
-					console.log(fields[i]);
-					errs++;
-					console.log(fields[i] + " missing or invalid:");
-					i = fields.length;
-				}
-			}
-			if (errs == 1) {
-				if (props.setDetailsOk) {
-					console.log("Details OK");
-					props.setDetailsOk(true);
-				}
-			}
-			if (props.setDetails) {
-				props.setDetails(data);
-			}
-		} else {			//tyhjennetään muistissa oleva tieto ettei virheellistä tietoa mene läpi
-			if (props.setDetailsOk) {
-				props.setDetailsOk(false);
-			}
-			setData({
-				...data,
-				[e.target.name]: ""
-			})
+			let fData = new FormData();
+			fData.append('bookId', bookId);
+			fData.append('categoryId', categoryId);
+			fData.append('bookName', bookName);
+			fData.append('price', price);
+			fData.append('author', author);
+			fData.append('description', description);
+			fData.append('year', year);
+			fData.append('condition', condition);
+			fData.append('active', active);
+
+			axios.post(url, fData)
+			.then(response=>alert(response.data))
+			.catch(error=> alert(error));
 		}
+
+
+
 	}
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		var errs = 0;
-		for (var i = 0; i < fields.length; i++) {
-			if (!data[fields[i]] || data[fields[i]] == "") {
-				errs++;
-				console.log(fields[i] + " missing or invalid:");
-				i = fields.length;
-			}
-		}
-		if (errs == 0) {
-			console.log("all fields seem ok")
-			
-		}
-	}
-
-	var i = -1;
-	
 	return (
-		<div>
-			<div className="container1 mt-2">
-				<form>
-					{fields.map((item) => {
 
-						i++;
-						return (
-							<div key={item}>
-								<input
-									id={item}
-									type={types[i]}
-									name={item}
-									placeholder={`${language[item]}`}
-									onChange={updateData}
-									onBlur={updateData}
-								/>
-							</div>
-						)
+		<div className='admincontainer'>
 
-					})}
-				</form>
-				{location.pathname == "/admin" ? 
-					<button className="btn btn-outline-dark" type="submit" onClick={e => handleSubmit(e)}>{language.addbook}</button> 
-					: 
-					null
-				}
-			</div>
+			<h3>Lisää uusi kirja tietokantaan</h3>
+
+			<label htmlFor='bookId'> Book ID</label>
+			<input type='number' name='bookId' id='bookId' value={bookId} onChange={(e) => setBookId(e.target.value)}></input>
+
+			<label htmlFor='categoryId'> Category ID</label>
+			<input type='number' name='categoryId' id='categoryId' value={categoryId} onChange={(e) => setCategoryid(e.target.value)}></input>
+
+			<label htmlFor='bookName'> Book name</label>
+			<input type='text' name='bookName' id='bookName' value={bookName} onChange={(e) => setBookName(e.target.value)}></input>
+
+			<label htmlFor='price'> Price</label>
+			<input type='number' name='price' id='price' value={price} onChange={(e) => setPrice(e.target.value)}></input>
+
+			<label htmlFor='author'> Author </label>
+			<input type='text' name='author' id='author' value={author} onChange={(e) => setAuthor(e.target.value)}></input>
+
+			<label htmlFor='description'> Description</label>
+			<input type='text' name='description' id='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
+
+			<label htmlFor='year'> Year</label>
+			<input type='number' name='year' id='year' value={year} onChange={(e) => setYear(e.target.value)}></input>
+
+			<label htmlFor='condition'> Condition</label>
+			<input type='text' name='condition' id='condition' value={condition} onChange={(e) => setCondition(e.target.value)}></input>
+
+			<label htmlFor='active'> Active</label>
+			<input type='number' name='active' id='active' value={active} onChange={(e) => setActive(e.target.value)}></input>
+
+			<input type='button' name='send' id='send' value='LISÄÄ KIRJA' onClick={handleSubmit}></input>
 		</div>
+
 	);
-}
+
+	}
+
