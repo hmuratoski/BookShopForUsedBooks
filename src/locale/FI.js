@@ -21,6 +21,7 @@ export const language = {
 	price: "hinta",
 	remove: "poista",
 	register: "Rekisteröidy",
+	change:"Muokkaa",
 	userName: "Käyttäjänimi",
 	password: "Salasana",
 

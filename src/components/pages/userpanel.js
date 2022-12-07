@@ -59,9 +59,9 @@ import { useNavigate } from "react-router-dom";
 			<UsernamePassword setUserPassOk={setUserPassOk} setUserPass={setUserPass} />
 			<OrderDetails setDetailsOk={setDetailsOk} setDetails={setDetails} />
 			{(detailsOk && userPassOk) ?
-				<button className="btn btn btn-outline-dark" onClick={e => handleClick(e)}>{language.register}</button>
+				<button className="btn btn btn-outline-dark" onClick={e => handleClick(e)}>{language.change}</button>
 				:
-				<button className="btn btn btn-outline-dark" disabled>{language.register}</button>
+				<button className="btn btn btn-outline-dark" disabled>{language.change}</button>
 			}
 			<h2>{registerErr}</h2>
 		</div>
