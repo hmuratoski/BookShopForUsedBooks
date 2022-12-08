@@ -4,13 +4,13 @@ import '../../css/Admin.css';
 import { useState} from 'react';
 import axios from 'axios';
 import { Database } from '../../database/variables';
+import { language } from '../../locale/FI';
 
 
 
 
 export const AdminAddBook = () => {
 
-	const [bookId, setBookId] = useState('');
 	const [categoryId, setCategoryid] = useState('');
 	const [bookName, setBookName] = useState('');
 	const [price, setPrice] = useState('');
@@ -22,10 +22,7 @@ export const AdminAddBook = () => {
 
 	const handleSubmit = (e) => {
 
-		if(bookId.length === 0) {
-			alert("Book ID kenttää ei voi jättää tyhjäksi!");
-		}
-		else if(categoryId.length === 0) {
+		if(categoryId.length === 0) {
 			alert("Category ID kenttää ei voi jättää tyhjäksi!");
 		}
 		else if(bookName.length === 0) {
@@ -54,7 +51,6 @@ export const AdminAddBook = () => {
 
 
 			let fData = new FormData();
-			fData.append('bookId', bookId);
 			fData.append('categoryId', categoryId);
 			fData.append('bookName', bookName);
 			fData.append('price', price);
@@ -64,10 +60,11 @@ export const AdminAddBook = () => {
 			fData.append('condition', condition);
 			fData.append('active', active);
 
-			axios.post(Database.requestUrl + "/admin.php?action=addBook", fData, { validateStatus: () => true })
+			axios.post(Database.requestUrl + "/admin.php?action=addBook", fData, {withCredentials:true})
 			.then((response) => {
+				
 				if (response.data) {
-					console.log('Meni perille');
+					alert(`${language[response.data[2]]}`);
 				}
 			}).catch(e => console.log(e.message));
 		}
@@ -83,8 +80,6 @@ export const AdminAddBook = () => {
 
 			<h3>Lisää uusi kirja tietokantaan</h3>
 
-			<label htmlFor='bookId'> Book ID</label>
-			<input type='number' name='bookId' id='bookId' value={bookId} onChange={(e) => setBookId(e.target.value)}></input>
 
 			<label htmlFor='categoryId'> Category ID</label>
 			<input type='number' name='categoryId' id='categoryId' value={categoryId} onChange={(e) => setCategoryid(e.target.value)}></input>

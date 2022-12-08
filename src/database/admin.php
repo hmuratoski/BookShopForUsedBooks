@@ -15,7 +15,6 @@ if (isset($_SESSION["username"])) {
 
 
     if (count($getAdminlevel) > 0) {
-        echo "Admin level: " . $getAdminlevel[0]["level"] . PHP_EOL;
 
         if (!isset($_GET["action"])) {
             http_response_code(400);
@@ -27,7 +26,6 @@ if (isset($_SESSION["username"])) {
 
         switch($action) {
             case "addBook":
-                $bookId = $_POST['bookId'];
                 $categoryId = $_POST['categoryId'];
                 $bookName = $_POST['bookName'];
                 $price = $_POST['price'];
@@ -37,7 +35,7 @@ if (isset($_SESSION["username"])) {
                 $condition = $_POST['condition'];
                 $active = $_POST['active'];
 
-                $sql = "INSERT INTO BOOK (bookId, categoryId, bookName, price, author, description, year, condition, active) VALUES ('$bookId', '$categoryId', '$bookName', '$price', '$author', '$description', '$year', '$condition', '$active'); ";
+                $sql = "INSERT INTO BOOK (categoryId, bookName, price, author, description, year, condition, active) VALUES ('$categoryId', '$bookName', '$price', '$author', '$description', '$year', '$condition', '$active'); ";
 
                 try {
 

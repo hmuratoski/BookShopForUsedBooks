@@ -27,6 +27,7 @@ export const language = {
 
 	alreadyExists: "Käyttäjänimi tai sähköpostiosoite on jo rekisteröity",
 	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",
+	bookAdded: "Kirja lisätty tietokantaan",
 
 	fname: "Etunimi",
 	lname: "Sukunimi",
