@@ -8,7 +8,7 @@ import { ShoppingCart } from './pages/shoppingcart';
 import { Register } from './pages/register';
 import '../css/Header.css';
 import { OrderDetails } from './pages/orderdetails';
-import { AdminAddBook } from './pages/admin';
+import { Admin } from './pages/admin';
 import { UserPanel } from './pages/userpanel';
 
 //Headerin ja footerin välinen sisältö, tänne routingit
@@ -42,9 +42,7 @@ export const Content = (props) => {
 				/>
 			} />
 			<Route path="/admin" element={
-				<AdminAddBook 
-					loggedIn={props.loggedIn}
-					setItemsInCart={props.setItemsInCart}
+				<Admin 
 				/>
 			} />
 			<Route path="/userpanel" element={
