@@ -2,6 +2,9 @@
 require('./inc/headers.php');
 require_once('./inc/functions.php');
 
+session_start();
+if (isset($_SESSION["username"])) {
+
 
 $db = openSQLite();
   
@@ -26,4 +29,6 @@ try {
 catch (PDOException $pdoex) {
   returnError($pdoex);
   echo "Failed";
+}
+
 }
