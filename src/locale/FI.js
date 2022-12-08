@@ -38,15 +38,6 @@ export const language = {
 	phone: "Puhelin",
 	order: "Tilaa",
 
-	bookId: "Kirjan ID",
-	categoryId: "Category ID",
-	bookName: "Kirjan nimi",
-	price: "Hinta",
-	author: "Teoksen kirjoittaja",
-	description: "Tietoa kirjasta",
-	year: "Julkaisuvuosi",
-	condition: "Kirjan kunto 1-3",
-	active: "On valikoimassa 1, ei ole 0",
 	addbook: "Lisää tuote",
 
 
