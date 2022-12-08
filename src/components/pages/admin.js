@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Admin.css';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 
 
