@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/Admin.css';
 import { useState} from 'react';
 import axios from 'axios';
-
+import { Database } from '../../database/variables';
 
 
 
@@ -20,7 +20,7 @@ export const AdminAddBook = () => {
 	const [condition, setCondition] = useState('');
 	const [active, setActive] = useState('');
 
-	const handleSubmit = () => {
+	const handleSubmit = (e) => {
 
 		if(bookId.length === 0) {
 			alert("Book ID kenttää ei voi jättää tyhjäksi!");
@@ -51,7 +51,7 @@ export const AdminAddBook = () => {
 		}
 
 		else {
-			const url = "http://localhost:3001/src/database/inc/adminaddbook.php"
+
 
 			let fData = new FormData();
 			fData.append('bookId', bookId);
@@ -64,10 +64,14 @@ export const AdminAddBook = () => {
 			fData.append('condition', condition);
 			fData.append('active', active);
 
-			axios.post(url, fData)
-			.then(response=>alert(response.data))
-			.catch(error=> alert(error));
+			axios.post(Database.requestUrl + "/admin.php?action=addBook", fData, { validateStatus: () => true })
+			.then((response) => {
+				if (response.data) {
+					console.log('Meni perille');
+				}
+			}).catch(e => console.log(e.message));
 		}
+		
 
 
 
@@ -106,7 +110,7 @@ export const AdminAddBook = () => {
 			<label htmlFor='active'> Active</label>
 			<input type='number' name='active' id='active' value={active} onChange={(e) => setActive(e.target.value)}></input>
 
-			<input type='button' name='send' id='send' value='LISÄÄ KIRJA' onClick={handleSubmit}></input>
+			<input type='button' name='send' id='send' value='LISÄÄ KIRJA' onClick={e => handleSubmit(e)}></input>
 		</div>
 
 	);
