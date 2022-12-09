@@ -69,8 +69,8 @@ if (isset($_SESSION["username"])) {
                         echo "Failed";
 =======
                 return;
+
             break;
->>>>>>> 44ff4aa7951f054c889940e3f4be4e749429002d
 
             case "getLevel":
                 echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
@@ -85,7 +85,7 @@ if (isset($_SESSION["username"])) {
     };
     echo "not an admin";
     return;
-}
+    
 echo "not logged in";
 return;
 
