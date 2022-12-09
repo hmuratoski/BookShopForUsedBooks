@@ -21,7 +21,6 @@ if($err != 0) {
     $username = urlencode($_POST["username"]);
     $customerId = "select customerId from USER where username = '$username'";
     $customerId = selectAsJson($db, $customerId);
-    $cId=3;
 
     $hash = password_hash(urlencode($_POST["password"]),PASSWORD_DEFAULT);
     $fname = ($_POST["fname"]);
