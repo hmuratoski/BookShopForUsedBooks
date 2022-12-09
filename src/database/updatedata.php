@@ -19,16 +19,30 @@ if($err != 0) {
     return;
 } else {
     $username = urlencode($_POST["username"]);
-    $checkUserExist = "Update* from USER where (username = '" . $username . "' OR email = '" . $_POST["email"] . "')";
-    $checkUserExist = selectAsJson($db, $checkUserExist);
-    if (count($checkUserExist) != 0) {
+    $customerId = "select customerId from USER where username = '$username'";
+    $customerId = selectAsJson($db, $customerId);
+    $cId=3;
+
+    $hash = password_hash(urlencode($_POST["password"]),PASSWORD_DEFAULT);
+    $fname = ($_POST["fname"]);
+    $lname = ($_POST["lname"]);
+    $phone = ($_POST["phone"]);
+    $email = ($_POST["email"]);
+    $address =($_POST["address"]);
+    $city = ($_POST["city"]);
+    $postalcode =($_POST["postalcode"]);
+
+    $updateCustomer = "UPDATE USER SET username='$username', password='$hash', fname='$fname', lname='$lname', phone='$phone', email='$email', address='$address', city='$city', postalcode='$postalcode' WHERE customerId = $cId";
+    $updateCustomer = executeQuery($db, $updateCustomer);
+    if ($updateCustomer != 1) {
         http_response_code(409);
         echo json_encode(["Username or email already exists in the database", false, 'alreadyExists']);
         
         return;
     } else {
-        $hash = password_hash(urlencode($_POST["password"]),PASSWORD_DEFAULT);
-        $sql = "INSERT INTO USER(";
+        http_response_code(200);
+        print $customerId;
+        /*$sql = "INSERT INTO USER(";
         $i = 0;
         foreach ($requiredInfo as $key) {
             $sql .= $key;
@@ -46,7 +60,8 @@ if($err != 0) {
         $sql .= $_POST["postalcode"] . "','";
         $sql .= $_POST["city"] . "','";
         $sql .= $_POST["email"] . "','";
-        $sql .= $_POST["phone"] . "')";
+        $sql .= $_POST["phone"] . "')"; 
+        
 
         try {
             executeInsert($db, $sql);
@@ -57,7 +72,7 @@ if($err != 0) {
         } catch (Exception $e) {
             echo "Failed";
             print_r($e);
-        }
+        }*/
     }
 }
 

@@ -39,6 +39,13 @@ function selectRowAsJson( object $db, string $sql ): array
 	return $results;
 }
 
+function executeQuery( object $db, string $sql ): int
+{
+	$query = $db->query($sql);
+	return 1;
+}
+
+
 function executeInsert( object $db, string $sql ): int
 {
 	$query = $db->query($sql);
