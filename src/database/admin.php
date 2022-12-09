@@ -22,7 +22,9 @@ if (isset($_SESSION["username"])) {
             return;
         }
 
-        $action = $_GET["action"];
+
+    if (isset($_GET["action"])) { 
+    $action = $_GET["action"];
 
         switch($action) {
             case "addBook":
@@ -47,9 +49,28 @@ if (isset($_SESSION["username"])) {
                     returnError($pdoex);
                     echo "Failed";
                 }
+                break;
+
+                case "addCategory":
+                    $categoryName = $_POST['categoryName'];
+                    
+                    $sql = "INSERT INTO CATEGORY (categoryName) VALUES ('$categoryName'); ";
+
+                    try {
+                        
+                        executeInsert($db, $sql);
+                        echo json_encode(['Category added succesfully', true, 'categoryAdded']);
+
+                    }
+                    catch (PDOException $pdoex) {
+                        returnError($pdoex);
+                        echo "Failed";
 
         }
 
+        } 
+
+         }
 
     };
 

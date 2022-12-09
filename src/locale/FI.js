@@ -39,6 +39,7 @@ export const language = {
 	order: "Tilaa",
 
 	addbook: "Lisää tuote",
+	addcategory: "Lisää kategoria",
 
 
 	productDetails: "Tietoja",
