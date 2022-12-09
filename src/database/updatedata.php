@@ -33,46 +33,13 @@ if($err != 0) {
     $postalcode =($_POST["postalcode"]);
 
     $updateCustomer = "UPDATE USER SET username='$username', password='$hash', fname='$fname', lname='$lname', phone='$phone', email='$email', address='$address', city='$city', postalcode='$postalcode' WHERE customerId = $cId";
-    $updateCustomer = executeQuery($db, $updateCustomer);
-    if ($updateCustomer != 1) {
+    
+    try {
+        executeQuery($db, $updateCustomer);
+        echo json_encode(["Updated user information", true, 'updateSuccess']);
+    } catch (Exception $e) {
         http_response_code(409);
-        echo json_encode(["Username or email already exists in the database", false, 'alreadyExists']);
-        
-        return;
-    } else {
-        http_response_code(200);
-        print $customerId;
-        /*$sql = "INSERT INTO USER(";
-        $i = 0;
-        foreach ($requiredInfo as $key) {
-            $sql .= $key;
-            $i++;
-            if ($i != count($requiredInfo)) {
-                $sql .= ",";
-            }
-        }
-        $sql .= ") VALUES('";
-        $sql .= $username . "','";
-        $sql .= $hash . "','";
-        $sql .= $_POST["fname"] . "','";
-        $sql .= $_POST["lname"] . "','";
-        $sql .= $_POST["address"] . "','";
-        $sql .= $_POST["postalcode"] . "','";
-        $sql .= $_POST["city"] . "','";
-        $sql .= $_POST["email"] . "','";
-        $sql .= $_POST["phone"] . "')"; 
-        
-
-        try {
-            executeInsert($db, $sql);
-            echo json_encode(['Account creation success', true, 'accountCreated']);
-            session_start();
-            $_SESSION['username'] = $username;
-            http_response_code(200);
-        } catch (Exception $e) {
-            echo "Failed";
-            print_r($e);
-        }*/
+        echo json_encode(["Updating information failed", false, 'updateFailed']);
     }
 }
 
