@@ -47,6 +47,7 @@ export const Content = (props) => {
 			} />
 			<Route path="/userpanel" element={
 				<UserPanel
+					logOut={props.logOut}
 					loggedIn={props.loggedIn}
 					setItemsInCart={props.setItemsInCart}
 				/>

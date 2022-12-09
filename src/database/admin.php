@@ -8,6 +8,7 @@ $db = openSQLite();
 
 session_start();
 
+
 if (isset($_SESSION["username"])) {
 
     $getAdminlevel = "select level from ADMIN where (username = '" . $_SESSION["username"] . "')";
@@ -47,14 +48,21 @@ if (isset($_SESSION["username"])) {
                     returnError($pdoex);
                     echo "Failed";
                 }
+                return;
+            break;
 
+            case "getLevel":
+                echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
+                return;
+            break;
         }
 
 
     };
-
+    echo "not an admin";
+    return;
 }
-
-
+echo "not logged in";
+return;
 
 ?>

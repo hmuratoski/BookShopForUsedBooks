@@ -64,13 +64,13 @@ function App() {
 				itemsInCart={itemsInCart}
 				loggedIn={loggedIn}
 				setLoggedIn={setLoggedIn}
-				logOut={logOut}
 				userName={userName}
 				setUserName={setUserName}
 			/>
 		
 			<Header />
 			<Content
+				logOut={logOut}
 				setLoggedIn={setLoggedIn}
 				setUserName={setUserName}
 				setItemsInCart={setItemsInCart}
