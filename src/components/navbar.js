@@ -47,7 +47,7 @@ export const Navbar = (props) => {
 						{!props.loggedIn ?
 							<LoginButton />
 							:
-							<button className="btn btn-outline-dark" type="button" onClick={event => props.logOut()} >{props.userName}</button>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
+							<NavLink to="/userpanel" className="btn btn-outline-dark" >{props.userName}</NavLink>        //jos kirjauduttu, näyttää käyttäjäpaneelin nappulan
 						}
 						{props.itemsInCart > 0 ?
 							<NavLink to="cart">
@@ -69,7 +69,6 @@ export const Navbar = (props) => {
 						<div className="" id="adminusercontrol">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">	
 							<li className="nav-item"><NavLink to="/admin" className="nav-link" aria-current="page">{language.navAdmin}</NavLink></li>
-							<li className="nav-item"><NavLink to="/userpanel" className="nav-link">{language.navUser}</NavLink></li>
 						</ul>
 					</div>
 					</form>
