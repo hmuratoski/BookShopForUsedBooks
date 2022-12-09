@@ -14,7 +14,7 @@ export const Admin = () => {
 	useEffect(() => {
 		axios.post(Database.requestUrl + "/admin.php?action=getLevel", {}, {withCredentials:true})
 		.then((response) => {
-			if (response.data[2] == "isAdmin" && response.data[1] == true) {
+			if (response.data[2] === "isAdmin" && response.data[1] === true) {
 				setAdmin(true);
 				setLevel(response.data[3][0]["level"]);
 				console.log("Admin level: " + response.data[3][0]["level"])
@@ -23,7 +23,7 @@ export const Admin = () => {
 	}, [])
 	
 
-	if (adminLevel == 3 && isAdmin) {
+	if (adminLevel === 3 && isAdmin) {
 	return (
 		<div>
 
