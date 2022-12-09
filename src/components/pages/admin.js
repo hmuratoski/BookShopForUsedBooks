@@ -1,13 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AddBook } from '../addbook';
-<<<<<<< HEAD
 import { AddCategory } from '../addcategory';
-=======
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Database } from '../../database/variables';
->>>>>>> 44ff4aa7951f054c889940e3f4be4e749429002d
 
 export const Admin = () => {
 
