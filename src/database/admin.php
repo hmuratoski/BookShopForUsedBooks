@@ -50,7 +50,7 @@ if (isset($_SESSION["username"])) {
                     returnError($pdoex);
                     echo "Failed";
                 }
-<<<<<<< HEAD
+
                 break;
 
                 case "addCategory":
@@ -67,10 +67,11 @@ if (isset($_SESSION["username"])) {
                     catch (PDOException $pdoex) {
                         returnError($pdoex);
                         echo "Failed";
-=======
-                return;
+                break;
 
             break;
+
+        }
 
             case "getLevel":
                 echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
@@ -88,5 +89,7 @@ if (isset($_SESSION["username"])) {
     
 echo "not logged in";
 return;
+
+
 
 ?>
