@@ -6,12 +6,10 @@ import { Database } from '../../database/variables.js';
 import { UsernamePassword } from '../usernamepassword.js';
 import { language } from '../../locale/FI';
 import { OrderDetails} from "./orderdetails.js";
-import { useNavigate } from "react-router-dom";
 
 
 	export const UserPanel = (props) => {
 		var registerErr;
-		let navigate = useNavigate();
 
 		const [detailsOk, setDetailsOk] = useState('false');
 		const [userPassOk, setUserPassOk] = useState('false');
