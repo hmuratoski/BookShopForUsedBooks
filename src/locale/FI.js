@@ -24,6 +24,7 @@ export const language = {
 	change:"Muokkaa",
 	userName: "Käyttäjänimi",
 	password: "Salasana",
+	logOut: "Kirjaudu ulos",
 
 	alreadyExists: "Käyttäjänimi tai sähköpostiosoite on jo rekisteröity",
 	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",

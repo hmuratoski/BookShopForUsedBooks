@@ -9,7 +9,7 @@ import '../css/Navbar.css';
 
 export const Navbar = (props) => {
 	const [showLogin, setShowLogin] = useState(false);
-	
+
 
 	const toggleLogin = () => {
 		if (showLogin) {
@@ -64,13 +64,6 @@ export const Navbar = (props) => {
 								<span className="badge bg-dark text-white ms-1 rounded-pill">{props.itemsInCart}</span>
 							</div>
 						}
-
-						
-						<div className="" id="adminusercontrol">
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">	
-							<li className="nav-item"><NavLink to="/admin" className="nav-link" aria-current="page">{language.navAdmin}</NavLink></li>
-						</ul>
-					</div>
 					</form>
 				</div>
 			</nav>

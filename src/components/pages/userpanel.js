@@ -1,20 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Database } from '../../database/variables.js';
 import { UsernamePassword } from '../usernamepassword.js';
 import { language } from '../../locale/FI';
 import { OrderDetails} from "./orderdetails.js";
-
+import { useNavigate } from 'react-router-dom';
 
 	export const UserPanel = (props) => {
 		var registerErr;
+
+		const navigate = useNavigate();
 
 		const [detailsOk, setDetailsOk] = useState('false');
 		const [userPassOk, setUserPassOk] = useState('false');
 		const [userPass, setUserPass] = useState({});
 		const [details, setDetails] = useState({});
+
+		const logout = (props) => {
+			props.logOut();
+			navigate(-1);
+		}
 
 		const handleClick = () => {
 			const formData = new FormData();
@@ -62,6 +69,7 @@ import { OrderDetails} from "./orderdetails.js";
 				<button className="btn btn btn-outline-dark" disabled>{language.change}</button>
 			}
 			<h2>{registerErr}</h2>
+			<button className="btn btn btn-outline-dark" onClick={e => logout(props)}>{language.logOut}</button>
 		</div>
 	)
 }
