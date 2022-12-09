@@ -2,18 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { Catalog } from '../catalog';
-import { Category } from '../category';
 import { Database } from '../../database/variables.js';
 import { UsernamePassword } from '../usernamepassword.js';
 import { language } from '../../locale/FI';
 import { OrderDetails} from "./orderdetails.js";
-import { useNavigate } from "react-router-dom";
 
 
 	export const UserPanel = (props) => {
 		var registerErr;
-		let navigate = useNavigate();
 
 		const [detailsOk, setDetailsOk] = useState('false');
 		const [userPassOk, setUserPassOk] = useState('false');
@@ -33,10 +29,10 @@ import { useNavigate } from "react-router-dom";
 				formData.append(key, details[key]);
 			}
 	
-			console.log(values);
+			console.log(formData);
 	
 			if (values == 9) {
-			axios.post(Database.requestUrl + "/register.php", formData, { validateStatus: () => true })
+			axios.post(Database.requestUrl + "/updatedata.php", formData, { validateStatus: () => true })
 				.then((response) => {
 					if (response.data) {
 						if (!response.data[1]) {
@@ -45,14 +41,16 @@ import { useNavigate } from "react-router-dom";
 							console.log(response.data[0]);
 							registerErr = response.data[2];
 						} else {	//response.data[2] = 'accountCreated'
-							props.setLoggedIn(true);
-							props.setUserName(userPass["username"]);
-							navigate("/shop");
+							//props.setLoggedIn(true);
+							//props.setUserName(userPass["username"]);
+							//navigate("/shop");
+							alert("Tiedot muutettu")
+							console.log(response);
 						}
+
 					}
 				}).catch(e => console.log(e.message));
 			}
-	
 		}
 	return (
 		<div className="container1 mt-2">
