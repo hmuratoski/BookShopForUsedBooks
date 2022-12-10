@@ -24,8 +24,8 @@ if (isset($_SESSION["username"])) {
         }
 
 
-        if (isset($_GET["action"])) { 
-        $action = $_GET["action"];
+        if (isset($_GET["action"])) {
+            $action = $_GET["action"];
 
             switch($action) {
                 case "addBook":
@@ -41,40 +41,47 @@ if (isset($_SESSION["username"])) {
                     $sql = "INSERT INTO BOOK (categoryId, bookName, price, author, description, year, condition, active) VALUES ('$categoryId', '$bookName', '$price', '$author', '$description', '$year', '$condition', '$active'); ";
 
                     try {
-
                         executeInsert($db, $sql);
                         echo json_encode(['Book added successfully', true, 'bookAdded']);
-
-                    }
-                    catch (PDOException $pdoex) {
+                    } catch (PDOException $pdoex) {
                         returnError($pdoex);
                         echo "Failed";
                     }
-
                 break;
 
                 case "addCategory":
+                    if (!isset($_POST['categoryName'])) {
+                        echo "Missing argument";
+                        http_response_code(400);
+                        return;
+                    }
+
                     $categoryName = $_POST['categoryName'];
                         
                     $sql = "INSERT INTO CATEGORY (categoryName) VALUES ('$categoryName'); ";
 
                     try {
-                            
                         executeInsert($db, $sql);
                         echo json_encode(['Category added succesfully', true, 'categoryAdded']);
 
-                    }
-                    catch (PDOException $pdoex) {
+                    } catch (PDOException $pdoex) {
                         returnError($pdoex);
                         echo "Failed";
-                            }
+                    }
                 break;
 
                 case "BookStatus":
+
+                    if (!isset($_POST['bookId']) || !isset($_POST['active'])) {
+                        echo "Missing arguments";
+                        http_response_code(400);
+                        return;
+                    }
+
                     $bookId = $_POST['bookId'];
                     $active = $_POST['active'];
         
-                    $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId ." ";
+                    $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId;
         
                     try {
         
@@ -89,6 +96,7 @@ if (isset($_SESSION["username"])) {
                 break;
              
                 case "getLevel":
+                    http_response_code(200);
                     echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
                     return;
                 break;
