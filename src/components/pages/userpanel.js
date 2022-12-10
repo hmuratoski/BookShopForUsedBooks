@@ -35,9 +35,7 @@ import { useNavigate } from 'react-router-dom';
 				values++;
 				formData.append(key, details[key]);
 			}
-	
-			console.log(formData);
-	
+		
 			if (values == 9) {
 			axios.post(Database.requestUrl + "/updatedata.php", formData, { validateStatus: () => true })
 				.then((response) => {
@@ -51,6 +49,8 @@ import { useNavigate } from 'react-router-dom';
 							alert(language.updateSuccess);
 							console.log(response);
 						}
+					} else {
+						alert(language.loginTryAgain);
 					}
 				}).catch(e => console.log(e.message));
 			}

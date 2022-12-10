@@ -26,6 +26,7 @@ export const language = {
 	password: "Salasana",
 	logOut: "Kirjaudu ulos",
 	updateSuccess: "Tiedot päivitetty onnistuneesti",
+	loginTryAgain: "Jokin meni pieleen. Yritä kirjautua uudelleen. Mikäli virhe toistuu, ole yhteydessä ylläpitoon.",
 
 	alreadyExists: "Käyttäjänimi tai sähköpostiosoite on jo rekisteröity",
 	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",
