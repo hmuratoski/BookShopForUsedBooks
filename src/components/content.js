@@ -49,6 +49,7 @@ export const Content = (props) => {
 				<UserPanel
 					logOut={props.logOut}
 					loggedIn={props.loggedIn}
+					userName={props.userName}
 					setItemsInCart={props.setItemsInCart}
 				/>
 			} />

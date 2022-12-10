@@ -13,7 +13,21 @@ foreach ($requiredInfo as $key) {
     }
 }
 
-if($err != 0) {
+if (!isset($_SESSION["username"])) {
+    http_response_code(401);
+    echo "not logged in";
+    return;
+} else if (!isset($_POST["username"])) {
+    http_response_code(400);
+    echo "missing information";
+    return;
+} else if ($_SESSION["username"] != $_POST["username"]) {
+    http_response_code(401);
+    echo "unauthorized";
+    return;
+}
+
+if ($err != 0) {
     http_response_code(400);
     echo json_encode(["Missing information", false, 'missingInfo']);
     return;
@@ -21,6 +35,7 @@ if($err != 0) {
     $username = urlencode($_POST["username"]);
     $customerId = "select customerId from USER where username = '$username'";
     $customerId = selectAsJson($db, $customerId);
+    $customerId = $customerId[0]["customerId"];
 
     $hash = password_hash(urlencode($_POST["password"]),PASSWORD_DEFAULT);
     $fname = ($_POST["fname"]);
@@ -31,7 +46,7 @@ if($err != 0) {
     $city = ($_POST["city"]);
     $postalcode =($_POST["postalcode"]);
 
-    $updateCustomer = "UPDATE USER SET username='$username', password='$hash', fname='$fname', lname='$lname', phone='$phone', email='$email', address='$address', city='$city', postalcode='$postalcode' WHERE customerId = $cId";
+    $updateCustomer = "UPDATE USER SET username='$username', password='$hash', fname='$fname', lname='$lname', phone='$phone', email='$email', address='$address', city='$city', postalcode='$postalcode' WHERE customerId = $customerId";
     
     try {
         executeQuery($db, $updateCustomer);

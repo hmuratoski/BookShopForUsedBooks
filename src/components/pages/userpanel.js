@@ -42,19 +42,15 @@ import { useNavigate } from 'react-router-dom';
 			axios.post(Database.requestUrl + "/updatedata.php", formData, { validateStatus: () => true })
 				.then((response) => {
 					if (response.data) {
-						if (!response.data[1]) {
+						if (response.data[2] != "updateSuccess") {
 							console.log("Error message: " + response.data[2])
 							alert(`${language[response.data[2]]}`);
 							console.log(response.data[0]);
 							registerErr = response.data[2];
-						} else {	//response.data[2] = 'accountCreated'
-							//props.setLoggedIn(true);
-							//props.setUserName(userPass["username"]);
-							//navigate("/shop");
-							alert("Tiedot muutettu")
+						} else {
+							alert(language.updateSuccess);
 							console.log(response);
 						}
-
 					}
 				}).catch(e => console.log(e.message));
 			}
@@ -62,7 +58,12 @@ import { useNavigate } from 'react-router-dom';
 	return (
 		<div className="container1 mt-2">
 			<UsernamePassword setUserPassOk={setUserPassOk} setUserPass={setUserPass} />
-			<OrderDetails setDetailsOk={setDetailsOk} setDetails={setDetails} />
+			<OrderDetails 
+				setDetailsOk={setDetailsOk}
+				setDetails={setDetails} 
+				userName={props.userName}
+				loggedIn={props.loggedIn}
+			/>
 			{(detailsOk && userPassOk) ?
 				<button className="btn btn btn-outline-dark" onClick={e => handleClick(e)}>{language.change}</button>
 				:

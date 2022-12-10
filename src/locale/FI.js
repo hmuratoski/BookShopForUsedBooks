@@ -25,6 +25,7 @@ export const language = {
 	userName: "Käyttäjänimi",
 	password: "Salasana",
 	logOut: "Kirjaudu ulos",
+	updateSuccess: "Tiedot päivitetty onnistuneesti",
 
 	alreadyExists: "Käyttäjänimi tai sähköpostiosoite on jo rekisteröity",
 	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",
