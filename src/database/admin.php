@@ -69,6 +69,26 @@ if (isset($_SESSION["username"])) {
                             echo "Failed";
                     break;
 
+                    // case "BookStatus":
+                    // $bookId = $_POST['bookId'];
+                    // $active = $_POST['active'];
+    
+                    //  $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId ." ";
+    
+                    // try {
+    
+                    //     executeInsert($db, $sql);
+                    //      echo json_encode(['Book status successfully altered', true, 'activeChanged']);
+
+                    // }
+                    // catch (PDOException $pdoex) {
+                    //     returnError($pdoex);
+                    //     echo "Failed";
+
+                            
+            break;
+
+                           
                     
 
 
