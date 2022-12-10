@@ -103,6 +103,7 @@ if (isset($_SESSION["username"])) {
             }
         }   
     } else {
+        http_response_code(401);
         echo "not an admin";
         return;
     }  
