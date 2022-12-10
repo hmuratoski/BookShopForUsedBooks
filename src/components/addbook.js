@@ -64,7 +64,8 @@ export const AddBook = () => {
 			.then((response) => {
 				
 				if (response.data) {
-					alert(`${language[response.data[2]]}`);
+					//alert(`${language[response.data[2]]}`);
+					alert("Kirja onnistuneesti lisätty tietokantaan!");
 				}
 			}).catch(e => console.log(e.message));
 		}

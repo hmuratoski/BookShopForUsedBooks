@@ -42,6 +42,7 @@ export const language = {
 
 	addbook: "Lisää tuote",
 	addcategory: "Lisää kategoria",
+	setbookstatus: "Aseta kirjan activity",
 
 
 	productDetails: "Tietoja",

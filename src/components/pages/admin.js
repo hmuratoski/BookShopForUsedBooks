@@ -5,6 +5,7 @@ import { AddCategory } from '../addcategory';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Database } from '../../database/variables';
+import { BookStatus } from '../setbookstatus';
 
 export const Admin = () => {
 
@@ -29,8 +30,9 @@ export const Admin = () => {
 
 			<AddBook/>
 
-
 			<AddCategory/>
+
+			<BookStatus/>
 
 		
 			
