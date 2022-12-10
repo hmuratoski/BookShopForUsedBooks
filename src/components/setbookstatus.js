@@ -31,7 +31,7 @@ export const BookStatus = () => {
 			fData.append('bookId', bookId);
             fData.append('active', active);
 
-			axios.post(Database.requestUrl + "/admin.php?action=BookStatus", fData, {withCredentials:true})
+			axios.post(Database.requestUrl + "/admin.php?action=bookStatus", fData, {withCredentials:true})
 			.then((response) => {
 				console.log(response)
 				

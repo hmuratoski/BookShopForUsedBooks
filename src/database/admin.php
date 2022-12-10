@@ -70,7 +70,7 @@ if (isset($_SESSION["username"])) {
                     }
                 break;
 
-                case "BookStatus":
+                case "bookStatus":
 
                     if (!isset($_POST['bookId']) || !isset($_POST['active'])) {
                         echo "Missing arguments";
@@ -80,8 +80,8 @@ if (isset($_SESSION["username"])) {
 
                     $bookId = $_POST['bookId'];
                     $active = $_POST['active'];
-        
-                    $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId;
+
+                    $sql = "UPDATE BOOK SET active = " . $active . " WHERE bookId = " . $bookId;
         
                     try {
         
