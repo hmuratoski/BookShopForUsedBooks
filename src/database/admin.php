@@ -53,64 +53,55 @@ if (isset($_SESSION["username"])) {
 
                 break;
 
-                    case "addCategory":
-                        $categoryName = $_POST['categoryName'];
+                case "addCategory":
+                    $categoryName = $_POST['categoryName'];
                         
-                        $sql = "INSERT INTO CATEGORY (categoryName) VALUES ('$categoryName'); ";
+                    $sql = "INSERT INTO CATEGORY (categoryName) VALUES ('$categoryName'); ";
 
-                        try {
+                    try {
                             
-                            executeInsert($db, $sql);
-                            echo json_encode(['Category added succesfully', true, 'categoryAdded']);
+                        executeInsert($db, $sql);
+                        echo json_encode(['Category added succesfully', true, 'categoryAdded']);
 
-                        }
-                        catch (PDOException $pdoex) {
-                            returnError($pdoex);
-                            echo "Failed";
-                    break;
+                    }
+                    catch (PDOException $pdoex) {
+                        returnError($pdoex);
+                        echo "Failed";
+                            }
+                break;
 
-                    // case "BookStatus":
-                    // $bookId = $_POST['bookId'];
-                    // $active = $_POST['active'];
-    
-                    //  $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId ." ";
-    
-                    // try {
-    
-                    //     executeInsert($db, $sql);
-                    //      echo json_encode(['Book status successfully altered', true, 'activeChanged']);
+                case "BookStatus":
+                    $bookId = $_POST['bookId'];
+                    $active = $_POST['active'];
+        
+                    $sql = "UPDATE TABLE BOOK SET active = " . $active . "WHERE bookId = " . $bookId ." ";
+        
+                    try {
+        
+                        executeInsert($db, $sql);
+                        echo json_encode(['Book status successfully altered', true, 'activeChanged']);
 
-                    // }
-                    // catch (PDOException $pdoex) {
-                    //     returnError($pdoex);
-                    //     echo "Failed";
+                    } catch (PDOException $pdoex) {
+                        returnError($pdoex);
+                        echo "Failed";
+                    }
 
-                            
-            break;
-
-                           
-                    
-
-
-        }
-
-            case "getLevel":
-                echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
-                return;
-            break;
-        }
-
-        } 
-
-         }
-
-    };
-    echo "not an admin";
+                break;
+             
+                case "getLevel":
+                    echo json_encode(['User is an admin', true, 'isAdmin', $getAdminlevel]);
+                    return;
+                break;
+            }
+        }   
+    } else {
+        echo "not an admin";
+        return;
+    }  
+} else { 
+    http_response_code(401);
+    echo "not logged in";
     return;
-    
-echo "not logged in";
-return;
-
-
-
+}       
+                    
 ?>
