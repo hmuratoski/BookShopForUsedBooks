@@ -36,8 +36,7 @@ export const BookStatus = () => {
 				console.log(response)
 				
 				if (response.data) {
-					//alert(`${language[response.data[2]]}`);
-                    alert("Kirjan tila muutettu onnistuneesti!")
+					alert(`${language[response.data[2]]}`);
 				}
 			}).catch(e => console.log(e.message));
 		}

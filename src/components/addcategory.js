@@ -27,9 +27,7 @@ export const AddCategory = () => {
 			.then((response) => {
 				
 				if (response.data) {
-					// HOX JUHO, En tajunnut miten tuo language response data pelittää, antaa vaan aina "undefined", joten kovakoodasin
-					//alert(`${language[response.data[3]]}`);
-					alert("Kategoria onnistuneesti lisätty tietokantaan!")
+					alert(`${language[response.data[2]]}`);
 				}
 			}).catch(e => console.log(e.message));
 		}
