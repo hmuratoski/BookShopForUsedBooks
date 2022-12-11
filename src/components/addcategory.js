@@ -18,11 +18,8 @@ export const AddCategory = () => {
 
 		if(categoryName.length === 0) {
 			alert("Category name kenttää ei voi jättää tyhjäksi!");
-		}
-
-		else {
-
-
+		} else {
+			
 			let fData = new FormData();
 			fData.append('categoryName', categoryName);
 
