@@ -18,28 +18,23 @@ if (isset($_SESSION['username'])) {
 	$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
     try {
         $json = selectAsJson($db, $query);
-        $json = json_encode($json);
-        $customerId=$json->customerId;
+        $customerId=$json[0]["customerId"];
     } catch (PDOException $pdoex) {
         returnError($pdoex);
     }
-} else {
-    $customerId=0;      
-}
-        
+}        
     
 switch ($action) {
     case "makeOrder":
         $shoppingCart = json_decode($_POST["shoppingCart"]);
-        print("first item in cart: ". $shoppingCart[0] . PHP_EOL);
-        $fname= $_POST["fname"];
-        $lname=$_POST["lname"];
-        $phone= $_POST["phone"];
-        $email=$_POST["email"];
-        $address=$_POST["address"];
-        $city=$_POST["city"];
-        $fname=$_POST["stateProvince"];
-        $fname=$_POST["postalcode"];
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $phone = $_POST["phone"];
+        $email = $_POST["email"];
+        $address = $_POST["address"];
+        $city = $_POST["city"];
+        $stateProvince = $_POST["stateProvince"];
+        $postalcode = $_POST["postalcode"];
 
         
 
