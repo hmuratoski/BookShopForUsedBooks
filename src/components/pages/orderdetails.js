@@ -118,7 +118,16 @@ export const OrderDetails = (props) => {
 			}
 		}
 		if (errs == 0) {
-			console.log("all fields seem ok");
+			var cookie = localStorage.shoppingCart;
+			if (cookie) {
+				try {
+					let obj = JSON.parse(cookie);
+					//tänne axios
+				} catch {
+					localStorage.removeItem("shoppingCart");
+					localStorage.shoppingCart = [];
+				}
+			}
 		}
 	}
 
