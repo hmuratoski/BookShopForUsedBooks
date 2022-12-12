@@ -18,5 +18,11 @@ switch ($action) {
         $shoppingCart = json_decode($_POST["shoppingCart"]);
         print("first item in cart: ". $shoppingCart[0] . PHP_EOL);
         print("first name: " . $_POST["fname"]);
+
+        //jos kirjauduttu, haetaan käyttäjän id session usernamen perusteella, muuten customerId tyhjäksi
+        //order tableen lisätään rivi, orderid tulee automaattisesti autoincrementillä
+        //riville laitetaan asiakkaan täyttämät tiedot (esim fname ylempänä)
+
+        //foreachilla $shoppingCartin läpi. Lisätään samalla orderIdllä jokainen tuote databaseen ORDER_ITEMS
     break;
 }
