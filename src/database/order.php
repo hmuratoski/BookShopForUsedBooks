@@ -12,12 +12,38 @@ if (!isset($_GET["action"])) {
 
 
 $action = $_GET["action"];
+session_start();
+		if (isset($_SESSION['username'])) {
+            $query = "SELECT customerId FROM USER";
+			$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
+            try {
+                $json = selectAsJson($db, $query);
+                $json = json_encode($json);
+                $customerId=$json->customerId;
+            } catch (PDOException $pdoex) {
+                returnError($pdoex);
+            }
+            
+        }
+        else{
+           $customerId=0;      
+        }
+        
     
 switch ($action) {
     case "makeOrder":
         $shoppingCart = json_decode($_POST["shoppingCart"]);
         print("first item in cart: ". $shoppingCart[0] . PHP_EOL);
-        print("first name: " . $_POST["fname"]);
+        $fname= $_POST["fname"];
+        $lname=$_POST["lname"];
+        $phone= $_POST["phone"];
+        $email=$_POST["email"];
+        $address=$_POST["address"];
+        $city=$_POST["city"];
+        $fname=$_POST["stateProvince"];
+        $fname=$_POST["postalcode"];
+
+        
 
         //jos kirjauduttu, haetaan käyttäjän id session usernamen perusteella, muuten customerId tyhjäksi
         //order tableen lisätään rivi, orderid tulee automaattisesti autoincrementillä
