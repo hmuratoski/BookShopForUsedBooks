@@ -18,11 +18,8 @@ export const AddCategory = () => {
 
 		if(categoryName.length === 0) {
 			alert("Category name kenttää ei voi jättää tyhjäksi!");
-		}
-
-		else {
-
-
+		} else {
+			
 			let fData = new FormData();
 			fData.append('categoryName', categoryName);
 
@@ -30,9 +27,7 @@ export const AddCategory = () => {
 			.then((response) => {
 				
 				if (response.data) {
-					// HOX JUHO, En tajunnut miten tuo language response data pelittää, antaa vaan aina "undefined", joten kovakoodasin
-					//alert(`${language[response.data[3]]}`);
-					alert("Kategoria onnistuneesti lisätty tietokantaan!")
+					alert(`${language[response.data[2]]}`);
 				}
 			}).catch(e => console.log(e.message));
 		}
