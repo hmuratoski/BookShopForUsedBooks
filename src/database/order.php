@@ -13,21 +13,19 @@ if (!isset($_GET["action"])) {
 
 $action = $_GET["action"];
 session_start();
-		if (isset($_SESSION['username'])) {
-            $query = "SELECT customerId FROM USER";
-			$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
-            try {
-                $json = selectAsJson($db, $query);
-                $json = json_encode($json);
-                $customerId=$json->customerId;
-            } catch (PDOException $pdoex) {
-                returnError($pdoex);
-            }
-            
-        }
-        else{
-           $customerId=0;      
-        }
+if (isset($_SESSION['username'])) {
+    $query = "SELECT customerId FROM USER";
+	$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
+    try {
+        $json = selectAsJson($db, $query);
+        $json = json_encode($json);
+        $customerId=$json->customerId;
+    } catch (PDOException $pdoex) {
+        returnError($pdoex);
+    }
+} else {
+    $customerId=0;      
+}
         
     
 switch ($action) {
