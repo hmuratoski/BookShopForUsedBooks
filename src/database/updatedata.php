@@ -13,17 +13,20 @@ foreach ($requiredInfo as $key) {
     }
 }
 
+session_start();
+
 if (!isset($_SESSION["username"])) {
     http_response_code(401);
-    echo "not logged in";
+    echo json_encode(["Not logged in", false, 'notLoggedIn']);
     return;
 } else if (!isset($_POST["username"])) {
     http_response_code(400);
-    echo "missing information";
+    echo json_encode(["Missing information", false, 'missingInfo']);
     return;
 } else if ($_SESSION["username"] != $_POST["username"]) {
     http_response_code(401);
-    echo "unauthorized";
+    $error = "unauthorized";
+    echo json_encode(["Unauthorized", false, 'unauthorized']);
     return;
 }
 

@@ -9,7 +9,6 @@ import { OrderDetails} from "./orderdetails.js";
 import { useNavigate } from 'react-router-dom';
 
 	export const UserPanel = (props) => {
-		var registerErr;
 
 		const navigate = useNavigate();
 
@@ -35,19 +34,15 @@ import { useNavigate } from 'react-router-dom';
 				values++;
 				formData.append(key, details[key]);
 			}
-		
+			
 			if (values == 9) {
-			axios.post(Database.requestUrl + "/updatedata.php", formData, { validateStatus: () => true })
+			axios.post(Database.requestUrl + "/updatedata.php", formData, {withCredentials:true})
 				.then((response) => {
 					if (response.data) {
 						if (response.data[2] != "updateSuccess") {
-							console.log("Error message: " + response.data[2])
 							alert(`${language[response.data[2]]}`);
-							console.log(response.data[0]);
-							registerErr = response.data[2];
 						} else {
 							alert(language.updateSuccess);
-							console.log(response);
 						}
 					} else {
 						alert(language.loginTryAgain);
@@ -69,7 +64,7 @@ import { useNavigate } from 'react-router-dom';
 				:
 				<button className="btn btn btn-outline-dark" disabled>{language.change}</button>
 			}
-			<h2>{registerErr}</h2>
+
 			<button className="btn btn btn-outline-dark" onClick={e => logout(props)}>{language.logOut}</button>
 		</div>
 	)
