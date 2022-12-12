@@ -31,10 +31,12 @@
 								$query = $query . "categoryId IN (" . $_GET["categoriesToGet"] . ")" ;
 							}
 					
-					$query = $query . ')';
+					$query = $query . ' AND active != 0)';
 				} else if (isset($_GET["bookIds"])) {
 					$query = $query . ' WHERE (';
 					$query = $query . "bookId IN (" . $_GET["bookIds"] . "))" ;
+				} else {
+					$query .= ' WHERE active != 0';
 				}
 			break;
 			

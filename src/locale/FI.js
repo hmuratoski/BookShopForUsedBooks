@@ -33,6 +33,7 @@ export const language = {
 	bookAdded: "Kirja lisätty tietokantaan",
 	categoryAdded: "Kategoria lisätty tietokantaan",
 	orderSuccess: "Tilaus tehty",
+	activeChanged: "Kirjan tiedot päivitetty onnistuneesti",
 
 	fname: "Etunimi",
 	lname: "Sukunimi",

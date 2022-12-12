@@ -33,9 +33,7 @@ export const BookStatus = () => {
 
 			axios.post(Database.requestUrl + "/admin.php?action=bookStatus", fData, {withCredentials:true})
 			.then((response) => {
-				console.log(response)
-				
-				if (response.data) {
+				if (response.data[1] == true) {
 					alert(`${language[response.data[2]]}`);
 				}
 			}).catch(e => console.log(e.message));
