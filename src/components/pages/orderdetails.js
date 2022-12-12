@@ -6,7 +6,6 @@ import { language } from '../../locale/FI';
 import axios from 'axios';
 import { Database } from '../../database/variables.js';
 import { useLocation } from 'react-router-dom';
-import { get } from 'jquery';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
