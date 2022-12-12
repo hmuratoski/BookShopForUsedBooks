@@ -14,6 +14,6 @@ if (!isset($_GET["action"])) {
     
     switch ($action) {
         case "makeOrder":
-
+            
         break;
     }

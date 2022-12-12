@@ -121,8 +121,10 @@ export const OrderDetails = (props) => {
 			var cookie = localStorage.shoppingCart;
 			if (cookie) {
 				try {
-					let obj = JSON.parse(cookie);
-					//tänne axios
+					const formData = new FormData();
+					formData.append('shoppingCart', cookie);
+					formData.append('details', data);
+					
 				} catch {
 					localStorage.removeItem("shoppingCart");
 					localStorage.shoppingCart = [];
