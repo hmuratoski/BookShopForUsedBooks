@@ -12,17 +12,7 @@ if (!isset($_GET["action"])) {
 
 
 $action = $_GET["action"];
-session_start();
-if (isset($_SESSION['username'])) {
-    $query = "SELECT customerId FROM USER";
-	$query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
-    try {
-        $json = selectAsJson($db, $query);
-        $customerId=$json[0]["customerId"];
-    } catch (PDOException $pdoex) {
-        returnError($pdoex);
-    }
-}        
+
     
 switch ($action) {
     case "makeOrder":
@@ -33,12 +23,52 @@ switch ($action) {
         $email = $_POST["email"];
         $address = $_POST["address"];
         $city = $_POST["city"];
-        $stateProvince = $_POST["stateProvince"];
         $postalcode = $_POST["postalcode"];
+
+        $sql = "INSERT INTO ORDERS(customerId,orderStatus,orderDate,fname,lname,phone,email,address,city,postalcode) VALUES( ";
+
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $query = "SELECT customerId FROM USER";
+            $query = $query . " WHERE username = '" . $_SESSION["username"] . "'";
+            try {
+                $json = selectAsJson($db, $query);
+                $customerId = $json[0]["customerId"];
+                $sql .= "'" . $customerId . "','";
+            } catch (PDOException $pdoex) {
+                returnError($pdoex);
+            }
+            
+        } else {
+            $sql .= "'null','";
+        }
+
+        $sql .= "C',";
+        $sql .= "datetime(),'";
+        $sql .= $fname . "','";
+        $sql .= $lname . "','";
+        $sql .= $phone . "','";
+        $sql .= $email . "','";
+        $sql .= $address . "','";
+        $sql .= $city . "','";
+        $sql .= $postalcode . "')";
+
+        echo $sql;
+        try {
+            executeInsert($db, $sql);
+            echo json_encode(['Order placed', true,'orderSuccess']);
+        } catch (PDOException $pdoex) {
+            returnError($pdoex);
+            echo "Failed";
+        }
+
+
+
+
+
 
         
 
-        //jos kirjauduttu, haetaan käyttäjän id session usernamen perusteella, muuten customerId tyhjäksi
         //order tableen lisätään rivi, orderid tulee automaattisesti autoincrementillä
         //riville laitetaan asiakkaan täyttämät tiedot (esim fname ylempänä)
 

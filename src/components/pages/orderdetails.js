@@ -130,7 +130,7 @@ export const OrderDetails = (props) => {
 
 					axios.post(Database.requestUrl + "/order.php?action=makeOrder", formData, {withCredentials:true})
 					.then((response)=>{
-						console.log(response.data);
+						alert(`${language[response.data[2]]}`);
 					}).catch(e => console.log(e.message));
 					
 				} catch {

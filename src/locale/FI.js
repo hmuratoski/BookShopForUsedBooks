@@ -32,6 +32,7 @@ export const language = {
 	missingInfo: "Joitain tietoja puuttuu. Päivitä sivu ja yritä uudelleen",
 	bookAdded: "Kirja lisätty tietokantaan",
 	categoryAdded: "Kategoria lisätty tietokantaan",
+	orderSuccess: "Tilaus tehty",
 
 	fname: "Etunimi",
 	lname: "Sukunimi",
