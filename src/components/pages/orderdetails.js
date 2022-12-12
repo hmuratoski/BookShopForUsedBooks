@@ -124,11 +124,14 @@ export const OrderDetails = (props) => {
 				try {
 					const formData = new FormData();
 					formData.append('shoppingCart', cookie);
-					formData.append('details', data);
 
-					axios.post(Database.requestUrl  + "/order.php?action=makeOrder",formData, {withCredentials:true})
+					for (const key in data) {
+						formData.append(key, data[key]);
+					}
+
+					axios.post(Database.requestUrl + "/order.php?action=makeOrder", formData, {withCredentials:true})
 					.then((response)=>{
-					
+						console.log(response.data);
 					}).catch(e => console.log(e.message));
 					
 				} catch {
