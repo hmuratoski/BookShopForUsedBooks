@@ -31,7 +31,9 @@ export const OrderDetails = (props) => {
 				for (var i = 0; i < fields.length; i++) {
 					document.getElementById(fields[i]).value = response.data[0][fields[i]];
 				}
-				props.setDetailsOk(true);
+				if (location.pathname != "/orderdetails") {
+					props.setDetailsOk(true);
+				}
 			});
 		}
 	}, [])
