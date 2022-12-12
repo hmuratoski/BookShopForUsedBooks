@@ -8,10 +8,18 @@ DROP TABLE ADMIN;
 
 CREATE TABLE ORDERS (
 	orderId integer PRIMARY KEY,
-	customerId varchar,
+	customerId integer nullable,
 	orderStatus varchar,
 	orderDate datetime,
-	shippedDate datetime
+	shippedDate datetime,
+	fname varchar,
+	lname varchar,
+	phone varchar,
+	email varchar,
+	address varchar,
+	city varchar,
+	stateProvince varchar,
+	postalcode varchar
 );
 
 CREATE TABLE BOOK (
