@@ -6,6 +6,7 @@ import { language } from '../../locale/FI';
 import axios from 'axios';
 import { Database } from '../../database/variables.js';
 import { useLocation } from 'react-router-dom';
+import { get } from 'jquery';
 
 //ostoskorin jälkeinen formi asiakkaan maksu- ja toimitustietoja varten
 //voidaan uudelleenkäyttää käyttäjäpaneelissa, tiedot ORDER tablen sijaan USERS tableen
@@ -124,6 +125,11 @@ export const OrderDetails = (props) => {
 					const formData = new FormData();
 					formData.append('shoppingCart', cookie);
 					formData.append('details', data);
+
+					axios.post(Database.requestUrl  + "/order.php?action=makeOrder",formData, {withCredentials:true})
+					.then((response)=>{
+					
+					}).catch(e => console.log(e.message));
 					
 				} catch {
 					localStorage.removeItem("shoppingCart");
