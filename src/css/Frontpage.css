@@ -1,0 +1,61 @@
+.otsikko{
+font-size:70px;
+}
+
+.container-fluid{
+border-style:solid;
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+margin-right: 20px;
+}
+.container-xl{
+    border-style:solid;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.yleisteksti{
+margin-top: 100px;
+margin-bottom: 100px;
+font-size: 20px;
+font-weight: 400;
+
+}
+
+.tracking-out-expand-fwd {
+	-webkit-animation: tracking-out-expand-fwd 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: tracking-out-expand-fwd 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes tracking-out-expand-fwd {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    60% {
+      opacity: 1.8;
+    }
+    100% {
+      letter-spacing: 1em;
+      -webkit-transform: translateZ(300px);
+              transform: translateZ(300px);
+      opacity: 0;
+    }
+  }
+  @keyframes tracking-out-expand-fwd {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    60% {
+      opacity: 5;
+    }
+    100% {
+      letter-spacing: 1em;
+      -webkit-transform: translateZ(300px);
+              transform: translateZ(300px);
+      opacity: 0;
+    }
+  }
