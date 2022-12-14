@@ -63,10 +63,10 @@ switch ($action) {
 
                 try {
                     executeQuery($db, $updatebook);
-                    echo json_encode(["Updated user information", true, 'updateSuccess']);
+                    echo json_encode(["Updated book information", true, 'updateSuccess']);
                 } catch (Exception $e) {
                     http_response_code(409);
-                    echo json_encode(["Updating information failed", false, 'updateFailed']);
+                    echo json_encode(["Updating book failed", false, 'updateFailed']);
                 }
             }
         } catch (PDOException $pdoex) {
