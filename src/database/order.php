@@ -57,8 +57,8 @@ switch ($action) {
             executeInsert($db, $sql);
             echo json_encode(['Order placed', true, 'orderSuccess']);
             foreach ($shoppingCart as $row){
-            $bookId=$row['bookId'];
 
+                $bookId=$row['bookId'];
                 $updatebook = "UPDATE BOOK SET active=0 WHERE bookId = $bookId";
 
                 try {
@@ -73,17 +73,6 @@ switch ($action) {
             returnError($pdoex);
             echo "Failed";
         }
-
-
-
-
-
-
-
-
-        //order tableen lisätään rivi, orderid tulee automaattisesti autoincrementillä
-        //riville laitetaan asiakkaan täyttämät tiedot (esim fname ylempänä)
-
         //foreachilla $shoppingCartin läpi. Lisätään samalla orderIdllä jokainen tuote databaseen ORDER_ITEMS
-        break;
+    break;
 }
