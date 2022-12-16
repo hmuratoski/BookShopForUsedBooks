@@ -13,7 +13,7 @@ if (!isset($_GET["action"])) {
 
 $action = $_GET["action"];
 
-    
+
 switch ($action) {
     case "makeOrder":
         $shoppingCart = json_decode($_POST["shoppingCart"]);
@@ -38,7 +38,6 @@ switch ($action) {
             } catch (PDOException $pdoex) {
                 returnError($pdoex);
             }
-            
         } else {
             $sql .= "'null','";
         }
@@ -56,7 +55,20 @@ switch ($action) {
         echo $sql;
         try {
             executeInsert($db, $sql);
-            echo json_encode(['Order placed', true,'orderSuccess']);
+            echo json_encode(['Order placed', true, 'orderSuccess']);
+            foreach ($shoppingCart as $row){
+            $bookId=$row['bookId'];
+
+                $updatebook = "UPDATE BOOK SET active=0 WHERE bookId = $bookId";
+
+                try {
+                    executeQuery($db, $updatebook);
+                    echo json_encode(["Updated book information", true, 'updateSuccess']);
+                } catch (Exception $e) {
+                    http_response_code(409);
+                    echo json_encode(["Updating book failed", false, 'updateFailed']);
+                }
+            }
         } catch (PDOException $pdoex) {
             returnError($pdoex);
             echo "Failed";
@@ -67,11 +79,11 @@ switch ($action) {
 
 
 
-        
+
 
         //order tableen lisätään rivi, orderid tulee automaattisesti autoincrementillä
         //riville laitetaan asiakkaan täyttämät tiedot (esim fname ylempänä)
 
         //foreachilla $shoppingCartin läpi. Lisätään samalla orderIdllä jokainen tuote databaseen ORDER_ITEMS
-    break;
+        break;
 }
