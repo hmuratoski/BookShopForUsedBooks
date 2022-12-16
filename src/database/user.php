@@ -64,10 +64,15 @@
 							$data = json_encode($data);
 							echo $data;
 						} else {
+							http_response_code(400);
 							echo "server error";
 						}
-				}
+					} else {
+						http_response_code(401);
+						echo "Invalid username or password";
+					}
 				} else {
+					http_response_code(401);
 					echo "login failed, missing information";
 				}
 				break;
